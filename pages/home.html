@@ -5,164 +5,264 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <title>Document</title>
+    <title>Phượt Vi Vu</title>
+    <style>
+        /* Custom Footer Styles */
+.custom-footer {
+    background-color: #0c5b85; /* Màu xanh nền */
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.custom-footer a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.custom-footer a:hover {
+    color: #f1c40f; /* Đổi màu vàng khi hover */
+}
+
+/* Các nút Mạng xã hội */
+.social-btn {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.social-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Khối Form Đăng ký */
+.register-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.register-box .form-control {
+    font-size: 0.9rem;
+}
+
+/* Nút Floating Gọi điện */
+.floating-call-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff5722;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+
+.floating-call-btn:hover {
+    transform: scale(1.1);
+    color: white;
+}
+    </style>
   </head>
   <body>
-    <div class="container-fluid">
-      <div
-        class="row"
-        style="
-          height: 120px;
-          background-color: #f4f9f3;
-          box-shadow: 5px 0px 10px 1px gray;
-        "
-      >
-        <div class="col-1 justify-content-center align-content-center">
-          <a href="../assets/images/logo.jpg"
-            ><img
-              src="../assets/images/logo.jpg"
-              class="rounded-circle"
-              style="box-shadow: 5px 0px 10px 1px rgb(220, 218, 188)"
-              alt=""
-              width="100%"
-          /></a>
+
+<!-- 🔥 NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/images/logo.jpg" 
+                 alt="Logo" 
+                 width="170" 
+                 height="130" 
+                 class="rounded-circle">
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Tour</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Tin tức</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Đăng nhập</a></li>
+            </ul>
         </div>
-        <div class="col-3 justify-content-center align-content-center ms-5">
-          <ul class="nav">
-            <li class="nav-item"></li>
-            <li class="nav-item"><a href="" class="nav-link">Đăng nhập</a></li>
-            <li class="nav-item"><a href="" class="nav-link">Đăng nhập</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row mt-3">
-          <div class="col text-center">
-            <div
-              id="hinh"
-              class="carousel slide"
-              data-bs-ride="carousel"
-              data-bs-interval="5000"
-            >
-              <div class="carousel-indicators">
-                <button
-                  type="button"
-                  data-bs-target="#hinh"
-                  data-bs-slide-to="0"
-                  class="active"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#hinh"
-                  data-bs-slide-to="1"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#hinh"
-                  data-bs-slide-to="2"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#hinh"
-                  data-bs-slide-to="3"
-                ></button>
-                <button
-                  type="button"
-                  data-bs-target="#hinh"
-                  data-bs-slide-to="4"
-                ></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img
-                    src="../assets/images/vinhHaLong.jpg"
-                    style="width: 1200px; height: 550px; object-fit: cover"
-                    alt=""
-                  />
-                </div>
-<div class="carousel-item">
-                  <img
-                    src="../assets/images/vinhCamRanh.jpg"
-                    style="width: 1200px; height: 550px; object-fit: cover"
-                    alt=""
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../assets/images/nhaTrang.jpg"
-                    style="width: 1200px; height: 550px; object-fit: cover"
-                    alt=""
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../assets/images/dongPhongNha.jpg"
-                    style="width: 1200px; height: 550px; object-fit: cover"
-                    alt=""
-                  />
-                </div>
-                <div class="carousel-item">
-                  <img
-                    src="../assets/images/daLat.jpg"
-                    style="width: 1200px; height: 550px; object-fit: cover"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        <div class="col-7">
-          <p class="ms-1 h5 fw-light">
-            🌍 Phượt Vi Vu – Hành Trình Của Những Tâm Hồn Tự Do Chào mừng bạn
-            đến với Phượt Vi Vu, điểm chạm trực tuyến hàng đầu dành cho những
-            tín đồ đam mê xê dịch và khám phá vẻ đẹp bất tận của thế giới. Trong
-            kỷ nguyên số, chúng tôi hiểu rằng du lịch không chỉ là việc di
-            chuyển từ nơi này sang nơi khác, mà là sự trải nghiệm, kết nối và
-            lưu giữ những khoảnh khắc vô giá. Với sứ mệnh trở thành người dẫn
-            đường tin cậy, Phượt Vi Vu cung cấp giải pháp đặt tour trực tuyến
-            hiện đại, nhanh chóng và an toàn tuyệt đối.
-          </p>
-          <div class="row" style="margin-top: 120px">
-            <div class="col">
-              <i class="h5 fw-light"
-                >"Thế giới là một cuốn sách, và những người không đi du lịch chỉ
-                mới đọc được trang đầu tiên." — Hãy để Phượt Vi Vu cùng bạn viết
-                nên những chương rực rỡ nhất trong cuộc đời mình.</i
-              >
-            </div>
-          </div>
-        </div>
-        <div class="col ms-5">
-          <h3>Tại sao bạn nên chọn chúng tôi?</h3>
-          <ul>
-            <li>
-              <span class="fw-bold">Trải nghiệm Cá nhân hóa:</span>
-              Từ những chuyến "phượt" đầy ngẫu hứng đến những kỳ nghỉ dưỡng cao
-              cấp, chúng tôi thiết kế hành trình dựa trên sở thích riêng của
-              bạn.
-</li>
-            <li>
-              <span class="fw-bold">Công nghệ Tiên phong:</span>Hệ thống Travel
-              Online tối ưu giúp bạn tìm kiếm, so sánh và đặt chỗ chỉ trong vài
-              cú click chuột trên mọi thiết bị.
-            </li>
-            <li>
-              <span class="fw-bold">Đồng hành Tận tâm:</span> Với biểu tượng La
-              bàn làm kim chỉ nam, đội ngũ chuyên gia của chúng tôi luôn sẵn
-              sàng hỗ trợ bạn trên mọi cung đường, đảm bảo mỗi chuyến đi đều là
-              một kỷ niệm trọn vẹn.
-            </li>
-            <li>
-              <span class="fw-bold">Kết nối Cộng đồng:</span> Không chỉ là một
-              đại lý, chúng tôi là mái nhà chung của cộng đồng yêu khám phá, nơi
-              chia sẻ những kinh nghiệm thực tế và cảm hứng du lịch bất tận.
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
-  </body>
+</nav>
+
+<!-- 🔥 BANNER -->
+<div id="banner" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="../assets/images/vinhHaLong.jpg" class="d-block w-100" style="height:500px;object-fit:cover;">
+        </div>
+
+        <div class="carousel-item">
+            <img src="../assets/images/nhaTrang.jpg" class="d-block w-100" style="height:500px;object-fit:cover;">
+        </div>
+
+        <div class="carousel-item">
+            <img src="../assets/images/daLat.jpg" class="d-block w-100" style="height:500px;object-fit:cover;">
+        </div>
+
+    </div>
+</div>
+
+<!-- 🔥 DANH SÁCH TOUR -->
+<div class="container mt-5">
+    <h3 class="mb-4">Tour nổi bật</h3>
+
+    <div class="row">
+
+        <!-- CARD 1 -->
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="../assets/images/vinhHaLong.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Hạ Long 3N2Đ</h5>
+                    <p class="text-danger fw-bold">3.990.000đ</p>
+                    <button class="btn btn-success w-100">Xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="../assets/images/nhaTrang.jpg" class="card-img-top" style="height: 275px;">
+                <div class="card-body">
+                    <h5>Nha Trang 4N3Đ</h5>
+                    <p class="text-danger fw-bold">4.500.000đ</p>
+                    <button class="btn btn-success w-100">Xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="col-md-4">
+            <div class="card shadow">
+                <img src="../assets/images/daLat.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h5>Đà Lạt 3N2Đ</h5>
+                    <p class="text-danger fw-bold">2.990.000đ</p>
+                    <button class="btn btn-success w-100">Xem chi tiết</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 🔥 FOOTER -->
+<footer class="custom-footer pt-5 pb-3 mt-5" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+                <h2 class="fw-bold">Phượt Vi Vu</h2>
+                <p class="italic small">Hành trình nhẹ nhàng – Trải nghiệm trọn vẹn</p>
+                <p class="small mb-1">Giấy phép kinh doanh: 0313049973 do Sở Kế hoạch và Đầu tư TP.HCM cấp.</p>
+                <p class="small mb-4">Giấy phép kinh doanh lữ hành: 79-1953/2024/TCDL-GP LHQT</p>
+                
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-telephone me-2"></i> (+84) 938 179 170</li>
+                    <li class="mb-2"><i class="bi bi-envelope me-2"></i> kinhdoanh.tourbonphuong@gmail.com</li>
+                    <li class="mb-3"><i class="bi bi-geo-alt me-2"></i> 202 Lê Lai, P.Bến Thành, TP HCM</li>
+                </ul>
+
+                <div>
+                    <a href="#" class="social-btn"><i class="bi bi-facebook"></i> Facebook</a>
+                    <a href="#" class="social-btn"><i class="bi bi-tiktok"></i> TikTok</a>
+                    <a href="#" class="social-btn"><i class="bi bi-youtube"></i> YouTube</a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="row">
+                    <div class="col-6">
+                        <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+                        <ul class="list-unstyled small lh-lg">
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Hướng dẫn thanh toán</a></li>
+                            <li><a href="#">Hướng dẫn đặt tour</a></li>
+                            <li><a href="#">Câu hỏi thường gặp</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h6 class="fw-bold mb-3">Chính sách</h6>
+                        <ul class="list-unstyled small lh-lg">
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Điều khoản chung</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="register-box">
+                    <h6 class="fw-bold mb-2">Đăng ký tư vấn</h6>
+                    <p class="small mb-3">Nhận thông tin về các tour mới nhất và ưu đãi hấp dẫn từ chúng tôi ngay hôm nay!</p>
+                    <form action="#" method="POST">
+                        <div class="row g-2 mb-2">
+                            <div class="col-6">
+                                <input type="text" class="form-control" placeholder="Họ và tên">
+                            </div>
+                            <div class="col-6">
+                                <input type="tel" class="form-control" placeholder="Số điện thoại">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info text-white w-100 fw-bold shadow-sm" style="background-color: #00a8ff; border: none;">
+                            <i class="bi bi-envelope"></i> Đăng ký ngay
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-12 mb-4">
+                <h6 class="fw-bold mb-3">Chứng nhận & Thanh toán</h6>
+                <p class="small mb-2">Được chứng nhận</p>
+                <img src="../assets/images/logo-bo-cong-thuong-vector.png" alt="Đã thông báo Bộ Công Thương" width="200" class="mb-3">
+                
+                <p class="small mb-2">Phương thức thanh toán</p>
+                <div class="d-flex gap-2 mb-3 bg-white p-1 rounded d-inline-flex">
+                    <span class="text-dark fw-bold px-1">VISA</span>
+                    <span class="text-dark fw-bold px-1">MC</span>
+                    <span class="text-success fw-bold px-1">VCB</span>
+                </div>
+
+               
+            </div>
+        </div>
+
+        <div class="row border-top border-secondary pt-3 mt-3 small">
+            <div class="col-md-6 text-center text-md-start">
+                © 2026 Phượt Vi Vu. All rights reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                Hotline hỗ trợ 24/7: (+84) 938 179 170
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="tel:0938179170" class="floating-call-btn">
+    <i class="bi bi-telephone-fill"></i>
+</a>
+
+</body>
 </html>
