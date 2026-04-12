@@ -178,6 +178,22 @@
 
         <div class="carousel-item">
           <img
+            src="../assets/images/dongPhongNha.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/vinhCamRanh.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
             src="../assets/images/daLat.jpg"
             class="d-block w-100"
             style="height: 500px; object-fit: cover"
@@ -564,7 +580,7 @@
         var passold = p.value;
         var userdn = document.getElementById("userdn").value;
         var passdn = document.getElementById("passdn").value;
-        if (userdn === userold && passdn === passold) {
+        if (userdn === userold && passdn === passold && ht.value !== "") {
           document.getElementById("dongdn").click();
           document.getElementById("nutdn").remove();
           document.getElementById("nutdk").remove();
@@ -576,11 +592,21 @@
       function taoUser() {
         const khung = document.createElement("div");
         var menu = document.getElementById("menu");
+        const link = document.createElement("a");
+        link.href = "#";
+        link.style.textDecoration = "none";
+        link.style.color = "white";
+        link.textContent = ht.value.substring(0, 9) + "...";
+        link.onclick = function () {
+          var flag = confirm("Bạn có muốn đăng xuất không?");
+          if (flag) {
+            location.reload();
+          }
+        };
         khung.id = "khungten";
         khung.style =
           "border-radius: 100%; background-color: royalblue; width: 100px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: bold;color: white;margin-left: 20px;";
-        menu.appendChild(khung);
-        khung.textContent = ht.value.substring(0, 9) + "...";
+        khung.appendChild(link);
         menu.appendChild(khung);
       }
     </script>
