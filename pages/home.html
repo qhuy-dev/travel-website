@@ -11,9 +11,8 @@
     />
     <title>Phượt Vi Vu</title>
     <style>
-      /* Custom Footer Styles */
       .custom-footer {
-        background-color: #0c5b85; /* Màu xanh nền */
+        background-color: #0c5b85; 
         color: #ffffff;
         font-size: 0.9rem;
       }
@@ -25,10 +24,9 @@
       }
 
       .custom-footer a:hover {
-        color: #f1c40f; /* Đổi màu vàng khi hover */
+        color: #f1c40f; 
       }
 
-      /* Các nút Mạng xã hội */
       .social-btn {
         border: 1px solid rgba(255, 255, 255, 0.5);
         border-radius: 20px;
@@ -45,7 +43,6 @@
         background-color: rgba(255, 255, 255, 0.2);
       }
 
-      /* Khối Form Đăng ký */
       .register-box {
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 12px;
@@ -56,7 +53,6 @@
         font-size: 0.9rem;
       }
 
-      /* Nút Floating Gọi điện */
       .floating-call-btn {
         position: fixed;
         bottom: 30px;
@@ -82,10 +78,70 @@
       .nav-link:hover {
         color: blue;
       }
+      .why-box
+{
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.icon-box
+{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.why-box:hover
+{
+  color: green;
+}
+.bg-purple
+{
+  background-color: #e6d9ff;
+}
+
+.text-purple
+{
+  color: #7a4cff;
+}
+.award-img
+{
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+.highlight-section {
+    background: #f5f5f5;
+    padding: 40px 0;
+}
+
+.highlight-left {
+    border-right: 2px solid orange;
+    padding-right: 20px;
+}
+
+.highlight-icon {
+    font-size: 30px;
+    color: orange;
+}
+
+.highlight-text {
+    font-weight: bold;
+    color: orange;
+}
     </style>
   </head>
   <body>
-    <!-- 🔥 NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="#">
@@ -108,21 +164,21 @@
 
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
+            <li class="nav-item me-5">
               <a class="nav-link" style="font-size: 20px" href="#">Trang chủ</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-5">
               <a style="font-size: 20px" class="nav-link" href="#">Tour</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-5">
               <a style="font-size: 20px" class="nav-link" href="#"
                 >Giới thiệu</a
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-5">
               <a style="font-size: 20px" class="nav-link" href="#">Liên hệ</a>
             </li>
-            <li class="nav-item ms-3">
+            <li class="nav-item ms-2 mt-1">
               <a
                 class="btn btn-outline-primary px-3 rounded-pill"
                 data-bs-target="#dangNhap"
@@ -132,8 +188,7 @@
               >
             </li>
 
-            <!-- 🔥 Đăng ký -->
-            <li class="nav-item ms-2">
+            <li class="nav-item ms-2 mt-1">
               <a
                 class="btn btn-primary px-3 rounded-pill"
                 data-bs-target="#dangKy"
@@ -152,7 +207,6 @@
       </div>
     </nav>
 
-    <!-- 🔥 BANNER -->
     <div
       id="banner"
       class="carousel slide"
@@ -218,13 +272,69 @@
         </button>
       </div>
     </div>
+    <div class="container mt-5 text-center">
+  <div class="row align-items-center">
 
-    <!-- 🔥 DANH SÁCH TOUR -->
+    <div class="col-md-4 mb-3">
+      <h4 class="text-primary fw-bold">10 năm</h4>
+      <p class="mb-0">Chinh phục một niềm tin</p>
+    </div>
+
+    <div class="col-md-8">
+      <div class="row">
+
+        <div class="col-4">
+          <i class="bi bi-cash text-success fs-3"></i>
+          <p class="small">Giá tốt</p>
+        </div>
+
+        <div class="col-4">
+          <i class="bi bi-patch-check text-danger fs-3"></i>
+          <p class="small">Chất lượng</p>
+        </div>
+
+        <div class="col-4">
+          <i class="bi bi-map text-warning fs-3"></i>
+          <p class="small">Tận tâm</p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <div class="container mt-5">
+  <h3 class="text-center mb-4">Điểm đến phổ biến</h3>
+  <div class="row text-center">
+
+    <div class="col-md-3">
+      <img src="../assets/images/daLat.jpg" class="img-fluid rounded shadow" style="height: 204px;">
+      <p class="mt-2 fw-bold">Đà Lạt</p>
+    </div>
+
+    <div class="col-md-3">
+      <img src="../assets/images/nhaTrang.jpg" class="img-fluid rounded shadow" style="height: 204px;">
+      <p class="mt-2 fw-bold">Nha Trang</p>
+    </div>
+
+    <div class="col-md-3">
+      <img src="../assets/images/vinhHaLong.jpg" class="img-fluid rounded shadow">
+      <p class="mt-2 fw-bold">Hạ Long</p>
+    </div>
+
+    <div class="col-md-3">
+      <img src="../assets/images/dongPhongNha.jpg" class="img-fluid rounded shadow">
+      <p class="mt-2 fw-bold">Phong Nha</p>
+    </div>
+
+  </div>
+</div>
+
     <div class="container mt-5">
       <h3 class="mb-4">Tour nổi bật</h3>
 
       <div class="row">
-        <!-- CARD 1 -->
         <div class="col-md-4">
           <div class="card shadow">
             <img src="../assets/images/vinhHaLong.jpg" class="card-img-top" />
@@ -236,7 +346,6 @@
           </div>
         </div>
 
-        <!-- CARD 2 -->
         <div class="col-md-4">
           <div class="card shadow">
             <img
@@ -252,10 +361,9 @@
           </div>
         </div>
 
-        <!-- CARD 3 -->
         <div class="col-md-4">
           <div class="card shadow">
-            <img src="../assets/images/daLat.jpg" class="card-img-top" />
+            <img src="../assets/images/daLat.jpg" class="card-img-top"  style="height: 275px"/>
             <div class="card-body">
               <h5>Đà Lạt 3N2Đ</h5>
               <p class="text-danger fw-bold">2.990.000đ</p>
@@ -265,8 +373,133 @@
         </div>
       </div>
     </div>
+    <div class="container mt-5">
+  <h2 class="text-center fw-bold mb-5">
+    Tại sao nên đặt chỗ với Phượt Vi Vu?
+  </h2>
 
-    <!-- 🔥 FOOTER -->
+  <div class="row g-4">
+
+    <div class="col-md-6">
+      <div class="why-box">
+        <div class="icon-box bg-info-subtle text-info">
+          <i class="bi bi-laptop"></i>
+        </div>
+        <p>
+          Kết nối hàng trăm tour du lịch trong và ngoài nước, hỗ trợ đặt tour
+          nhanh chóng và tiện lợi.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="why-box">
+        <div class="icon-box bg-purple text-purple">
+          <i class="bi bi-award"></i>
+        </div>
+        <p>
+          Hệ thống bảo mật an toàn, đảm bảo thông tin khách hàng và giao dịch.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="why-box">
+        <div class="icon-box bg-danger-subtle text-danger">
+          <i class="bi bi-telephone"></i>
+        </div>
+        <p>
+          Đội ngũ tư vấn chuyên nghiệp, hỗ trợ 24/7 trong suốt hành trình.
+        </p>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="why-box">
+        <div class="icon-box bg-success-subtle text-success">
+          <i class="bi bi-gift"></i>
+        </div>
+        <p>
+          Nhiều ưu đãi hấp dẫn, giá tốt và quà tặng cho khách hàng thân thiết.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container mt-5">
+  <h3 class="text-center mb-4">Thành tựu và giải thưởng</h3>
+
+  <div id="awards" class="carousel slide" data-bs-ride="carousel">
+    
+    <div class="carousel-inner text-center">
+
+      <div class="carousel-item active">
+        <div class="row">
+
+          <div class="col-md-3">
+            <img src="../assets/images/giai1.jpg" class="award-img">
+            <p>Công ty có khách đặt tour nhiều nhất</p>
+          </div>
+
+          <div class="col-md-3">
+            <img src="../assets/images/giai2.jpg" class="award-img">
+            <p>Top 10 dịch vụ du lịch</p>
+          </div>
+
+          <div class="col-md-3">
+            <img src="../assets/images/giai3.jpg" class="award-img">
+            <p>Travelers Choice</p>
+          </div>
+
+          <div class="col-md-3">
+            <img src="../assets/images/giai4.jpg" class="award-img">
+            <p>Đối tác chiến lược của Vinpearl</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="row">
+
+          <div class="col-md-3">
+            <img src="../assets/images/giai5.jpg" class="award-img">
+            <p>Đại lý cấp 1 Vietjet</p>
+          </div>
+
+          <div class="col-md-3">
+            <img src="../assets/images/giai6.jpg" class="award-img">
+            <p>Top đại lý xuất sắc của Vietravel Airlines</p>
+          </div>
+
+          <div class="col-md-3">
+            <img src="../assets/images/giai7.jpg" class="award-img">
+            <p>Đại lý nổi bật của Bamboo Airways</p>
+          </div>
+
+          <div class="col-md-3">
+            <img src="../assets/images/giai8.jpg" class="award-img">
+            <p>Top 10 đại lý xuất sắc nhất Jetstar Pacific</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#awards" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#awards" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+    </button>
+
+  </div>
+</div>
+
     <footer class="custom-footer pt-5 pb-3 mt-5">
       <div class="container">
         <div class="row">
@@ -285,7 +518,7 @@
 
             <ul class="list-unstyled">
               <li class="mb-2">
-                <i class="bi bi-telephone me-2"></i> (+84) 988 888 888
+                <i class="bi bi-telephone me-2"></i> (+84) 283 8940 390
               </li>
               <li class="mb-2">
                 <i class="bi bi-envelope me-2"></i> dulich.phuotvivu@gmail.com
@@ -297,13 +530,13 @@
             </ul>
 
             <div>
-              <a href="#" class="social-btn"
+              <a href="https://www.facebook.com/sviuh" target="_blank" class="social-btn"
                 ><i class="bi bi-facebook"></i> Facebook</a
               >
-              <a href="#" class="social-btn"
+              <a href="https://www.tiktok.com/@iuh.dhcn" target="_blank" class="social-btn"
                 ><i class="bi bi-tiktok"></i> TikTok</a
               >
-              <a href="#" class="social-btn"
+              <a href="https://www.youtube.com/@iuh.dhcntphcm" target="_blank" class="social-btn"
                 ><i class="bi bi-youtube"></i> YouTube</a
               >
             </div>
@@ -373,13 +606,13 @@
             © 2026 Phượt Vi Vu. All rights reserved.
           </div>
           <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
-            Hotline hỗ trợ 24/7: (+84) 988 888 888
+            Hotline hỗ trợ 24/7: (+84) 283 8940 390
           </div>
         </div>
       </div>
     </footer>
 
-    <a href="tel:0988888888" class="floating-call-btn">
+    <a href="tel:02838940390" class="floating-call-btn">
       <i class="bi bi-telephone-fill"></i>
     </a>
     <div class="modal modal-lg" id="dangKy">
