@@ -772,9 +772,10 @@
       let u = document.getElementById("user");
       let p = document.getElementById("pass");
       let ht = document.getElementById("hoTen");
+      let sodt = document.getElementById("sdt");
       function check(so) {
         var hoTen = ht.value;
-        var sdt = document.getElementById("sdt").value;
+        var sdt = sodt.value;
         var user = u.value;
         var pass = p.value;
         var tht = /^[a-zA-Z ]+$/;
@@ -836,15 +837,19 @@
         var userdn = document.getElementById("userdn").value;
         var passdn = document.getElementById("passdn").value;
         if (userdn === userold && passdn === passold && ht.value !== "") {
+          localStorage.setItem("username", userdn);
+          localStorage.setItem("password", passdn);
+          localStorage.setItem("hoTen", ht.value);
+          localStorage.setItem("sdt", sodt.value);
           document.getElementById("dongdn").click();
-          document.getElementById("nutdn").remove();
-          document.getElementById("nutdk").remove();
           taoUser();
         } else {
           alert("Sai thông tin đăng nhập!");
         }
       }
       function taoUser() {
+        document.getElementById("nutdn").remove();
+        document.getElementById("nutdk").remove();
         const khung = document.createElement("div");
         var menu = document.getElementById("menu");
         const link = document.createElement("a");
@@ -855,6 +860,8 @@
         link.onclick = function () {
           var flag = confirm("Bạn có muốn đăng xuất không?");
           if (flag) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
             location.reload();
           }
         };
@@ -864,6 +871,15 @@
         khung.appendChild(link);
         menu.appendChild(khung);
       }
+      window.onload = function () {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = document.getElementById("ht");
+        var sdt = document.getElementById("sdt");
+        if (userold && passold) {
+          taoUser();
+        }
+      };
     </script>
   </body>
 </html>

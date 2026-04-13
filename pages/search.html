@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <title>Phượt Vi Vu</title>
+    <style>
+      .nav-link:hover {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../assets/images/logo.jpg"
+            alt="Logo"
+            width="150"
+            height="120"
+            class="rounded-circle"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item me-5">
+              <a class="nav-link" style="font-size: 20px" href="home.html"
+                >Trang chủ</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="#">Tour</a>
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="#"
+                >Giới thiệu</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="#">Liên hệ</a>
+            </li>
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-outline-primary px-3 rounded-pill"
+                data-bs-target="#dangNhap"
+                data-bs-toggle="modal"
+                id="nutdn"
+                >Đăng nhập</a
+              >
+            </li>
+
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-primary px-3 rounded-pill"
+                data-bs-target="#dangKy"
+                data-bs-toggle="modal"
+                id="nutdk"
+                >Đăng ký</a
+              >
+            </li>
+            <li class="nav-item ms-3">
+              <a class="btn d-flex align-items-center gap-2" href="search.html">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="modal modal-lg" id="dangKy">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title h2 fw-light text-uppercase text-primary">
+              đăng ký
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <td>Họ tên:</td>
+                <td>
+                  <input
+                    onblur="check(1)"
+                    class="w-75"
+                    type="text"
+                    name=""
+                    id="hoTen"
+                  />
+                  <span class="text-danger" id="1">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Số điện thoại:</td>
+                <td>
+                  <input
+                    onblur="check(2)"
+                    class="w-75"
+                    type="tel"
+                    name=""
+                    id="sdt"
+                  />
+                  <span class="text-danger" id="2">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input
+                    onblur="check(3)"
+                    v
+                    class="w-75"
+                    type="text"
+                    name=""
+                    id="user"
+                  />
+                  <span class="text-danger" id="3">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input
+                    onblur="check(4)"
+                    class="w-75"
+                    type="password"
+                    name=""
+                    id="pass"
+                  />
+                  <span class="text-danger" id="4">*</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="dkf" onclick="check(5)">
+              Đăng kí
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              id="dongdk"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal-lg" id="dangNhap">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title h2 fw-light text-uppercase text-primary">
+              đăng nhập
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-content">
+            <table class="table">
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input class="w-75" type="text" name="" id="userdn" />
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input class="w-75" type="password" name="" id="passdn" />
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="dnf" onclick="dangNhap()">
+              Đăng nhập
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              id="dongdn"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div container>
+      <h1 class="text-center mt-5">Tìm kiếm tour</h1>
+      <div class="d-flex justify-content-center mt-4">
+        <input
+          type="text"
+          class="form-control w-50 me-2"
+          placeholder="Nhập tên tour hoặc địa điểm..."
+        />
+        <button class="btn btn-primary">Tìm kiếm</button>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <h3 class="mb-4">Tour nổi bật</h3>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card shadow">
+            <img src="../assets/images/vinhHaLong.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h5>Hạ Long 3N2Đ</h5>
+              <p class="text-danger fw-bold">3.990.000đ</p>
+              <button class="btn btn-success w-100">Xem chi tiết</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow">
+            <img
+              src="../assets/images/nhaTrang.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Nha Trang 4N3Đ</h5>
+              <p class="text-danger fw-bold">4.500.000đ</p>
+              <button class="btn btn-success w-100">Xem chi tiết</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card shadow">
+            <img
+              src="../assets/images/daLat.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Đà Lạt 3N2Đ</h5>
+              <p class="text-danger fw-bold">2.990.000đ</p>
+              <button class="btn btn-success w-100">Xem chi tiết</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.onload = function () {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = document.getElementById("ht");
+        var sdt = document.getElementById("sdt");
+        if (userold && passold) {
+          taoUser();
+        }
+      };
+      let u = document.getElementById("user");
+      let p = document.getElementById("pass");
+      let ht = document.getElementById("hoTen");
+      function check(so) {
+        var hoTen = ht.value;
+        var sdt = document.getElementById("sdt").value;
+        var user = u.value;
+        var pass = p.value;
+        var tht = /^[a-zA-Z ]+$/;
+        var tsdt = /^[0-9]{10}$/;
+        var tuser = /^[\S]+$/;
+        var tpass = /^[\S]+$/;
+        switch (so) {
+          case 1: {
+            if (tht.test(hoTen)) {
+              document.getElementById("1").textContent = "";
+            } else {
+              document.getElementById("1").textContent = "*";
+            }
+            break;
+          }
+          case 2: {
+            if (tsdt.test(sdt)) {
+              document.getElementById("2").textContent = "";
+            } else {
+              document.getElementById("2").textContent = "*";
+            }
+            break;
+          }
+          case 3: {
+            if (tuser.test(user)) {
+              document.getElementById("3").textContent = "";
+            } else {
+              document.getElementById("3").textContent = "*";
+            }
+            break;
+          }
+          case 4: {
+            if (tpass.test(pass)) {
+              document.getElementById("4").textContent = "";
+            } else {
+              document.getElementById("4").textContent = "*";
+            }
+            break;
+          }
+          case 5: {
+            if (
+              tht.test(hoTen) &&
+              tsdt.test(sdt) &&
+              tuser.test(user) &&
+              tpass.test(pass)
+            ) {
+              alert("Đăng ký thành công!");
+              document.getElementById("dongdk").click();
+            } else {
+              alert("Vui lòng điền đúng thông tin!");
+            }
+            break;
+          }
+        }
+      }
+      function dangNhap() {
+        var userold = u.value;
+        var passold = p.value;
+        var userdn = document.getElementById("userdn").value;
+        var passdn = document.getElementById("passdn").value;
+        if (userdn === userold && passdn === passold && ht.value !== "") {
+          localStorage.setItem("username", userdn);
+          localStorage.setItem("password", passdn);
+          document.getElementById("dongdn").click();
+          taoUser();
+        } else {
+          alert("Sai thông tin đăng nhập!");
+        }
+      }
+      function taoUser() {
+        document.getElementById("nutdn").remove();
+        document.getElementById("nutdk").remove();
+        const khung = document.createElement("div");
+        var menu = document.getElementById("menu");
+        const link = document.createElement("a");
+        link.href = "#";
+        link.style.textDecoration = "none";
+        link.style.color = "white";
+        link.textContent = "Đăng xuất";
+        link.onclick = function () {
+          var flag = confirm("Bạn có muốn đăng xuất không?");
+          if (flag) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            location.reload();
+          }
+        };
+        khung.id = "khungten";
+        khung.style =
+          "border-radius: 100%; background-color: royalblue; width: 100px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: bold;color: white;margin-left: 20px;";
+        khung.appendChild(link);
+        menu.appendChild(khung);
+      }
+    </script>
+  </body>
+</html>
