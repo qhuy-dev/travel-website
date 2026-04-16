@@ -157,7 +157,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav ms-auto">
+          <ul id="menubar" class="navbar-nav ms-auto">
             <li class="nav-item me-5">
               <a class="nav-link" style="font-size: 20px" href="#">Trang Chủ</a>
             </li>
@@ -195,7 +195,10 @@
               >
             </li>
             <li class="nav-item ms-3">
-              <a class="btn d-flex align-items-center gap-2 mt-1" href="search.html">
+              <a
+                class="btn d-flex align-items-center gap-2 mt-1"
+                href="search.html"
+              >
                 <i class="bi bi-search"></i>
               </a>
             </li>
@@ -853,26 +856,64 @@
       function taoUser() {
         document.getElementById("nutdn").remove();
         document.getElementById("nutdk").remove();
-        const khung = document.createElement("div");
-        var menu = document.getElementById("menu");
-        const link = document.createElement("a");
-        link.href = "#";
-        link.style.textDecoration = "none";
-        link.style.color = "white";
-        link.textContent = "Đăng xuất";
-        link.onclick = function () {
-          var flag = confirm("Bạn có muốn đăng xuất không?");
+        var menu = document.getElementById("menubar");
+        const li = document.createElement("li"); // tạo li gắn với menu
+        li.className = "nav-item dropdown";
+        const a = document.createElement("a");
+        a.className = "nav-link dropdown-toggle";
+        a.href = "#";
+        a.role = "button";
+        a.dataset.bsToggle = "dropdown";
+        const anh = document.createElement("img");
+        anh.src = "/travel-website/assets/images/avatar.jpg";
+        anh.style = "width: 50px;";
+        anh.className = "rounded-pill";
+        a.appendChild(anh);
+        li.appendChild(a);
+        const ul = document.createElement("ul");
+        ul.className = "dropdown-menu";
+        ul.style =
+          "background: linear-gradient(45deg,white, rgb(33, 147, 176), rgb(109, 213, 237),white);color: white;";
+        const li1 = document.createElement("li");
+        const li2 = document.createElement("li");
+        const li3 = document.createElement("li");
+        const li4 = document.createElement("li");
+        const a1 = document.createElement("a");
+        const a2 = document.createElement("a");
+        const a3 = document.createElement("a");
+        const a4 = document.createElement("a");
+        a1.className = "dropdown-item";
+        a2.className = "dropdown-item";
+        a3.className = "dropdown-item";
+        a4.className = "dropdown-item";
+        a1.href = "#";
+        a2.href = "#";
+        a3.href = "#";
+        a4.href = "#";
+        a1.textContent = "THÔNG TIN CÁ NHÂN";
+        a2.textContent = "GIỎ HÀNG";
+        a3.textContent = "ĐƠN HÀNG";
+        a4.textContent = "ĐĂNG XUẤT";
+        a4.onclick = function () {
+          var flag = confirm("Bạn có chắc muốn đăng xuất?");
           if (flag) {
             localStorage.removeItem("username");
             localStorage.removeItem("password");
+            localStorage.removeItem("hoTen");
+            localStorage.removeItem("sdt");
             location.reload();
           }
         };
-        khung.id = "khungten";
-        khung.style =
-          "border-radius: 100%; background-color: royalblue; width: 100px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: bold;color: white;margin-left: 20px;";
-        khung.appendChild(link);
-        menu.appendChild(khung);
+        li1.appendChild(a1);
+        li2.appendChild(a2);
+        li3.appendChild(a3);
+        li4.appendChild(a4);
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+        ul.appendChild(li3);
+        ul.appendChild(li4);
+        li.appendChild(ul);
+        menu.appendChild(li);
       }
       window.onload = function () {
         var userold = localStorage.getItem("username");
