@@ -3,26 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Thanh toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Phượt Vi Vu</title>
 
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
         body {
-            background: #f5f5f5;
+            background: #f6f8fb;
         }
         
-        .box {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .section-title {
+            font-weight: 600;
         }
         
-        footer a:hover {
-            text-decoration: underline;
+        .custom-footer {
+            background: #0c5b85;
+            color: #fff;
+        }
+        
+        .custom-footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .custom-footer a:hover {
+            color: #ffc107;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -32,81 +46,134 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="../assets/images/logo.jpg" width="120" class="rounded-circle">
+            <a class="navbar-brand" href="home.html">
+                <img src="../assets/images/logo.jpg" alt="Logo" width="150" height="120" class="rounded-circle" />
             </a>
 
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
             <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item me-4"><a class="nav-link" href="home.html">Trang Chủ</a></li>
-                    <li class="nav-item me-4"><a class="nav-link" href="tour.html">Tour</a></li>
-                    <li class="nav-item me-4"><a class="nav-link" href="about.html">Giới Thiệu</a></li>
-                    <li class="nav-item me-4"><a class="nav-link" href="contact.html">Liên Hệ</a></li>
-                    <li class="nav-item me-4"><a class="nav-link" href="news.html">Tin Tức</a></li>
-                    <li class="nav-item">
-                        <a class="btn" href="search.html"><i class="bi bi-search"></i></a>
+                <ul id="menubar" class="navbar-nav ms-auto">
+                    <li class="nav-item me-5">
+                        <a class="nav-link" style="font-size: 20px" href="home.html">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a style="font-size: 20px" class="nav-link" href="tour.html">Tour</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="#"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="contact.html">Liên Hệ</a>
+                    </li>
+                    <li class="nav-item me-5">
+                        <a style="font-size: 20px" class="nav-link" href="../pages/news.html">Tin Tức</a
+              >
+            </li>
+  
+            <li class="nav-item ms-3">
+              <a
+                class="btn d-flex align-items-center gap-2 mt-1"
+                href="search.html"
+              >
+                <i class="bi bi-search"></i>
+              </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <!-- HEADER -->
+    <img src="../assets/images/vinhHaLong.jpg" class="w-100" style="height:260px;object-fit:cover">
+    <h2 class="text-center mt-3 text-uppercase">Thanh Toán</h2>
 
-        <!-- ALERT -->
-        <div id="alertBox"></div>
-
+    <div class="container my-4">
         <div class="row g-4">
 
             <!-- FORM -->
-            <div class="col-md-6 col-12">
-                <div class="box">
-                    <h4>Thông tin người đặt</h4>
+            <div class="col-lg-8">
 
-                    <form id="form" novalidate>
+                <!-- INFO -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="section-title mb-3"><i class="bi bi-person"></i> Thông tin khách hàng</h5>
 
-                        <div class="mb-3">
-                            <input id="name" class="form-control" placeholder="Họ và tên">
-                            <div class="invalid-feedback" id="errName"></div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label>Họ tên *</label>
+                                <input id="name" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>SĐT *</label>
+                                <input id="phone" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>Email</label>
+                                <input id="email" class="form-control">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label>Số người</label>
+                                <input id="people" type="number" value="1" class="form-control" onchange="updateTotal()">
+                            </div>
+                            <div class="col-12">
+                                <label>Ghi chú</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
                         </div>
-
-                        <div class="mb-3">
-                            <input id="phone" class="form-control" placeholder="SĐT">
-                            <div class="invalid-feedback" id="errPhone"></div>
-                        </div>
-
-                        <div class="mb-3">
-                            <input id="email" class="form-control" placeholder="Email">
-                            <div class="invalid-feedback" id="errEmail"></div>
-                        </div>
-
-                        <div class="mb-3">
-                            <textarea id="address" class="form-control" placeholder="Địa chỉ"></textarea>
-                        </div>
-
-                        <select id="payment" class="form-control mb-3">
-                            <option>Tiền mặt</option>
-                            <option>Chuyển khoản</option>
-                            <option>Momo</option>
-                        </select>
-
-                        <button class="btn btn-success w-100">Xác nhận đặt tour</button>
-
-                    </form>
+                    </div>
                 </div>
+
+                <!-- PAYMENT -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="section-title mb-3"><i class="bi bi-credit-card"></i> Thanh toán</h5>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="pay" checked>
+                            <label class="form-check-label">COD (Thanh toán khi đi tour)</label>
+                        </div>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="pay">
+                            <label class="form-check-label">Chuyển khoản</label>
+                        </div>
+
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="pay">
+                            <label class="form-check-label">Thẻ ngân hàng</label>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
-            <!-- CART -->
-            <div class="col-md-6 col-12">
-                <div class="box">
-                    <h4>Đơn hàng</h4>
-                    <div id="cart"></div>
-                    <hr>
-                    <h5>Tổng: <span id="total" class="text-danger">0đ</span></h5>
+            <!-- SUMMARY -->
+            <div class="col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="section-title mb-3"><i class="bi bi-receipt"></i> Đơn hàng</h5>
+
+                        <div id="cart-items"></div>
+
+                        <hr>
+
+                        <div class="d-flex justify-content-between">
+                            <span>Tổng tiền</span>
+                            <span id="total" class="fw-bold text-danger"></span>
+                        </div>
+
+                        <button class="btn btn-primary w-100 mt-3" onclick="checkout()">
+            <i class="bi bi-check-circle"></i> Xác nhận
+          </button>
+
+                    </div>
                 </div>
             </div>
 
@@ -114,183 +181,185 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="mt-5 pt-5 text-white" style="background:#1f5f78;">
+    <footer class="custom-footer pt-5 pb-3 mt-5">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <h2 class="fw-bold">Phượt Vi Vu</h2>
+                    <p class="italic small">
+                        Hành trình nhẹ nhàng – Trải nghiệm trọn vẹn
+                    </p>
+                    <p class="small mb-1">
+                        Giấy phép kinh doanh: 0313049973 do Sở Kế hoạch và Đầu tư TP.HCM cấp.
+                    </p>
+                    <p class="small mb-4">
+                        Giấy phép kinh doanh lữ hành: 79-1953/2024/TCDL-GP LHQT
+                    </p>
 
-            <div class="row g-4">
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="bi bi-telephone me-2"></i> (+84) 283 8940 390
+                        </li>
+                        <li class="mb-2">
+                            <i class="bi bi-envelope me-2"></i> dulich.phuotvivu@gmail.com
+                        </li>
+                        <li class="mb-3">
+                            <i class="bi bi-geo-alt me-2"></i> 12 Nguyễn Văn Bảo, Hạnh Thông, TP. Hồ Chí Minh
+                        </li>
+                    </ul>
 
-                <div class="col-md-4">
-                    <h3>Phượt Vi Vu</h3>
-                    <p>Hành trình nhẹ nhàng – Trải nghiệm trọn vẹn</p>
+                    <div>
+                        <a href="https://www.facebook.com/sviuh" target="_blank" class="social-btn"><i class="bi bi-facebook"></i> Facebook</a
+              >
+              <a
+                href="https://www.tiktok.com/@iuh.dhcn"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-tiktok"></i> TikTok</a
+              >
+              <a
+                href="https://www.youtube.com/@iuh.dhcntphcm"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-youtube"></i> YouTube</a
+              >
+            </div>
+          </div>
 
-                    <p>📄 GPKD: 0313049973</p>
-                    <p>📞 (+84) 283 8940 390</p>
-                    <p>📧 dulich.phuotvivu@gmail.com</p>
-                    <p>📍 12 Nguyễn Văn Bảo, TP.HCM</p>
-
-                    <div class="mt-3">
-                        <button class="btn btn-outline-light btn-sm me-2">
-                            <i class="bi bi-facebook"></i>
-                        </button>
-                        <button class="btn btn-outline-light btn-sm me-2">
-                            <i class="bi bi-tiktok"></i>
-                        </button>
-                        <button class="btn btn-outline-light btn-sm">
-                            <i class="bi bi-youtube"></i>
-                        </button>
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="row">
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Hướng dẫn thanh toán</a></li>
+                        <li><a href="#">Hướng dẫn đặt tour</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h6 class="fw-bold mb-3">Chính sách</h6>
+                        <ul class="list-unstyled small lh-lg">
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                            <li><a href="#">Điều khoản chung</a></li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-md-2">
-                    <h5>Liên kết</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Về chúng tôi</a></li>
-                        <li><a href="#" class="text-white">Thanh toán</a></li>
-                        <li><a href="#" class="text-white">Đặt tour</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-2">
-                    <h5>Chính sách</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Bảo mật</a></li>
-                        <li><a href="#" class="text-white">Điều khoản</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4">
-                    <h5>Đăng ký nhận tin</h5>
-                    <div class="input-group">
-                        <input class="form-control" placeholder="Email">
-                        <button class="btn btn-info text-white">
-                            <i class="bi bi-envelope"></i> Đăng ký
-                        </button>
-                    </div>
-
-                    <p class="mt-3">Thanh toán:</p>
-                    <span class="badge bg-light text-dark">VISA</span>
-                    <span class="badge bg-light text-dark">MC</span>
-                    <span class="badge bg-light text-success">VCB</span>
-                </div>
-
             </div>
 
-            <hr class="border-light mt-4">
-
-            <div class="d-flex justify-content-between">
-                <p>© 2026 Phượt Vi Vu</p>
-                <p>Hotline: (+84) 283 8940 390</p>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="register-box">
+                    <h6 class="fw-bold mb-2">Đăng ký</h6>
+                    <p class="small mb-3">
+                        Nhận thông tin về các tour mới nhất và ưu đãi hấp dẫn từ chúng tôi ngay hôm nay!
+                    </p>
+                    <form action="#" method="POST">
+                        <button type="submit" class="btn btn-info text-white w-100 fw-bold shadow-sm" style="background-color: #00a8ff; border: none">
+                  <i class="bi bi-envelope"></i>
+                  <a href="#nutdk">Đăng ký ngay</a>
+                </button>
+                    </form>
+                </div>
             </div>
 
+            <div class="col-lg-2 col-md-12 mb-4">
+                <h6 class="fw-bold mb-3">Chứng nhận & Thanh toán</h6>
+                <p class="small mb-2">Được chứng nhận</p>
+                <img src="../assets/images/logo-bo-cong-thuong-vector.png" alt="Đã thông báo Bộ Công Thương" width="200" class="mb-3" />
+
+                <p class="small mb-2">Phương thức thanh toán</p>
+                <div class="d-flex gap-2 mb-3 bg-white p-1 rounded d-inline-flex">
+                    <span class="text-dark fw-bold px-1">VISA</span>
+                    <span class="text-dark fw-bold px-1">MC</span>
+                    <span class="text-success fw-bold px-1">VCB</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row border-top border-secondary pt-3 mt-3 small">
+            <div class="col-md-6 text-center text-md-start">
+                © 2026 Phượt Vi Vu. All rights reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                Hotline hỗ trợ 24/7: (+84) 283 8940 390
+            </div>
+        </div>
         </div>
     </footer>
 
     <!-- TOAST -->
-    <div class="toast position-fixed top-0 end-0 m-3" id="toast">
-        <div class="toast-body text-white" id="toastMsg"></div>
+    <div class="position-fixed bottom-0 end-0 p-3">
+        <div id="toast" class="toast">
+            <div class="toast-body"></div>
+        </div>
     </div>
 
     <script>
-        function showAlert(msg, type = "danger") {
-            document.getElementById("alertBox").innerHTML = `
-                <div class="alert alert-${type} alert-dismissible fade show">
-                ${msg}
-                <button class="btn-close" data-bs-dismiss="alert"></button>
-                </div>`;
+        const KEY = "phuo_vi_vu_cart";
+
+        function loadCart() {
+            return JSON.parse(localStorage.getItem(KEY)) || []
         }
 
-        function showToast(msg, success = false) {
-            let toastEl = document.getElementById("toast");
-            let msgEl = document.getElementById("toastMsg");
+        function fmt(n) {
+            return n.toLocaleString('vi-VN') + 'đ'
+        }
 
-            msgEl.innerText = msg;
-            toastEl.classList.remove("bg-danger", "bg-success");
-            toastEl.classList.add(success ? "bg-success" : "bg-danger");
+        function render() {
+            const cart = loadCart();
+            let html = "";
 
+            cart.forEach(t => {
+                html += `<div class="d-flex justify-content-between small mb-2">
+      <span>${t.name}</span>
+      <span>${fmt(t.price)}</span>
+    </div>`
+            })
+
+            document.getElementById("cart-items").innerHTML = html || "<p class='text-muted'>Chưa có tour</p>";
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const cart = loadCart();
+            const people = parseInt(document.getElementById("people").value) || 1;
+            let total = cart.reduce((s, t) => s + t.price, 0);
+            total *= people;
+            document.getElementById("total").innerText = fmt(total);
+        }
+
+        function validate() {
+            const name = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+
+            if (!name) return "Chưa nhập tên";
+            if (!phone) return "Chưa nhập SĐT";
+
+            return null;
+        }
+
+        function checkout() {
+            const err = validate();
+            if (err) {
+                show(err);
+                return;
+            }
+
+            show("Đặt tour thành công!");
+            localStorage.removeItem(KEY);
+
+            setTimeout(() => {
+                window.location.href = "home.html";
+            }, 1500);
+        }
+
+        function show(msg) {
+            const toastEl = document.getElementById("toast");
+            toastEl.querySelector(".toast-body").innerText = msg;
             new bootstrap.Toast(toastEl).show();
         }
 
-        function showError(input, id, msg) {
-            input.classList.add("is-invalid");
-            document.getElementById(id).innerText = msg;
-        }
-
-        document.getElementById("name").addEventListener("input", function() {
-            this.value = this.value.toUpperCase();
-        });
-
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        let total = 0;
-        let html = "";
-
-        if (cart.length === 0) {
-            html = `<p class="text-muted">🛒 Giỏ hàng trống</p>`;
-        } else {
-            cart.forEach(item => {
-                total += item.price;
-                html += `
-                <div class="d-flex align-items-center mb-3 border-bottom pb-2">
-                    <img src="${item.image}" width="90" height="70"
-                        style="object-fit: cover; border-radius: 8px; margin-right: 10px;">
-                    <div class="flex-grow-1">
-                        <div><b>${item.name}</b></div>
-                        <small class="text-danger">${item.price.toLocaleString()}đ</small>
-                    </div>
-                </div>`;
-            });
-        }
-
-        document.getElementById("cart").innerHTML = html;
-        document.getElementById("total").innerText = total.toLocaleString() + "đ";
-
-        document.getElementById("form").onsubmit = function(e) {
-            e.preventDefault();
-
-            let name = document.getElementById("name");
-            let phone = document.getElementById("phone");
-            let email = document.getElementById("email");
-
-            let isValid = true;
-
-            [name, phone, email].forEach(i => i.classList.remove("is-invalid"));
-            document.getElementById("errName").innerText = "";
-            document.getElementById("errPhone").innerText = "";
-            document.getElementById("errEmail").innerText = "";
-
-            if (name.value.trim() === "" || name.value.length <= 7) {
-                showError(name, "errName", "❌ Họ tên phải > 7 ký tự");
-                isValid = false;
-            }
-
-            if (!/^[0-9]{9}$/.test(phone.value)) {
-                showError(phone, "errPhone", "❌ SĐT phải đúng 9 số");
-                isValid = false;
-            }
-
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-                showError(email, "errEmail", "❌ Email không hợp lệ");
-                isValid = false;
-            }
-
-            if (!isValid) {
-                showAlert("❌ Vui lòng kiểm tra lại thông tin!");
-                showToast("Sai thông tin!");
-                return;
-            }
-
-            if (cart.length === 0) {
-                showAlert("❌ Giỏ hàng trống!");
-                showToast("Không có sản phẩm!");
-                return;
-            }
-
-            if (confirm("Xác nhận đặt tour?")) {
-                localStorage.removeItem("cart");
-                showAlert("✅ Đặt tour thành công!", "success");
-                showToast("Đặt thành công!", true);
-                document.getElementById("form").reset();
-            }
-        }
+        render();
     </script>
 
 </body>
