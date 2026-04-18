@@ -1,132 +1,247 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="vi">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Thanh toán</title>
 
-  <!-- Bootstrap OFFLINE -->
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <title>Thanh toán</title>
+    <style>
+        body {
+            background: #f5f5f5;
+        }
+        
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg bg-light shadow-sm">
-  <div class="container">
-    <a class="navbar-brand" href="home.html">Phượt Vi Vu</a>
-  </div>
-</nav>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/images/logo.jpg" width="120" class="rounded-circle">
+            </a>
 
-<div class="container mt-5">
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-  <h2 class="text-center mb-4">Thanh toán</h2>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-4"><a class="nav-link" href="home.html">Trang Chủ</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="tour.html">Tour</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="about.html">Giới Thiệu</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="contact.html">Liên Hệ</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="news.html">Tin Tức</a></li>
+                    <li class="nav-item">
+                        <a class="btn" href="search.html"><i class="bi bi-search"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <!-- THÔNG TIN TOUR -->
-  <div class="card mb-4">
-    <div class="card-header bg-primary text-white">
-      Thông tin tour
+    <div class="container mt-4">
+
+        <!-- ALERT -->
+        <div id="alertBox"></div>
+
+        <div class="row g-4">
+
+            <!-- FORM -->
+            <div class="col-md-6 col-12">
+                <div class="box">
+
+                    <h4>Thông tin người đặt</h4>
+
+                    <form id="form" novalidate>
+
+                        <div class="mb-3">
+                            <input id="name" class="form-control" placeholder="Họ và tên">
+                            <div class="invalid-feedback" id="errName"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <input id="phone" class="form-control" placeholder="SĐT">
+                            <div class="invalid-feedback" id="errPhone"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <input id="email" class="form-control" placeholder="Email">
+                            <div class="invalid-feedback" id="errEmail"></div>
+                        </div>
+
+                        <div class="mb-3">
+                            <textarea id="address" class="form-control" placeholder="Địa chỉ"></textarea>
+                        </div>
+
+                        <select id="payment" class="form-control mb-3">
+<option>Tiền mặt</option>
+<option>Chuyển khoản</option>
+<option>Momo</option>
+</select>
+
+                        <button class="btn btn-success w-100">Xác nhận đặt tour</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- CART -->
+            <div class="col-md-6 col-12">
+                <div class="box">
+                    <h4>Đơn hàng</h4>
+                    <div id="cart"></div>
+                    <hr>
+                    <h5>Tổng: <span id="total" class="text-danger">0đ</span></h5>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="card-body" id="tourInfo">
-      <!-- JS sẽ render -->
-    </div>
-  </div>
 
-  <!-- FORM KHÁCH HÀNG -->
-  <div class="card mb-4">
-    <div class="card-header bg-success text-white">
-      Thông tin khách hàng
+    <!-- TOAST -->
+    <div class="toast position-fixed top-0 end-0 m-3" id="toast">
+        <div class="toast-body text-white" id="toastMsg"></div>
     </div>
 
-    <div class="card-body">
+    <script>
+        // ===== ALERT =====
+        function showAlert(msg, type = "danger") {
+            document.getElementById("alertBox").innerHTML = `
+<div class="alert alert-${type} alert-dismissible fade show">
+${msg}
+<button class="btn-close" data-bs-dismiss="alert"></button>
+</div>`;
+        }
 
-      <div class="mb-3">
-        <label>Họ tên</label>
-        <input type="text" id="name" class="form-control">
-      </div>
+        // ===== TOAST =====
+        function showToast(msg, success = false) {
+            let toastEl = document.getElementById("toast");
+            let msgEl = document.getElementById("toastMsg");
 
-      <div class="mb-3">
-        <label>Số điện thoại</label>
-        <input type="text" id="phone" class="form-control">
-      </div>
+            msgEl.innerText = msg;
+            toastEl.classList.remove("bg-danger", "bg-success");
+            toastEl.classList.add(success ? "bg-success" : "bg-danger");
 
-      <div class="mb-3">
-        <label>Email</label>
-        <input type="email" id="email" class="form-control">
-      </div>
+            new bootstrap.Toast(toastEl).show();
+        }
 
-      <div class="mb-3">
-        <label>Số người</label>
-        <input type="number" id="quantity" class="form-control" value="1">
-      </div>
+        // ===== ERROR =====
+        function showError(input, id, msg) {
+            input.classList.add("is-invalid");
+            document.getElementById(id).innerText = msg;
+        }
 
+        // ===== AUTO VIẾT HOA =====
+        document.getElementById("name").addEventListener("input", function() {
+            this.value = this.value.toUpperCase();
+        });
+
+        // ===== LOAD CART =====
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let total = 0;
+        let html = "";
+
+        if (cart.length === 0) {
+            html = `<p class="text-muted">🛒 Giỏ hàng trống</p>`;
+        } else {
+            cart.forEach(item => {
+                total += item.price;
+
+                html += `
+<div class="d-flex align-items-center mb-3 border-bottom pb-2">
+
+    <img src="${item.image}" 
+         width="90" height="70"
+         style="object-fit: cover; border-radius: 8px; margin-right: 10px;">
+
+    <div class="flex-grow-1">
+        <div><b>${item.name}</b></div>
+        <small class="text-danger">
+            ${item.price.toLocaleString()}đ
+        </small>
     </div>
-  </div>
 
-  <!-- BUTTON -->
-  <div class="text-center">
-    <button class="btn btn-danger px-5" onclick="thanhToan()">
-      Xác nhận đặt tour
-    </button>
-  </div>
+</div>`;
+            }); // ✅ ĐÓNG ĐÚNG CHỖ
+        }
 
-</div>
+        document.getElementById("cart").innerHTML = html;
+        document.getElementById("total").innerText = total.toLocaleString() + "đ";
+        // ===== VALIDATE =====
+        document.getElementById("form").onsubmit = function(e) {
+            e.preventDefault();
 
-<script>
+            let name = document.getElementById("name");
+            let phone = document.getElementById("phone");
+            let email = document.getElementById("email");
 
-// HIỂN THỊ TOUR
-function loadTour() {
-  let tour = JSON.parse(localStorage.getItem("tour"));
+            let isValid = true;
 
-  if (!tour) {
-    document.getElementById("tourInfo").innerHTML = "Không có tour!";
-    return;
-  }
+            // reset
+            [name, phone, email].forEach(i => i.classList.remove("is-invalid"));
+            document.getElementById("errName").innerText = "";
+            document.getElementById("errPhone").innerText = "";
+            document.getElementById("errEmail").innerText = "";
 
-  document.getElementById("tourInfo").innerHTML = `
-    <h5>${tour.name}</h5>
-    <p>Giá: <b class="text-danger">${tour.price}</b></p>
-  `;
-}
+            // NAME
+            if (name.value.trim() === "") {
+                showError(name, "errName", "❌ Vui lòng nhập họ tên");
+                isValid = false;
+            } else if (name.value.length <= 7) {
+                showError(name, "errName", "❌ Họ tên phải > 7 ký tự");
+                isValid = false;
+            }
 
-// THANH TOÁN
-function thanhToan() {
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let email = document.getElementById("email").value;
-  let quantity = document.getElementById("quantity").value;
+            // PHONE
+            if (!/^[0-9]{9}$/.test(phone.value)) {
+                showError(phone, "errPhone", "❌ SĐT phải đúng 9 số");
+                isValid = false;
+            }
 
-  if (name === "" || phone === "" || email === "") {
-    alert("Vui lòng nhập đầy đủ thông tin!");
-    return;
-  }
+            // EMAIL
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                showError(email, "errEmail", "❌ Email không hợp lệ");
+                isValid = false;
+            }
 
-  let tour = JSON.parse(localStorage.getItem("tour"));
+            // lỗi
+            if (!isValid) {
+                showAlert("❌ Vui lòng kiểm tra lại thông tin!");
+                showToast("Sai thông tin!");
+                document.querySelector(".is-invalid") && document.querySelector(".is-invalid").focus();
+                return;
+            }
 
-  let order = {
-    name,
-    phone,
-    email,
-    quantity,
-    tour
-  };
+            // cart rỗng
+            if (cart.length === 0) {
+                showAlert("❌ Giỏ hàng trống!");
+                showToast("Không có sản phẩm!");
+                return;
+            }
 
-  localStorage.setItem("order", JSON.stringify(order));
+            // success
+            if (confirm("Xác nhận đặt tour?")) {
+                localStorage.removeItem("cart");
+                showAlert("✅ Đặt tour thành công!", "success");
+                showToast("Đặt thành công!", true);
+                document.getElementById("form").reset();
+            }
 
-  alert("Đặt tour thành công!");
-
-  // reset
-  localStorage.removeItem("tour");
-
-  window.location.href = "home.html";
-}
-
-// LOAD
-window.onload = loadTour;
-
-</script>
+        }
+    </script>
 
 </body>
+
 </html>
