@@ -1,226 +1,821 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
     <title>Tin Tức</title>
 
     <style>
-        .news-img {
-            height: 220px;
-            object-fit: cover;
-        }
-        
-        .feature-img {
-            height: 350px;
-            object-fit: cover;
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-6px);
-            transition: 0.3s;
-        }
-        
-        .tag {
-            font-size: 12px;
-            background: #e6f0ff;
-            color: #0d6efd;
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
+      .custom-footer {
+        background-color: #0c5b85;
+        color: #ffffff;
+        font-size: 0.9rem;
+      }
+
+      .custom-footer a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .custom-footer a:hover {
+        color: #f1c40f;
+      }
+      .news-img {
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .feature-img {
+        height: 350px;
+        object-fit: cover;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-6px);
+        transition: 0.3s;
+      }
+
+      .tag {
+        font-size: 12px;
+        background: #e6f0ff;
+        color: #0d6efd;
+        padding: 4px 10px;
+        border-radius: 20px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="home.html">
-                <img src="../assets/images/logo.jpg" width="150" height="120" class="rounded-circle" />
-            </a>
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../assets/images/logo.jpg"
+            alt="Logo"
+            width="150"
+            height="120"
+            class="rounded-circle"
+          />
+        </a>
 
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="menu">
+          <ul id="menubar" class="navbar-nav ms-auto">
+            <li class="nav-item me-5">
+              <a class="nav-link" style="font-size: 20px" href="home.html"
+                >Trang Chủ</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="tour.html"
+                >Tour</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="#"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="#">Liên Hệ</a>
+            </li>
+            <li class="nav-item me-5">
+              <a
+                style="font-size: 20px"
+                class="nav-link"
+                href="../pages/news.html"
+                >Tin Tức</a
+              >
+            </li>
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-outline-primary px-3 rounded-pill"
+                data-bs-target="#dangNhap"
+                data-bs-toggle="modal"
+                id="nutdn"
+                >Đăng nhập</a
+              >
+            </li>
 
-                    <li class="nav-item me-5">
-                        <a class="nav-link fs-5" href="home.html">Trang Chủ</a>
-                    </li>
-
-                    <li class="nav-item me-5">
-                        <a class="nav-link fs-5" href="#">Tour</a>
-                    </li>
-
-                    <li class="nav-item me-5">
-                        <a class="nav-link fs-5" href="#">Giới Thiệu</a>
-                    </li>
-
-                    <li class="nav-item me-5">
-                        <a class="nav-link fs-5" href="#">Liên Hệ</a>
-                    </li>
-
-                    <li class="nav-item me-5">
-                        <a class="nav-link fs-5 text-primary fw-bold" href="news.html">Tin Tức</a>
-                    </li>
-
-                    <li class="nav-item ms-3">
-                        <a class="btn d-flex align-items-center gap-2 mt-1" href="search.html">
-                            <i class="bi bi-search"></i>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-primary px-3 rounded-pill"
+                data-bs-target="#dangKy"
+                data-bs-toggle="modal"
+                id="nutdk"
+                >Đăng ký</a
+              >
+            </li>
+            <li class="nav-item ms-3">
+              <a class="btn d-flex align-items-center gap-2" href="search.html">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-
+    <div class="modal modal-lg" id="dangKy">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title h2 fw-light text-uppercase text-primary">
+              đăng ký
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <td>Họ tên:</td>
+                <td>
+                  <input
+                    onblur="check(1)"
+                    class="w-75"
+                    type="text"
+                    name=""
+                    id="hoTen"
+                  />
+                  <span class="text-danger" id="1">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Số điện thoại:</td>
+                <td>
+                  <input
+                    onblur="check(2)"
+                    class="w-75"
+                    type="tel"
+                    name=""
+                    id="sdt"
+                  />
+                  <span class="text-danger" id="2">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input
+                    onblur="check(3)"
+                    v
+                    class="w-75"
+                    type="text"
+                    name=""
+                    id="user"
+                  />
+                  <span class="text-danger" id="3">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input
+                    onblur="check(4)"
+                    class="w-75"
+                    type="password"
+                    name=""
+                    id="pass"
+                  />
+                  <span class="text-danger" id="4">*</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="dkf" onclick="check(5)">
+              Đăng kí
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              id="dongdk"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal-lg" id="dangNhap">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title h2 fw-light text-uppercase text-primary">
+              đăng nhập
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-content">
+            <table class="table">
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input class="w-75" type="text" name="" id="userdn" />
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input class="w-75" type="password" name="" id="passdn" />
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="dnf" onclick="dangNhap()">
+              Đăng nhập
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              id="dongdn"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- BANNER -->
-    <div class="container mt-4">
-        <img src="../assets/images/vinhHaLong.jpg" class="w-100 rounded feature-img">
+    <div
+      id="banner"
+      class="carousel slide"
+      data-bs-ride="carousel "
+      data-bs-interval="3000"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="../assets/images/vinhHaLong.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/nhaTrang.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/dongPhongNha.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/vinhCamRanh.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/daLat.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#banner"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#banner"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="container mt-5 text-center">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3">
+          <h4 class="text-primary fw-bold">10 năm</h4>
+          <p class="mb-0">Chinh phục một niềm tin</p>
+        </div>
+
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-4">
+              <i class="bi bi-cash text-success fs-3"></i>
+              <p class="small">Giá tốt</p>
+            </div>
+
+            <div class="col-4">
+              <i class="bi bi-patch-check text-danger fs-3"></i>
+              <p class="small">Chất lượng</p>
+            </div>
+
+            <div class="col-4">
+              <i class="bi bi-map text-warning fs-3"></i>
+              <p class="small">Tận tâm</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- TITLE -->
     <div class="container text-center mt-4">
-        <h2 class="fw-bold">TIN TỨC DU LỊCH</h2>
-        <p class="text-muted">Cập nhật xu hướng mới nhất</p>
+      <h2 class="fw-bold">TIN TỨC DU LỊCH</h2>
+      <p class="text-muted">Cập nhật xu hướng mới nhất</p>
     </div>
 
     <!-- CONTENT -->
     <div class="container mt-4">
-        <div class="row">
+      <div class="row">
+        <!-- LEFT -->
+        <div class="col-lg-8">
+          <!-- FEATURE -->
+          <div class="card mb-4 shadow-sm">
+            <video
+              class="card-img-top feature-img"
+              autoplay
+              muted
+              loop
+              playsinline
+            >
+              <source src="../assets/images/welcom.mp4" type="video/mp4" />
+              Trình duyệt không hỗ trợ video.
+            </video>
 
-            <!-- LEFT -->
-            <div class="col-lg-8">
+            <div class="card-body">
+              <span class="tag">Nổi bật</span>
+              <h4 class="mt-2 fw-bold"></h4>
+              <p class="text-muted small">12/04/2026 • Admin</p>
+              <p>Những địa điểm không thể bỏ qua trong năm 2026...</p>
+            </div>
+          </div>
 
-                <!-- FEATURE -->
-                <div class="card mb-4 shadow-sm">
-                    <video class="card-img-top feature-img" autoplay muted loop playsinline>
-        <source src="../assets/images/welcom.mp4" type="video/mp4">
-        Trình duyệt không hỗ trợ video.
-    </video>
-
-                    <div class="card-body">
-                        <span class="tag">Nổi bật</span>
-                        <h4 class="mt-2 fw-bold">
-                        </h4>
-                        <p class="text-muted small">12/04/2026 • Admin</p>
-                        <p>Những địa điểm không thể bỏ qua trong năm 2026...</p>
-                    </div>
+          <!-- GRID -->
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card shadow-sm card-hover">
+                <img
+                  src="../assets/images/daLat.jpg"
+                  class="card-img-top news-img"
+                />
+                <div class="card-body">
+                  <span class="tag">Kinh nghiệm</span>
+                  <h5 class="mt-2">
+                    <a
+                      href="news-detail.html?id=2"
+                      class="text-dark text-decoration-none"
+                    >
+                      Đà Lạt mùa nào đẹp?
+                    </a>
+                  </h5>
+                  <p class="small text-muted">10/04/2026</p>
+                  <a
+                    href="news-detail.html?id=2"
+                    class="btn btn-outline-primary btn-sm"
+                    >Chi tiết</a
+                  >
                 </div>
-
-                <!-- GRID -->
-                <div class="row g-3">
-
-                    <div class="col-md-6">
-                        <div class="card shadow-sm card-hover">
-                            <img src="../assets/images/daLat.jpg" class="card-img-top news-img">
-                            <div class="card-body">
-                                <span class="tag">Kinh nghiệm</span>
-                                <h5 class="mt-2">
-                                    <a href="news-detail.html?id=2" class="text-dark text-decoration-none">
-                  Đà Lạt mùa nào đẹp?
-                </a>
-                                </h5>
-                                <p class="small text-muted">10/04/2026</p>
-                                <a href="news-detail.html?id=2" class="btn btn-outline-primary btn-sm">Chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card shadow-sm card-hover">
-                            <img src="../assets/images/vinhCamRanh.jpg" class="card-img-top news-img">
-                            <div class="card-body">
-                                <span class="tag">Biển</span>
-                                <h5 class="mt-2">
-                                    <a href="news-detail.html?id=3" class="text-dark text-decoration-none">
-                  Khám phá Cam Ranh
-                </a>
-                                </h5>
-                                <p class="small text-muted">09/04/2026</p>
-                                <a href="news-detail.html?id=3" class="btn btn-outline-primary btn-sm">Chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="card shadow-sm card-hover">
-                            <img src="../assets/images/dongPhongNha.jpg" class="card-img-top news-img">
-                            <div class="card-body">
-                                <span class="tag">Khám phá</span>
-                                <h5 class="mt-2">
-                                    <a href="news-detail.html?id=4" class="text-dark text-decoration-none">
-                  Phong Nha kỳ vĩ
-                </a>
-                                </h5>
-                                <p class="small text-muted">08/04/2026</p>
-                                <a href="news-detail.html?id=4" class="btn btn-outline-primary btn-sm">Chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card shadow-sm card-hover">
-                            <img src="../assets/images/VinhHaLong.png" class="card-img-top news-img">
-                            <div class="card-body">
-                                <span class="tag">Khám phá</span>
-                                <h5 class="mt-2">
-                                    <a href="news-detail.html?id=5" class="text-dark text-decoration-none">
-                  Vịnh Hạ Long
-                </a>
-                                </h5>
-                                <p class="small text-muted">08/04/2026</p>
-                                <a href="news-detail.html?id=5" class="btn btn-outline-primary btn-sm">Chi tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+              </div>
             </div>
 
-            <!-- SIDEBAR -->
-            <div class="col-lg-4">
-
-                <!-- SEARCH -->
-                <div class="p-3 shadow-sm mb-3 bg-white rounded">
-                    <h5>Tìm kiếm</h5>
-                    <div class="input-group">
-                        <input class="form-control" placeholder="Nhập từ khóa">
-                        <button class="btn btn-primary"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-
-                <!-- POPULAR -->
-                <div class="p-3 shadow-sm bg-white rounded">
-                    <h5>Bài nổi bật</h5>
-
-                    <a href="news-detail.html?id=3" class="d-flex mb-3 text-dark text-decoration-none">
-                        <img src="../assets/images/vinhCamRanh.jpg" width="80" class="me-2 rounded">
-                        <p class="small">Top điểm đến hot</p>
+            <div class="col-md-6">
+              <div class="card shadow-sm card-hover">
+                <img
+                  src="../assets/images/vinhCamRanh.jpg"
+                  class="card-img-top news-img"
+                />
+                <div class="card-body">
+                  <span class="tag">Biển</span>
+                  <h5 class="mt-2">
+                    <a
+                      href="news-detail.html?id=3"
+                      class="text-dark text-decoration-none"
+                    >
+                      Khám phá Cam Ranh
                     </a>
-
-                    <a href="news-detail.html?id=2" class="d-flex mb-3 text-dark text-decoration-none">
-                        <img src="../assets/images/daLat.jpg" width="80" class="me-2 rounded">
-                        <p class="small">Đà Lạt mùa nào đẹp?</p>
-                    </a>
-
+                  </h5>
+                  <p class="small text-muted">09/04/2026</p>
+                  <a
+                    href="news-detail.html?id=3"
+                    class="btn btn-outline-primary btn-sm"
+                    >Chi tiết</a
+                  >
                 </div>
-
+              </div>
             </div>
 
+            <div class="col-md-6">
+              <div class="card shadow-sm card-hover">
+                <img
+                  src="../assets/images/dongPhongNha.jpg"
+                  class="card-img-top news-img"
+                />
+                <div class="card-body">
+                  <span class="tag">Khám phá</span>
+                  <h5 class="mt-2">
+                    <a
+                      href="news-detail.html?id=4"
+                      class="text-dark text-decoration-none"
+                    >
+                      Phong Nha kỳ vĩ
+                    </a>
+                  </h5>
+                  <p class="small text-muted">08/04/2026</p>
+                  <a
+                    href="news-detail.html?id=4"
+                    class="btn btn-outline-primary btn-sm"
+                    >Chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card shadow-sm card-hover">
+                <img
+                  src="../assets/images/VinhHaLong.png"
+                  class="card-img-top news-img"
+                />
+                <div class="card-body">
+                  <span class="tag">Khám phá</span>
+                  <h5 class="mt-2">
+                    <a
+                      href="news-detail.html?id=5"
+                      class="text-dark text-decoration-none"
+                    >
+                      Vịnh Hạ Long
+                    </a>
+                  </h5>
+                  <p class="small text-muted">08/04/2026</p>
+                  <a
+                    href="news-detail.html?id=5"
+                    class="btn btn-outline-primary btn-sm"
+                    >Chi tiết</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4">
+          <!-- SEARCH -->
+          <div class="p-3 shadow-sm mb-3 bg-white rounded">
+            <h5>Tìm kiếm</h5>
+            <div class="input-group">
+              <input class="form-control" placeholder="Nhập từ khóa" />
+              <button class="btn btn-primary">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- POPULAR -->
+          <div class="p-3 shadow-sm bg-white rounded">
+            <h5>Bài nổi bật</h5>
+
+            <a
+              href="news-detail.html?id=3"
+              class="d-flex mb-3 text-dark text-decoration-none"
+            >
+              <img
+                src="../assets/images/vinhCamRanh.jpg"
+                width="80"
+                class="me-2 rounded"
+              />
+              <p class="small">Top điểm đến hot</p>
+            </a>
+
+            <a
+              href="news-detail.html?id=2"
+              class="d-flex mb-3 text-dark text-decoration-none"
+            >
+              <img
+                src="../assets/images/daLat.jpg"
+                width="80"
+                class="me-2 rounded"
+              />
+              <p class="small">Đà Lạt mùa nào đẹp?</p>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+    <footer class="custom-footer pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h2 class="fw-bold">Phượt Vi Vu</h2>
+            <p class="italic small">
+              Hành trình nhẹ nhàng – Trải nghiệm trọn vẹn
+            </p>
+            <p class="small mb-1">
+              Giấy phép kinh doanh: 0313049973 do Sở Kế hoạch và Đầu tư TP.HCM
+              cấp.
+            </p>
+            <p class="small mb-4">
+              Giấy phép kinh doanh lữ hành: 79-1953/2024/TCDL-GP LHQT
+            </p>
 
-</body>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-telephone me-2"></i> (+84) 283 8940 390
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-envelope me-2"></i> dulich.phuotvivu@gmail.com
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-geo-alt me-2"></i> 12 Nguyễn Văn Bảo, Hạnh
+                Thông, TP. Hồ Chí Minh
+              </li>
+            </ul>
 
+            <div>
+              <a
+                href="https://www.facebook.com/sviuh"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-facebook"></i> Facebook</a
+              >
+              <a
+                href="https://www.tiktok.com/@iuh.dhcn"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-tiktok"></i> TikTok</a
+              >
+              <a
+                href="https://www.youtube.com/@iuh.dhcntphcm"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-youtube"></i> YouTube</a
+              >
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="row">
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Về chúng tôi</a></li>
+                  <li><a href="#">Hướng dẫn thanh toán</a></li>
+                  <li><a href="#">Hướng dẫn đặt tour</a></li>
+                  <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Chính sách</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Chính sách bảo mật</a></li>
+                  <li><a href="#">Điều khoản chung</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="register-box">
+              <h6 class="fw-bold mb-2">Đăng ký</h6>
+              <p class="small mb-3">
+                Nhận thông tin về các tour mới nhất và ưu đãi hấp dẫn từ chúng
+                tôi ngay hôm nay!
+              </p>
+              <form action="#" method="POST">
+                <button
+                  type="submit"
+                  class="btn btn-info text-white w-100 fw-bold shadow-sm"
+                  style="background-color: #00a8ff; border: none"
+                >
+                  <i class="bi bi-envelope"></i>
+                  <a href="#nutdk">Đăng ký ngay</a>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-12 mb-4">
+            <h6 class="fw-bold mb-3">Chứng nhận & Thanh toán</h6>
+            <p class="small mb-2">Được chứng nhận</p>
+            <img
+              src="../assets/images/logo-bo-cong-thuong-vector.png"
+              alt="Đã thông báo Bộ Công Thương"
+              width="200"
+              class="mb-3"
+            />
+
+            <p class="small mb-2">Phương thức thanh toán</p>
+            <div class="d-flex gap-2 mb-3 bg-white p-1 rounded d-inline-flex">
+              <span class="text-dark fw-bold px-1">VISA</span>
+              <span class="text-dark fw-bold px-1">MC</span>
+              <span class="text-success fw-bold px-1">VCB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row border-top border-secondary pt-3 mt-3 small">
+          <div class="col-md-6 text-center text-md-start">
+            © 2026 Phượt Vi Vu. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+            Hotline hỗ trợ 24/7: (+84) 283 8940 390
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a href="tel:02838940390" class="floating-call-btn">
+      <i class="bi bi-telephone-fill"></i>
+    </a>
+    <script>
+      let u = document.getElementById("user");
+      let p = document.getElementById("pass");
+      let ht = document.getElementById("hoTen");
+      let sodt = document.getElementById("sdt");
+      function check(so) {
+        var hoTen = ht.value;
+        var sdt = sodt.value;
+        var user = u.value;
+        var pass = p.value;
+        var tht = /^[a-zA-Z ]+$/;
+        var tsdt = /^[0-9]{10}$/;
+        var tuser = /^[\S]+$/;
+        var tpass = /^[\S]+$/;
+        switch (so) {
+          case 1: {
+            if (tht.test(hoTen)) {
+              document.getElementById("1").textContent = "";
+            } else {
+              document.getElementById("1").textContent = "*";
+            }
+            break;
+          }
+          case 2: {
+            if (tsdt.test(sdt)) {
+              document.getElementById("2").textContent = "";
+            } else {
+              document.getElementById("2").textContent = "*";
+            }
+            break;
+          }
+          case 3: {
+            if (tuser.test(user)) {
+              document.getElementById("3").textContent = "";
+            } else {
+              document.getElementById("3").textContent = "*";
+            }
+            break;
+          }
+          case 4: {
+            if (tpass.test(pass)) {
+              document.getElementById("4").textContent = "";
+            } else {
+              document.getElementById("4").textContent = "*";
+            }
+            break;
+          }
+          case 5: {
+            if (
+              tht.test(hoTen) &&
+              tsdt.test(sdt) &&
+              tuser.test(user) &&
+              tpass.test(pass)
+            ) {
+              alert("Đăng ký thành công!");
+              document.getElementById("dongdk").click();
+            } else {
+              alert("Vui lòng điền đúng thông tin!");
+            }
+            break;
+          }
+        }
+      }
+      function dangNhap() {
+        var userold = u.value;
+        var passold = p.value;
+        var userdn = document.getElementById("userdn").value;
+        var passdn = document.getElementById("passdn").value;
+        if (userdn === userold && passdn === passold && ht.value !== "") {
+          localStorage.setItem("username", userdn);
+          localStorage.setItem("password", passdn);
+          localStorage.setItem("hoTen", ht.value);
+          localStorage.setItem("sdt", sodt.value);
+          document.getElementById("dongdn").click();
+          taoUser();
+        } else {
+          alert("Sai thông tin đăng nhập!");
+        }
+      }
+      function taoUser() {
+        document.getElementById("nutdn").remove();
+        document.getElementById("nutdk").remove();
+        var menu = document.getElementById("menubar");
+        const li = document.createElement("li"); // tạo li gắn với menu
+        li.className = "nav-item dropdown";
+        const a = document.createElement("a");
+        a.className = "nav-link dropdown-toggle";
+        a.href = "#";
+        a.role = "button";
+        a.dataset.bsToggle = "dropdown";
+        const anh = document.createElement("img");
+        anh.src = "/travel-website/assets/images/avatar.jpg";
+        anh.style = "width: 50px;";
+        anh.className = "rounded-pill";
+        a.appendChild(anh);
+        li.appendChild(a);
+        const ul = document.createElement("ul");
+        ul.className = "dropdown-menu";
+        ul.style =
+          "background: linear-gradient(45deg,white, rgb(33, 147, 176), rgb(109, 213, 237),white);color: white;";
+        const li1 = document.createElement("li");
+        const li2 = document.createElement("li");
+        const li3 = document.createElement("li");
+        const li4 = document.createElement("li");
+        const a1 = document.createElement("a");
+        const a2 = document.createElement("a");
+        const a3 = document.createElement("a");
+        const a4 = document.createElement("a");
+        a1.className = "dropdown-item";
+        a2.className = "dropdown-item";
+        a3.className = "dropdown-item";
+        a4.className = "dropdown-item";
+        a1.href = "#";
+        a2.href = "#";
+        a3.href = "#";
+        a4.href = "#";
+        a1.textContent = "THÔNG TIN CÁ NHÂN";
+        a2.textContent = "GIỎ HÀNG";
+        a3.textContent = "ĐƠN HÀNG";
+        a4.textContent = "ĐĂNG XUẤT";
+        a4.onclick = function () {
+          var flag = confirm("Bạn có chắc muốn đăng xuất?");
+          if (flag) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            localStorage.removeItem("hoTen");
+            localStorage.removeItem("sdt");
+            location.reload();
+          }
+        };
+        li1.appendChild(a1);
+        li2.appendChild(a2);
+        li3.appendChild(a3);
+        li4.appendChild(a4);
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+        ul.appendChild(li3);
+        ul.appendChild(li4);
+        li.appendChild(ul);
+        menu.appendChild(li);
+      }
+      window.onload = function () {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = document.getElementById("ht");
+        var sdt = document.getElementById("sdt");
+        if (userold && passold) {
+          taoUser();
+        }
+      };
+    </script>
+  </body>
 </html>

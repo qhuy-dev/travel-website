@@ -78,9 +78,7 @@
               >
             </li>
             <li class="nav-item me-5">
-              <a style="font-size: 20px" class="nav-link" href="tour.html"
-                >Tour</a
-              >
+              <a style="font-size: 20px" class="nav-link" href="#">Tour</a>
             </li>
             <li class="nav-item me-5">
               <a style="font-size: 20px" class="nav-link" href="#"
@@ -257,19 +255,100 @@
         </div>
       </div>
     </div>
-    <div container>
-      <h1 class="text-center mt-5">Tìm kiếm tour</h1>
-      <div class="d-flex justify-content-center mt-4">
-        <input
-          id="tukhoa"
-          type="text"
-          class="form-control w-50 me-2"
-          placeholder="Nhập tên tour hoặc địa điểm..."
-        />
-        <button class="btn btn-primary" onclick="timKiem()">Tìm kiếm</button>
+    <div
+      id="banner"
+      class="carousel slide"
+      data-bs-ride="carousel "
+      data-bs-interval="3000"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="../assets/images/vinhHaLong.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/nhaTrang.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/dongPhongNha.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/vinhCamRanh.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/daLat.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#banner"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#banner"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="container mt-5 text-center">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3">
+          <h4 class="text-primary fw-bold">10 năm</h4>
+          <p class="mb-0">Chinh phục một niềm tin</p>
+        </div>
+
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-4">
+              <i class="bi bi-cash text-success fs-3"></i>
+              <p class="small">Giá tốt</p>
+            </div>
+
+            <div class="col-4">
+              <i class="bi bi-patch-check text-danger fs-3"></i>
+              <p class="small">Chất lượng</p>
+            </div>
+
+            <div class="col-4">
+              <i class="bi bi-map text-warning fs-3"></i>
+              <p class="small">Tận tâm</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="container mt-5">
+      <h3 class="text-center mb-4">Danh sách điểm đến hot</h3>
       <div class="tour row">
         <!-- Dong 1 -->
         <div class="hl col-md-4">
@@ -753,19 +832,6 @@
         ul.appendChild(li4);
         li.appendChild(ul);
         menu.appendChild(li);
-      }
-      function timKiem() {
-        var dsTour = document.querySelectorAll(".tour .col-md-4");
-        var key = document.getElementById("tukhoa").value.toLowerCase().trim();
-        dsTour.forEach(function (duLieu) {
-          var tenTour = duLieu.querySelector("h5").textContent.toLowerCase();
-
-          if (tenTour.includes(key)) {
-            duLieu.style.display = "block";
-          } else {
-            duLieu.style.display = "none";
-          }
-        });
       }
     </script>
   </body>
