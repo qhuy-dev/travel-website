@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap OFFLINE -->
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+  <title>Thanh toán</title>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-light shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="home.html">Phượt Vi Vu</a>
+  </div>
+</nav>
+
+<div class="container mt-5">
+
+  <h2 class="text-center mb-4">Thanh toán</h2>
+
+  <!-- THÔNG TIN TOUR -->
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+      Thông tin tour
+    </div>
+    <div class="card-body" id="tourInfo">
+      <!-- JS sẽ render -->
+    </div>
+  </div>
+
+  <!-- FORM KHÁCH HÀNG -->
+  <div class="card mb-4">
+    <div class="card-header bg-success text-white">
+      Thông tin khách hàng
+    </div>
+
+    <div class="card-body">
+
+      <div class="mb-3">
+        <label>Họ tên</label>
+        <input type="text" id="name" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label>Số điện thoại</label>
+        <input type="text" id="phone" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" id="email" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label>Số người</label>
+        <input type="number" id="quantity" class="form-control" value="1">
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BUTTON -->
+  <div class="text-center">
+    <button class="btn btn-danger px-5" onclick="thanhToan()">
+      Xác nhận đặt tour
+    </button>
+  </div>
+
+</div>
+
+<script>
+
+// HIỂN THỊ TOUR
+function loadTour() {
+  let tour = JSON.parse(localStorage.getItem("tour"));
+
+  if (!tour) {
+    document.getElementById("tourInfo").innerHTML = "Không có tour!";
+    return;
+  }
+
+  document.getElementById("tourInfo").innerHTML = `
+    <h5>${tour.name}</h5>
+    <p>Giá: <b class="text-danger">${tour.price}</b></p>
+  `;
+}
+
+// THANH TOÁN
+function thanhToan() {
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let quantity = document.getElementById("quantity").value;
+
+  if (name === "" || phone === "" || email === "") {
+    alert("Vui lòng nhập đầy đủ thông tin!");
+    return;
+  }
+
+  let tour = JSON.parse(localStorage.getItem("tour"));
+
+  let order = {
+    name,
+    phone,
+    email,
+    quantity,
+    tour
+  };
+
+  localStorage.setItem("order", JSON.stringify(order));
+
+  alert("Đặt tour thành công!");
+
+  // reset
+  localStorage.removeItem("tour");
+
+  window.location.href = "home.html";
+}
+
+// LOAD
+window.onload = loadTour;
+
+</script>
+
+</body>
+</html>
