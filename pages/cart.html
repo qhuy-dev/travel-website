@@ -326,7 +326,7 @@
     <script>
       const KEY = "phuo_vi_vu_cart";
 
-      const ALL_TOURS = [
+       const ALL_TOURS = [
         {
           id: 1,
           name: "Hạ Long 3N2Đ",
@@ -352,29 +352,93 @@
           img: "../assets/images/daLat.jpg",
         },
         {
-          id: 4,
+          id: 7,
           name: "Phong Nha 2N1Đ",
           duration: "2 ngày 1 đêm",
           depart: "Hà Nội",
-          price: 2200000,
+          price: 29900000,
           img: "../assets/images/dongPhongNha.jpg",
         },
         {
-          id: 5,
-          name: "Cà Mau 3N2Đ",
-          duration: "3 ngày 2 đêm",
+          id: 4,
+          name: "Hạ Long 4N3Đ",
+          duration: "4 ngày 3 đêm",
           depart: "TP.HCM",
-          price: 3500000,
+          price: 4636000,
           img: "../assets/images/caMau.jpg",
         },
         {
-          id: 6,
+          id: 11,
           name: "Phú Quốc 4N3Đ",
           duration: "4 ngày 3 đêm",
           depart: "Cần Thơ",
-          price: 3800000,
+          price: 4990000,
           img: "../assets/images/phuQuoc.jpg",
         },
+        {
+          id: 5,
+          name: "Nha Trang 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "Cần Thơ",
+          price: 3650000,
+          img: "../assets/images/nhaTrang1.jpg",
+        },
+         {
+          id: 6,
+          name: "Đà Lạt 2N1Đ",
+          duration: "2 ngày 1 đêm",
+          depart: "Cần Thơ",
+          price: 2220000,
+          img: "../assets/images/daLat1.jpg",
+        },
+        {
+          id: 9,
+          name: "Vịnh Cam Ranh 4N3Đ",
+          duration: "4 ngày 3 đêm",
+          depart: "TP.Hồ Chí Minh",
+          price: 2220000,
+          img: "../assets/images/daLat1.jpg",
+        },
+        {
+          id: 10,
+          name: "Cà Mau 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "Cần Thơ",
+          price: 3220000,
+          img: "../assets/images/daLat1.jpg",
+        },
+        {
+          id: 8,
+          name: "Động Phong Nha 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "TP.HCM",
+          price: 3500000,
+          img: "../assets/images/dongPhongNha1.jpg",
+        },
+        {
+          id: 12,
+          name: "Phú Quốc 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "Cần Thơ",
+          price: 3500000,
+          img: "../assets/images/phuQuoc.jpg",
+        },
+        {
+          id: 13,
+          name: "Cà Mau 4N3Đ",
+          duration: "2 ngày 1 đêm",
+          depart: "Cần Thơ",
+          price: 3990000,
+          img: "../assets/images/caMau2.jpg",
+        },
+        {
+          id: 14,
+          name: "Cà Mau 2N1Đ",
+          duration: "2 ngày 1 đêm",
+          depart: "Cần Thơ",
+          price: 2500000,
+          img: "../assets/images/caMau2.jpg",
+        }
       ];
 
       function fmt(n) {
@@ -391,9 +455,9 @@
         localStorage.setItem(KEY, JSON.stringify(c));
       }
 
-      if (loadCart().length === 0) {
-        saveCart([{ ...ALL_TOURS[0] }, { ...ALL_TOURS[1] }]);
-      }
+      // if (loadCart().length === 0) {
+      //   saveCart([{ ...ALL_TOURS[0] }, { ...ALL_TOURS[1] }]);
+      // }
 
       function removeTour(id) {
         saveCart(loadCart().filter((t) => t.id !== id));
@@ -526,7 +590,7 @@
           { delay: 2500 },
         ).show();
       }
-let u = document.getElementById("user");
+      let u = document.getElementById("user");
       let p = document.getElementById("pass");
       let ht = document.getElementById("hoTen");
       let sodt = document.getElementById("sdt");
@@ -638,11 +702,11 @@ let u = document.getElementById("user");
         a3.className = "dropdown-item";
         a4.className = "dropdown-item";
         a1.href = "#";
-        a2.href = "#";
+        a2.href = "cart.html";
         a3.href = "#";
         a4.href = "#";
         a1.textContent = "THÔNG TIN CÁ NHÂN";
-        a2.textContent = "GIỎ HÀNG";
+        a2.innerHTML = '<i class="bi bi-cart3 me-2"></i>GIỎ HÀNG';
         a3.textContent = "ĐƠN HÀNG";
         a4.textContent = "ĐĂNG XUẤT";
         a4.onclick = function () {
@@ -652,7 +716,7 @@ let u = document.getElementById("user");
             localStorage.removeItem("password");
             localStorage.removeItem("hoTen");
             localStorage.removeItem("sdt");
-            location.reload();
+            window.location.href = "home.html";
           }
         };
         li1.appendChild(a1);
@@ -675,15 +739,15 @@ let u = document.getElementById("user");
           taoUser();
         }
       };
-      function xemTour(ten, hinh, mota, gia) {
-        document.getElementById("tenTour").innerText = ten;
-        document.getElementById("hinhTour").src = hinh;
-        document.getElementById("moTaTour").innerText = mota;
-        document.getElementById("giaTour").innerText = gia;
+      // function xemTour(ten, hinh, mota, gia) {
+      //   document.getElementById("tenTour").innerText = ten;
+      //   document.getElementById("hinhTour").src = hinh;
+      //   document.getElementById("moTaTour").innerText = mota;
+      //   document.getElementById("giaTour").innerText = gia;
 
-        let modal = new bootstrap.Modal(document.getElementById("modalTour"));
-        modal.show();
-      }
+      //   let modal = new bootstrap.Modal(document.getElementById("modalTour"));
+      //   modal.show();
+      // }
       render();
     </script>
   </body>

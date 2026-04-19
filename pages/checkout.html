@@ -7,6 +7,10 @@
     <!-- Bootstrap OFFLINE -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <title>Thanh toán</title>
   </head>
@@ -509,11 +513,11 @@
         a3.className = "dropdown-item";
         a4.className = "dropdown-item";
         a1.href = "#";
-        a2.href = "#";
+        a2.href = "cart.html";
         a3.href = "#";
         a4.href = "#";
         a1.textContent = "THÔNG TIN CÁ NHÂN";
-        a2.textContent = "GIỎ HÀNG";
+        a2.innerHTML = '<i class="bi bi-cart3 me-2"></i>GIỎ HÀNG';
         a3.textContent = "ĐƠN HÀNG";
         a4.textContent = "ĐĂNG XUẤT";
         a4.onclick = function () {
