@@ -12,31 +12,6 @@
       rel="stylesheet"
     />
     <style>
-      .hero-contact {
-        background: url("../assets/images/vinhHaLong.jpg") center/cover
-          no-repeat;
-        height: 300px;
-        border-radius: 20px;
-        position: relative;
-        color: white;
-        display: flex;
-        align-items: center;
-        padding: 40px;
-      }
-
-      .hero-contact::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.4);
-        border-radius: 20px;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-      }
-
       .contact-card {
         border-radius: 20px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -95,7 +70,7 @@
               >
             </li>
             <li class="nav-item me-5">
-              <a style="font-size: 20px" class="nav-link" href="#"
+              <a style="font-size: 20px" class="nav-link" href="about.html"
                 >Giới Thiệu</a
               >
             </li>
@@ -144,7 +119,6 @@
       </div>
     </nav>
     <div class="container mt-4">
-      <!-- HERO -->
       <div class="hero-contact mb-4">
         <div class="hero-content">
           <h2 class="fw-bold">Liên hệ với chúng tôi</h2>
@@ -402,6 +376,15 @@
       </div>
     </footer>
     <script>
+      window.onload = function () {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = document.getElementById("ht");
+        var sdt = document.getElementById("sdt");
+        if (userold && passold) {
+          taoUser();
+        }
+      };
       let u = document.getElementById("user");
       let p = document.getElementById("pass");
       let ht = document.getElementById("hoTen");
@@ -492,7 +475,7 @@
         a.role = "button";
         a.dataset.bsToggle = "dropdown";
         const anh = document.createElement("img");
-        anh.src = "/travel-website/assets/images/avatar.jpg";
+        anh.src = "../assets/images/avatar.jpg";
         anh.style = "width: 50px;";
         anh.className = "rounded-pill";
         a.appendChild(anh);
@@ -542,15 +525,7 @@
         li.appendChild(ul);
         menu.appendChild(li);
       }
-      window.onload = function () {
-        var userold = localStorage.getItem("username");
-        var passold = localStorage.getItem("password");
-        var ht = document.getElementById("ht");
-        var sdt = document.getElementById("sdt");
-        if (userold && passold) {
-          taoUser();
-        }
-      };
+
       function validateTen() {
         let ten = document.getElementById("ten").value.trim();
         let regex = /^[a-zA-ZÀ-ỹ\s]+$/;

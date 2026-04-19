@@ -1,57 +1,248 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <title>Chi tiết tin tức</title>
 
     <style>
-        .article-img {
-            height: 400px;
-            object-fit: cover;
-        }
+      .article-img {
+        height: 400px;
+        object-fit: cover;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="home.html">
-                <img src="../assets/images/logo.jpg" width="150" height="120" class="rounded-circle" />
-            </a>
+      <div class="container">
+        <a class="navbar-brand" href="home.html">
+          <img
+            src="../assets/images/logo.jpg"
+            alt="Logo"
+            width="150"
+            height="120"
+            class="rounded-circle"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul id="menubar" class="navbar-nav ms-auto">
+            <li class="nav-item me-5">
+              <a class="nav-link" style="font-size: 20px" href="home.html"
+                >Trang Chủ</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="tour.html"
+                >Tour</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="about.html"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="contact.html"
+                >Liên Hệ</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a
+                style="font-size: 20px"
+                class="nav-link"
+                href="../pages/news.html"
+                >Tin Tức</a
+              >
+            </li>
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-outline-primary px-3 rounded-pill"
+                data-bs-target="#dangNhap"
+                data-bs-toggle="modal"
+                id="nutdn"
+                >Đăng nhập</a
+              >
+            </li>
+
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-primary px-3 rounded-pill"
+                data-bs-target="#dangKy"
+                data-bs-toggle="modal"
+                id="nutdk"
+                >Đăng ký</a
+              >
+            </li>
+            <li class="nav-item ms-3">
+              <a
+                class="btn d-flex align-items-center gap-2 mt-1"
+                href="search.html"
+              >
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- CONTENT -->
     <div class="container mt-4">
+      <h2 id="title" class="fw-bold"></h2>
+      <p class="text-muted">Admin • 2026</p>
 
-        <h2 id="title" class="fw-bold"></h2>
-        <p class="text-muted">Admin • 2026</p>
+      <img id="image" class="w-100 rounded article-img my-3" />
 
-        <img id="image" class="w-100 rounded article-img my-3">
+      <div id="content" class="fs-5"></div>
 
-        <div id="content" class="fs-5"></div>
-
-        <a href="news.html" class="btn btn-outline-primary mt-4">
-    ← Quay lại danh sách
-  </a>
-
+      <a href="news.html" class="btn btn-outline-primary mt-4">
+        ← Quay lại danh sách
+      </a>
     </div>
+    <footer class="custom-footer pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h2 class="fw-bold">Phượt Vi Vu</h2>
+            <p class="italic small">
+              Hành trình nhẹ nhàng – Trải nghiệm trọn vẹn
+            </p>
+            <p class="small mb-1">
+              Giấy phép kinh doanh: 0313049973 do Sở Kế hoạch và Đầu tư TP.HCM
+              cấp.
+            </p>
+            <p class="small mb-4">
+              Giấy phép kinh doanh lữ hành: 79-1953/2024/TCDL-GP LHQT
+            </p>
+
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-telephone me-2"></i> (+84) 283 8940 390
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-envelope me-2"></i> dulich.phuotvivu@gmail.com
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-geo-alt me-2"></i> 12 Nguyễn Văn Bảo, Hạnh
+                Thông, TP. Hồ Chí Minh
+              </li>
+            </ul>
+
+            <div>
+              <a
+                href="https://www.facebook.com/sviuh"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-facebook"></i> Facebook</a
+              >
+              <a
+                href="https://www.tiktok.com/@iuh.dhcn"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-tiktok"></i> TikTok</a
+              >
+              <a
+                href="https://www.youtube.com/@iuh.dhcntphcm"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-youtube"></i> YouTube</a
+              >
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="row">
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Về chúng tôi</a></li>
+                  <li><a href="#">Hướng dẫn thanh toán</a></li>
+                  <li><a href="#">Hướng dẫn đặt tour</a></li>
+                  <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Chính sách</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Chính sách bảo mật</a></li>
+                  <li><a href="#">Điều khoản chung</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="register-box">
+              <h6 class="fw-bold mb-2">Đăng ký</h6>
+              <p class="small mb-3">
+                Nhận thông tin về các tour mới nhất và ưu đãi hấp dẫn từ chúng
+                tôi ngay hôm nay!
+              </p>
+              <form action="#" method="POST">
+                <button
+                  type="submit"
+                  class="btn btn-info text-white w-100 fw-bold shadow-sm"
+                  style="background-color: #00a8ff; border: none"
+                >
+                  <i class="bi bi-envelope"></i>
+                  <a href="#nutdk">Đăng ký ngay</a>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-12 mb-4">
+            <h6 class="fw-bold mb-3">Chứng nhận & Thanh toán</h6>
+            <p class="small mb-2">Được chứng nhận</p>
+            <img
+              src="../assets/images/logo-bo-cong-thuong-vector.png"
+              alt="Đã thông báo Bộ Công Thương"
+              width="200"
+              class="mb-3"
+            />
+
+            <p class="small mb-2">Phương thức thanh toán</p>
+            <div class="d-flex gap-2 mb-3 bg-white p-1 rounded d-inline-flex">
+              <span class="text-dark fw-bold px-1">VISA</span>
+              <span class="text-dark fw-bold px-1">MC</span>
+              <span class="text-success fw-bold px-1">VCB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row border-top border-secondary pt-3 mt-3 small">
+          <div class="col-md-6 text-center text-md-start">
+            © 2026 Phượt Vi Vu. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+            Hotline hỗ trợ 24/7: (+84) 283 8940 390
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- SCRIPT -->
     <script>
-        const data = {
-            2: {
-                title: "Đà Lạt mùa nào đẹp?",
-                img: "../assets/images/daLat.jpg",
-                content: `
+      const data = {
+        2: {
+          title: "Đà Lạt mùa nào đẹp?",
+          img: "../assets/images/daLat.jpg",
+          content: `
             Đà Lạt là một trong những điểm du lịch nổi tiếng và được yêu thích nhất tại khu vực Tây Nguyên. Nằm trên cao nguyên Lâm Viên với độ cao khoảng 1.500m so với mực nước biển, Đà Lạt sở hữu khí hậu mát mẻ quanh năm cùng khung cảnh thiên nhiên thơ mộng, lãng mạn.
 
 Du lịch Đà Lạt, du khách sẽ được chiêm ngưỡng nhiều địa danh nổi bật như Hồ Xuân Hương, Thung lũng Tình Yêu, Đỉnh Langbiang,... Không chỉ vậy, nơi đây còn hấp dẫn du khách bởi các món đặc sản như bánh tráng nướng, lẩu gà lá é, dâu tây tươi, sữa đậu nành nóng,...
@@ -59,55 +250,211 @@ Du lịch Đà Lạt, du khách sẽ được chiêm ngưỡng nhiều địa da
 Những trải nghiệm thú vị tại Đà Lạt có thể kể đến như săn mây vào sáng sớm, cắm trại giữa rừng thông, check-in tại các quán cà phê view núi, tham quan nông trại dâu và tận hưởng không khí se lạnh đặc trưng của “thành phố ngàn hoa”.
 
     
-        `
-            },
-            3: {
-                title: "Khám phá Cam Ranh",
-                img: "../assets/images/vinhCamRanh.jpg",
-                content: `
+        `,
+        },
+        3: {
+          title: "Khám phá Cam Ranh",
+          img: "../assets/images/vinhCamRanh.jpg",
+          content: `
            Vịnh Hạ Long là một trong những địa điểm du lịch miền Bắc hấp dẫn nhất hiện nay. Với diện tích khoảng 1.553 km², nơi đây bao gồm gần 2.000 hòn đảo đá vôi lớn nhỏ mang nhiều hình thù độc đáo, tạo nên một bức tranh thiên nhiên kỳ vĩ và sống động.
 
 Du lịch Hạ Long – một trong những kỳ quan thiên nhiên thế giới được UNESCO công nhận, du khách sẽ được khám phá hệ thống hang động tuyệt đẹp cùng các hòn đảo nổi tiếng như Đảo Mắt Rồng, Đảo Ngọc Vừng, Hòn Con Cóc,... Không chỉ sở hữu cảnh sắc ấn tượng, nơi đây còn nổi tiếng với nhiều món đặc sản hấp dẫn như chả mực, sá sùng, hàu nướng, chả rươi, sam biển,...
 
 Những trải nghiệm độc đáo và phổ biến nhất tại Hạ Long có thể kể đến như ngồi tàu tham quan vịnh và các hang động nổi tiếng, chèo kayak khám phá làn nước xanh trong, ngắm toàn cảnh từ trên cao bằng thủy phi cơ hay tận hưởng kỳ nghỉ trên du thuyền giữa lòng di sản thiên nhiên.
     
-        `
-            },
-            4: {
-                title: "Phong Nha kỳ vĩ",
-                img: "../assets/images/dongPhongNha.jpg",
-                content: `
+        `,
+        },
+        4: {
+          title: "Phong Nha kỳ vĩ",
+          img: "../assets/images/dongPhongNha.jpg",
+          content: `
            Phong Nha – Kẻ Bàng là một trong những điểm du lịch khám phá hấp dẫn nhất miền Trung Việt Nam. Với hệ thống núi đá vôi có tuổi đời hàng trăm triệu năm cùng hơn 300 hang động lớn nhỏ, nơi đây được xem là “vương quốc hang động” nổi tiếng thế giới.
 
 Đến với Phong Nha – Kẻ Bàng, du khách sẽ có cơ hội khám phá những hang động kỳ vĩ như Động Phong Nha, Động Thiên Đường, Hang Sơn Đoòng,... Bên cạnh đó, ẩm thực địa phương cũng rất phong phú với các món như cháo canh, bánh bột lọc, hải sản tươi sống,...
 
 Những trải nghiệm nổi bật tại đây bao gồm thám hiểm hang động, trekking rừng nguyên sinh, chèo kayak trên sông, zipline và tắm bùn tại khu Sông Chày – Hang Tối,...
     
-        `
-            },
-            5: {
-                title: "Vinh Ha Long",
-                img: "../assets/images/VinhHaLong.png",
-                content: `
+        `,
+        },
+        5: {
+          title: "Vinh Ha Long",
+          img: "../assets/images/VinhHaLong.png",
+          content: `
          Vịnh Hạ Long là một trong những địa điểm du lịch miền Bắc hấp dẫn nhất hiện nay. Với diện tích khoảng 1.553 km², nơi đây bao gồm gần 2.000 hòn đảo đá vôi lớn nhỏ mang nhiều hình thù độc đáo, tạo nên một bức tranh thiên nhiên kỳ vĩ và sống động.
 
 Du lịch Hạ Long – một trong những kỳ quan thiên nhiên thế giới được UNESCO công nhận, du khách sẽ được khám phá hệ thống hang động tuyệt đẹp cùng các hòn đảo nổi tiếng như Đảo Mắt Rồng, Đảo Ngọc Vừng, Hòn Con Cóc,... Không chỉ sở hữu cảnh sắc ấn tượng, nơi đây còn nổi tiếng với nhiều món đặc sản hấp dẫn như chả mực, sá sùng, hàu nướng, chả rươi, sam biển,...
 
 Những trải nghiệm độc đáo và phổ biến nhất tại Hạ Long có thể kể đến như ngồi tàu tham quan vịnh và các hang động nổi tiếng, chèo kayak khám phá làn nước xanh trong, ngắm toàn cảnh từ trên cao bằng thủy phi cơ hay tận hưởng kỳ nghỉ trên du thuyền giữa lòng di sản thiên nhiên.
     
-        `
+        `,
+        },
+      };
+
+      const id = new URLSearchParams(window.location.search).get("id");
+
+      if (data[id]) {
+        document.getElementById("title").innerText = data[id].title;
+        document.getElementById("image").src = data[id].img;
+        document.getElementById("content").innerText = data[id].content;
+      }
+      let u = document.getElementById("user");
+      let p = document.getElementById("pass");
+      let ht = document.getElementById("hoTen");
+      let sodt = document.getElementById("sdt");
+      function check(so) {
+        var hoTen = ht.value;
+        var sdt = sodt.value;
+        var user = u.value;
+        var pass = p.value;
+        var tht = /^[a-zA-Z ]+$/;
+        var tsdt = /^[0-9]{10}$/;
+        var tuser = /^[\S]+$/;
+        var tpass = /^[\S]+$/;
+        switch (so) {
+          case 1: {
+            if (tht.test(hoTen)) {
+              document.getElementById("1").textContent = "";
+            } else {
+              document.getElementById("1").textContent = "*";
             }
-        };
-
-        const id = new URLSearchParams(window.location.search).get("id");
-
-        if (data[id]) {
-            document.getElementById("title").innerText = data[id].title;
-            document.getElementById("image").src = data[id].img;
-            document.getElementById("content").innerText = data[id].content;
+            break;
+          }
+          case 2: {
+            if (tsdt.test(sdt)) {
+              document.getElementById("2").textContent = "";
+            } else {
+              document.getElementById("2").textContent = "*";
+            }
+            break;
+          }
+          case 3: {
+            if (tuser.test(user)) {
+              document.getElementById("3").textContent = "";
+            } else {
+              document.getElementById("3").textContent = "*";
+            }
+            break;
+          }
+          case 4: {
+            if (tpass.test(pass)) {
+              document.getElementById("4").textContent = "";
+            } else {
+              document.getElementById("4").textContent = "*";
+            }
+            break;
+          }
+          case 5: {
+            if (
+              tht.test(hoTen) &&
+              tsdt.test(sdt) &&
+              tuser.test(user) &&
+              tpass.test(pass)
+            ) {
+              alert("Đăng ký thành công!");
+              document.getElementById("dongdk").click();
+            } else {
+              alert("Vui lòng điền đúng thông tin!");
+            }
+            break;
+          }
         }
+      }
+      function dangNhap() {
+        var userold = u.value;
+        var passold = p.value;
+        var userdn = document.getElementById("userdn").value;
+        var passdn = document.getElementById("passdn").value;
+        if (userdn === userold && passdn === passold && ht.value !== "") {
+          localStorage.setItem("username", userdn);
+          localStorage.setItem("password", passdn);
+          localStorage.setItem("hoTen", ht.value);
+          localStorage.setItem("sdt", sodt.value);
+          document.getElementById("dongdn").click();
+          taoUser();
+        } else {
+          alert("Sai thông tin đăng nhập!");
+        }
+      }
+      function taoUser() {
+        document.getElementById("nutdn").remove();
+        document.getElementById("nutdk").remove();
+        var menu = document.getElementById("menubar");
+        const li = document.createElement("li"); // tạo li gắn với menu
+        li.className = "nav-item dropdown";
+        const a = document.createElement("a");
+        a.className = "nav-link dropdown-toggle";
+        a.href = "#";
+        a.role = "button";
+        a.dataset.bsToggle = "dropdown";
+        const anh = document.createElement("img");
+        anh.src = "/travel-website/assets/images/avatar.jpg";
+        anh.style = "width: 50px;";
+        anh.className = "rounded-pill";
+        a.appendChild(anh);
+        li.appendChild(a);
+        const ul = document.createElement("ul");
+        ul.className = "dropdown-menu";
+        ul.style =
+          "background: linear-gradient(45deg,white, rgb(33, 147, 176), rgb(109, 213, 237),white);color: white;";
+        const li1 = document.createElement("li");
+        const li2 = document.createElement("li");
+        const li3 = document.createElement("li");
+        const li4 = document.createElement("li");
+        const a1 = document.createElement("a");
+        const a2 = document.createElement("a");
+        const a3 = document.createElement("a");
+        const a4 = document.createElement("a");
+        a1.className = "dropdown-item";
+        a2.className = "dropdown-item";
+        a3.className = "dropdown-item";
+        a4.className = "dropdown-item";
+        a1.href = "#";
+        a2.href = "#";
+        a3.href = "#";
+        a4.href = "#";
+        a1.textContent = "THÔNG TIN CÁ NHÂN";
+        a2.textContent = "GIỎ HÀNG";
+        a3.textContent = "ĐƠN HÀNG";
+        a4.textContent = "ĐĂNG XUẤT";
+        a4.onclick = function () {
+          var flag = confirm("Bạn có chắc muốn đăng xuất?");
+          if (flag) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            localStorage.removeItem("hoTen");
+            localStorage.removeItem("sdt");
+            location.reload();
+          }
+        };
+        li1.appendChild(a1);
+        li2.appendChild(a2);
+        li3.appendChild(a3);
+        li4.appendChild(a4);
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+        ul.appendChild(li3);
+        ul.appendChild(li4);
+        li.appendChild(ul);
+        menu.appendChild(li);
+      }
+      window.onload = function () {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = document.getElementById("ht");
+        var sdt = document.getElementById("sdt");
+        if (userold && passold) {
+          taoUser();
+        }
+      };
+      function xemTour(ten, hinh, mota, gia) {
+        document.getElementById("tenTour").innerText = ten;
+        document.getElementById("hinhTour").src = hinh;
+        document.getElementById("moTaTour").innerText = mota;
+        document.getElementById("giaTour").innerText = gia;
+
+        let modal = new bootstrap.Modal(document.getElementById("modalTour"));
+        modal.show();
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
