@@ -1,7 +1,7 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giỏ Hàng</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
@@ -9,25 +9,9 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <style>
-        .custom-footer {
-        background-color: #0c5b85;
-        color: #ffffff;
-        font-size: 0.9rem;
-      }
-      .custom-footer a {
-        color: #ffffff;
-        text-decoration: none;
-        transition: 0.3s;
-      }
-
-      .custom-footer a:hover {
-        color: #f1c40f;
-      }
-    </style>
-</head>
-<body>
-     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <nav class="navbar navbar-expand-lg bg-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="home.html">
           <img
@@ -50,21 +34,32 @@
         <div class="collapse navbar-collapse" id="menu">
           <ul id="menubar" class="navbar-nav ms-auto">
             <li class="nav-item me-5">
-              <a class="nav-link" style="font-size: 20px" href="#">Trang Chủ</a>
+              <a class="nav-link" style="font-size: 20px" href="home.html"
+                >Trang Chủ</a
+              >
             </li>
             <li class="nav-item me-5">
-              <a style="font-size: 20px" class="nav-link" href="#">Tour</a>
+              <a style="font-size: 20px" class="nav-link" href="tour.html"
+                >Tour</a
+              >
             </li>
             <li class="nav-item me-5">
-              <a style="font-size: 20px" class="nav-link" href="#"
+              <a style="font-size: 20px" class="nav-link" href="about.html"
                 >Giới Thiệu</a
               >
             </li>
             <li class="nav-item me-5">
-              <a style="font-size: 20px" class="nav-link" href="contact.html">Liên Hệ</a>
+              <a style="font-size: 20px" class="nav-link" href="contact.html"
+                >Liên Hệ</a
+              >
             </li>
             <li class="nav-item me-5">
-              <a style="font-size: 20px" class="nav-link" href="../pages/news.html">Tin Tức</a>
+              <a
+                style="font-size: 20px"
+                class="nav-link"
+                href="../pages/news.html"
+                >Tin Tức</a
+              >
             </li>
             <li class="nav-item ms-2 mt-1">
               <a
@@ -97,79 +92,100 @@
         </div>
       </div>
     </nav>
-    <img src="../assets/images/vinhHaLong.jpg" alt="" class="img-fluid w-100"  style="height:300px; object-fit:cover;">
+    <img
+      src="../assets/images/vinhHaLong.jpg"
+      alt=""
+      class="img-fluid w-100"
+      style="height: 300px; object-fit: cover"
+    />
     <h1 class="text-center text-uppercase mt-3">giỏ hàng của bạn</h1>
     <div class="container min-height: 60vh;">
-        
-        
-        <p class="text-center text-muted" style="font-size: 20;">Xem lại các tour đã chọn trước khi đặt</p>
-        
-        <div class="row mt-4">
-            <div class="col-sm-8">
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-white d-flex justify-content-between align-items-center py-3">
-                        <h6 class="mb-0 fw-bold">
-                        <i class="bi bi-map text-primary me-2"></i>
-                        Danh sách tour đã chọn
-                            <span id="count-label" class="text-muted fw-normal small ms-1"></span>
-                        </h6>
-                        <button class="btn btn-sm btn-outline-danger" onclick="clearAll()">
-                            <i class="bi bi-trash3 me-1"></i>Xóa tất cả
-                        </button>
-                    </div>
-                        <div class="card-body p-0" id="tour-list"></div>
-                </div>
-                <div class="card shadow-sm">
-                    <div class="card-header bg-white py-3">
-                        <h6 class="mb-0 fw-bold">
-                        <i class="bi bi-stars text-warning me-2"></i>Có thể bạn muốn thêm
-                        </h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="row g-3" id="suggest-list"></div>
-                    </div>
-                </div>
+      <p class="text-center text-muted" style="font-size: 20">
+        Xem lại các tour đã chọn trước khi đặt
+      </p>
+
+      <div class="row mt-4">
+        <div class="col-sm-8">
+          <div class="card shadow-sm mb-4">
+            <div
+              class="card-header bg-white d-flex justify-content-between align-items-center py-3"
+            >
+              <h6 class="mb-0 fw-bold">
+                <i class="bi bi-map text-primary me-2"></i>
+                Danh sách tour đã chọn
+                <span
+                  id="count-label"
+                  class="text-muted fw-normal small ms-1"
+                ></span>
+              </h6>
+              <button
+                class="btn btn-sm btn-outline-danger"
+                onclick="clearAll()"
+              >
+                <i class="bi bi-trash3 me-1"></i>Xóa tất cả
+              </button>
             </div>
-            <div class="col-sm-4">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-white py-3">
-                        <h6 class="mb-0 fw-bold">
-                        <i class="bi bi-receipt text-primary me-2"></i>Tóm tắt đơn hàng
-                        </h6>
-                    </div>
-                    <div class="card-body">
-            
-                        <div id="sum-items"></div>
-                        <hr/>
-                        <div class="d-flex justify-content-between small mb-2">
-                            <span class="text-muted">Phí dịch vụ</span>
-                            <span class="text-success fw-semibold">Miễn phí</span>
-                        </div>
-            
-                        <hr/>
-            
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="fw-bold">Tổng tiền</span>
-                            <span class="fw-bold text-danger fs-5" id="total-price">0đ</span>
-                        </div>
-            
-                        <button class="btn btn-primary w-100" id="btn-book" onclick="bookNow()" disabled>
-                            <i class="bi bi-check2-circle me-2"></i>Đặt tour ngay
-                        </button>
-            
-                        <div class="alert alert-info mt-3 mb-0 small py-2">
-                            <i class="bi bi-shield-check me-1"></i>Miễn phí hủy 24h &nbsp;|&nbsp;
-                            <i class="bi bi-headset me-1"></i>Hỗ trợ 24/7 &nbsp;|&nbsp;
-                            <i class="bi bi-lock me-1"></i>Bảo mật
-                        </div>
-        
-                    </div>
-                </div>
+            <div class="card-body p-0" id="tour-list"></div>
+          </div>
+          <div class="card shadow-sm">
+            <div class="card-header bg-white py-3">
+              <h6 class="mb-0 fw-bold">
+                <i class="bi bi-stars text-warning me-2"></i>Có thể bạn muốn
+                thêm
+              </h6>
             </div>
+            <div class="card-body">
+              <div class="row g-3" id="suggest-list"></div>
+            </div>
+          </div>
         </div>
+        <div class="col-sm-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-white py-3">
+              <h6 class="mb-0 fw-bold">
+                <i class="bi bi-receipt text-primary me-2"></i>Tóm tắt đơn hàng
+              </h6>
+            </div>
+            <div class="card-body">
+              <div id="sum-items"></div>
+              <hr />
+              <div class="d-flex justify-content-between small mb-2">
+                <span class="text-muted">Phí dịch vụ</span>
+                <span class="text-success fw-semibold">Miễn phí</span>
+              </div>
+
+              <hr />
+
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <span class="fw-bold">Tổng tiền</span>
+                <span class="fw-bold text-danger fs-5" id="total-price"
+                  >0đ</span
+                >
+              </div>
+
+              <button
+                class="btn btn-primary w-100"
+                id="btn-book"
+                onclick="bookNow()"
+                disabled
+              >
+                <i class="bi bi-check2-circle me-2"></i>Đặt tour ngay
+              </button>
+
+              <div class="alert alert-info mt-3 mb-0 small py-2">
+                <i class="bi bi-shield-check me-1"></i>Miễn phí hủy 24h
+                &nbsp;|&nbsp; <i class="bi bi-headset me-1"></i>Hỗ trợ 24/7
+                &nbsp;|&nbsp; <i class="bi bi-lock me-1"></i>Bảo mật
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <footer class="custom-footer pt-5 pb-3 mt-5">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-12 mb-4">
             <h2 class="fw-bold">Phượt Vi Vu</h2>
@@ -289,80 +305,215 @@
         </div>
       </div>
     </footer>
-    <div class="position-fixed bottom-0 start-50 translate-middle-x mb-4" style="z-index:9999">
-    <div id="liveToast" class="toast align-items-center text-bg-dark border-0">
+    <div
+      class="position-fixed bottom-0 start-50 translate-middle-x mb-4"
+      style="z-index: 9999"
+    >
+      <div
+        id="liveToast"
+        class="toast align-items-center text-bg-dark border-0"
+      >
         <div class="d-flex">
-            <div class="toast-body" id="toast-body"></div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-            </div>
+          <div class="toast-body" id="toast-body"></div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+          ></button>
         </div>
+      </div>
     </div>
     <script>
       const KEY = "phuo_vi_vu_cart";
- 
-        const ALL_TOURS = [
-            { id:1, name:"Hạ Long 3N2Đ",   duration:"3 ngày 2 đêm", depart:"Hà Nội",  price:3990000, img:"../assets/images/vinhHaLong.jpg" },
-            { id:2, name:"Nha Trang 4N3Đ", duration:"4 ngày 3 đêm", depart:"TP.HCM",  price:4500000, img:"../assets/images/nhaTrang.jpg" },
-            { id:3, name:"Đà Lạt 3N2Đ",   duration:"3 ngày 2 đêm", depart:"TP.HCM",  price:2990000, img:"../assets/images/daLat.jpg" },
-            { id:4, name:"Phong Nha 2N1Đ", duration:"2 ngày 1 đêm", depart:"Hà Nội",  price:2200000, img:"../assets/images/dongPhongNha.jpg" },
-            { id:5, name:"Cà Mau 3N2Đ",   duration:"3 ngày 2 đêm", depart:"TP.HCM", price:3500000, img:"../assets/images/caMau.jpg" },
-            { id:6, name:"Phú Quốc 4N3Đ",     duration:"4 ngày 3 đêm", depart:"Cần Thơ",  price:3800000, img:"../assets/images/phuQuoc.jpg" },
-        ];
- 
-    function fmt(n) { return n.toLocaleString("vi-VN") + "đ"; }
-    function loadCart() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } }
-    function saveCart(c) { localStorage.setItem(KEY, JSON.stringify(c)); }
- 
-    if (loadCart().length === 0) {
-      saveCart([{ ...ALL_TOURS[0] }, { ...ALL_TOURS[1] }]);
-    }
- 
-    function removeTour(id) {
-      saveCart(loadCart().filter(t => t.id !== id));
-      render();
-      showToast("Đã xóa tour khỏi danh sách");
-    }
- 
-    function clearAll() {
-      if (!loadCart().length) return;
-      saveCart([]);
-      render();
-      showToast("Đã xóa toàn bộ tour");
-    }
- 
-    function addTour(id) {
-      const cart = loadCart();
-      if (cart.find(t => t.id === id)) { showToast("Tour này đã có trong danh sách!"); return; }
-      const tour = ALL_TOURS.find(t => t.id === id);
-      if (!tour) return;
-      cart.push({ ...tour });
-      saveCart(cart);
-      render();
-      showToast("✓ Đã thêm " + tour.name);
-    }
- 
-    function bookNow() {
-      showToast("Đang chuyển đến trang thanh toán...");
-      setTimeout(() => { window.location.href = "checkout.html"; }, 1200);
-    }
- 
-    function render() {
-      const cart = loadCart();
-      const total = cart.reduce((s, t) => s + t.price, 0);
- 
-      document.getElementById("count-label").textContent = cart.length ? "(" + cart.length + " tour)" : "";
- 
-      // Tour list
-      const listEl = document.getElementById("tour-list");
-      if (!cart.length) {
-        listEl.innerHTML = `
+
+       const ALL_TOURS = [
+        {
+          id: 1,
+          name: "Hạ Long 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "Hà Nội",
+          price: 3990000,
+          img: "../assets/images/vinhHaLong.jpg",
+        },
+        {
+          id: 2,
+          name: "Nha Trang 4N3Đ",
+          duration: "4 ngày 3 đêm",
+          depart: "TP.HCM",
+          price: 4500000,
+          img: "../assets/images/nhaTrang.jpg",
+        },
+        {
+          id: 3,
+          name: "Đà Lạt 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "TP.HCM",
+          price: 2990000,
+          img: "../assets/images/daLat.jpg",
+        },
+        {
+          id: 7,
+          name: "Phong Nha 2N1Đ",
+          duration: "2 ngày 1 đêm",
+          depart: "Hà Nội",
+          price: 29900000,
+          img: "../assets/images/dongPhongNha.jpg",
+        },
+        {
+          id: 4,
+          name: "Hạ Long 4N3Đ",
+          duration: "4 ngày 3 đêm",
+          depart: "TP.HCM",
+          price: 4636000,
+          img: "../assets/images/caMau.jpg",
+        },
+        {
+          id: 11,
+          name: "Phú Quốc 4N3Đ",
+          duration: "4 ngày 3 đêm",
+          depart: "Cần Thơ",
+          price: 4990000,
+          img: "../assets/images/phuQuoc.jpg",
+        },
+        {
+          id: 5,
+          name: "Nha Trang 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "Cần Thơ",
+          price: 3650000,
+          img: "../assets/images/nhaTrang1.jpg",
+        },
+         {
+          id: 6,
+          name: "Đà Lạt 2N1Đ",
+          duration: "2 ngày 1 đêm",
+          depart: "Cần Thơ",
+          price: 2220000,
+          img: "../assets/images/daLat1.jpg",
+        },
+        {
+          id: 9,
+          name: "Vịnh Cam Ranh 4N3Đ",
+          duration: "4 ngày 3 đêm",
+          depart: "TP.Hồ Chí Minh",
+          price: 2220000,
+          img: "../assets/images/daLat1.jpg",
+        },
+        {
+          id: 10,
+          name: "Cà Mau 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "Cần Thơ",
+          price: 3220000,
+          img: "../assets/images/daLat1.jpg",
+        },
+        {
+          id: 8,
+          name: "Động Phong Nha 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "TP.HCM",
+          price: 3500000,
+          img: "../assets/images/dongPhongNha1.jpg",
+        },
+        {
+          id: 12,
+          name: "Phú Quốc 3N2Đ",
+          duration: "3 ngày 2 đêm",
+          depart: "Cần Thơ",
+          price: 3500000,
+          img: "../assets/images/phuQuoc.jpg",
+        },
+        {
+          id: 13,
+          name: "Cà Mau 4N3Đ",
+          duration: "2 ngày 1 đêm",
+          depart: "Cần Thơ",
+          price: 3990000,
+          img: "../assets/images/caMau2.jpg",
+        },
+        {
+          id: 14,
+          name: "Cà Mau 2N1Đ",
+          duration: "2 ngày 1 đêm",
+          depart: "Cần Thơ",
+          price: 2500000,
+          img: "../assets/images/caMau2.jpg",
+        }
+      ];
+
+      function fmt(n) {
+        return n.toLocaleString("vi-VN") + "đ";
+      }
+      function loadCart() {
+        try {
+          return JSON.parse(localStorage.getItem(KEY)) || [];
+        } catch {
+          return [];
+        }
+      }
+      function saveCart(c) {
+        localStorage.setItem(KEY, JSON.stringify(c));
+      }
+
+      // if (loadCart().length === 0) {
+      //   saveCart([{ ...ALL_TOURS[0] }, { ...ALL_TOURS[1] }]);
+      // }
+
+      function removeTour(id) {
+        saveCart(loadCart().filter((t) => t.id !== id));
+        render();
+        showToast("Đã xóa tour khỏi danh sách");
+      }
+
+      function clearAll() {
+        if (!loadCart().length) return;
+        saveCart([]);
+        render();
+        showToast("Đã xóa toàn bộ tour");
+      }
+
+      function addTour(id) {
+        const cart = loadCart();
+        if (cart.find((t) => t.id === id)) {
+          showToast("Tour này đã có trong danh sách!");
+          return;
+        }
+        const tour = ALL_TOURS.find((t) => t.id === id);
+        if (!tour) return;
+        cart.push({ ...tour });
+        saveCart(cart);
+        render();
+        showToast("✓ Đã thêm " + tour.name);
+      }
+
+      function bookNow() {
+        showToast("Đang chuyển đến trang thanh toán...");
+        setTimeout(() => {
+          window.location.href = "checkout.html";
+        }, 1200);
+      }
+
+      function render() {
+        const cart = loadCart();
+        const total = cart.reduce((s, t) => s + t.price, 0);
+
+        document.getElementById("count-label").textContent = cart.length
+          ? "(" + cart.length + " tour)"
+          : "";
+
+        // Tour list
+        const listEl = document.getElementById("tour-list");
+        if (!cart.length) {
+          listEl.innerHTML = `
           <div class="text-center py-5 text-muted">
             <i class="bi bi-map fs-1 d-block mb-3 text-secondary"></i>
             <p class="mb-3">Chưa có tour nào trong danh sách.<br>Hãy khám phá và thêm tour bạn yêu thích!</p>
             <a href="tour.html" class="btn btn-primary btn-sm px-4">Xem tất cả tour</a>
           </div>`;
-      } else {
-        listEl.innerHTML = cart.map(t => `
+        } else {
+          listEl.innerHTML = cart
+            .map(
+              (t) => `
           <div class="d-flex align-items-center gap-3 p-3 border-bottom">
             <img src="${t.img}" alt="${t.name}"
               class="rounded flex-shrink-0"
@@ -384,26 +535,37 @@
               </button>
             </div>
           </div>
-        `).join("");
-      }
- 
-      // Summary
-      const sumEl = document.getElementById("sum-items");
-      sumEl.innerHTML = cart.length
-        ? cart.map(t => `
+        `,
+            )
+            .join("");
+        }
+
+        // Summary
+        const sumEl = document.getElementById("sum-items");
+        sumEl.innerHTML = cart.length
+          ? cart
+              .map(
+                (t) => `
             <div class="d-flex justify-content-between small mb-2">
               <span class="text-muted text-truncate me-2" style="max-width:140px">${t.name}</span>
               <span class="fw-semibold text-nowrap">${fmt(t.price)}</span>
-            </div>`).join("")
-        : `<p class="text-muted small text-center py-2">Chưa có tour nào</p>`;
- 
-      document.getElementById("total-price").textContent = fmt(total);
-      document.getElementById("btn-book").disabled = !cart.length;
- 
-      // Suggested
-      const inCart = cart.map(t => t.id);
-      const suggests = ALL_TOURS.filter(t => !inCart.includes(t.id)).slice(0, 3);
-      document.getElementById("suggest-list").innerHTML = suggests.map(t => `
+            </div>`,
+              )
+              .join("")
+          : `<p class="text-muted small text-center py-2">Chưa có tour nào</p>`;
+
+        document.getElementById("total-price").textContent = fmt(total);
+        document.getElementById("btn-book").disabled = !cart.length;
+
+        // Suggested
+        const inCart = cart.map((t) => t.id);
+        const suggests = ALL_TOURS.filter((t) => !inCart.includes(t.id)).slice(
+          0,
+          3,
+        );
+        document.getElementById("suggest-list").innerHTML = suggests
+          .map(
+            (t) => `
         <div class="col-4">
           <div class="card h-100 border" style="cursor:pointer" onclick="addTour(${t.id})">
             <img src="${t.img}" class="card-img-top" style="height:85px; object-fit:cover;" alt="${t.name}"/>
@@ -416,15 +578,177 @@
             </div>
           </div>
         </div>
-      `).join("");
-    }
- 
-    function showToast(msg) {
-      document.getElementById("toast-body").textContent = msg;
-      bootstrap.Toast.getOrCreateInstance(document.getElementById("liveToast"), { delay: 2500 }).show();
-    }
- 
-    render();
-  </script>
-</body>
+      `,
+          )
+          .join("");
+      }
+
+      function showToast(msg) {
+        document.getElementById("toast-body").textContent = msg;
+        bootstrap.Toast.getOrCreateInstance(
+          document.getElementById("liveToast"),
+          { delay: 2500 },
+        ).show();
+      }
+      let u = document.getElementById("user");
+      let p = document.getElementById("pass");
+      let ht = document.getElementById("hoTen");
+      let sodt = document.getElementById("sdt");
+      function check(so) {
+        var hoTen = ht.value;
+        var sdt = sodt.value;
+        var user = u.value;
+        var pass = p.value;
+        var tht = /^[a-zA-Z ]+$/;
+        var tsdt = /^[0-9]{10}$/;
+        var tuser = /^[\S]+$/;
+        var tpass = /^[\S]+$/;
+        switch (so) {
+          case 1: {
+            if (tht.test(hoTen)) {
+              document.getElementById("1").textContent = "";
+            } else {
+              document.getElementById("1").textContent = "*";
+            }
+            break;
+          }
+          case 2: {
+            if (tsdt.test(sdt)) {
+              document.getElementById("2").textContent = "";
+            } else {
+              document.getElementById("2").textContent = "*";
+            }
+            break;
+          }
+          case 3: {
+            if (tuser.test(user)) {
+              document.getElementById("3").textContent = "";
+            } else {
+              document.getElementById("3").textContent = "*";
+            }
+            break;
+          }
+          case 4: {
+            if (tpass.test(pass)) {
+              document.getElementById("4").textContent = "";
+            } else {
+              document.getElementById("4").textContent = "*";
+            }
+            break;
+          }
+          case 5: {
+            if (
+              tht.test(hoTen) &&
+              tsdt.test(sdt) &&
+              tuser.test(user) &&
+              tpass.test(pass)
+            ) {
+              alert("Đăng ký thành công!");
+              document.getElementById("dongdk").click();
+            } else {
+              alert("Vui lòng điền đúng thông tin!");
+            }
+            break;
+          }
+        }
+      }
+      function dangNhap() {
+        var userold = u.value;
+        var passold = p.value;
+        var userdn = document.getElementById("userdn").value;
+        var passdn = document.getElementById("passdn").value;
+        if (userdn === userold && passdn === passold && ht.value !== "") {
+          localStorage.setItem("username", userdn);
+          localStorage.setItem("password", passdn);
+          localStorage.setItem("hoTen", ht.value);
+          localStorage.setItem("sdt", sodt.value);
+          document.getElementById("dongdn").click();
+          taoUser();
+        } else {
+          alert("Sai thông tin đăng nhập!");
+        }
+      }
+      function taoUser() {
+        document.getElementById("nutdn").remove();
+        document.getElementById("nutdk").remove();
+        var menu = document.getElementById("menubar");
+        const li = document.createElement("li"); // tạo li gắn với menu
+        li.className = "nav-item dropdown";
+        const a = document.createElement("a");
+        a.className = "nav-link dropdown-toggle";
+        a.href = "#";
+        a.role = "button";
+        a.dataset.bsToggle = "dropdown";
+        const anh = document.createElement("img");
+        anh.src = "/travel-website/assets/images/avatar.jpg";
+        anh.style = "width: 50px;";
+        anh.className = "rounded-pill";
+        a.appendChild(anh);
+        li.appendChild(a);
+        const ul = document.createElement("ul");
+        ul.className = "dropdown-menu";
+        ul.style =
+          "background: linear-gradient(45deg,white, rgb(33, 147, 176), rgb(109, 213, 237),white);color: white;";
+        const li1 = document.createElement("li");
+        const li2 = document.createElement("li");
+        const li3 = document.createElement("li");
+        const li4 = document.createElement("li");
+        const a1 = document.createElement("a");
+        const a2 = document.createElement("a");
+        const a3 = document.createElement("a");
+        const a4 = document.createElement("a");
+        a1.className = "dropdown-item";
+        a2.className = "dropdown-item";
+        a3.className = "dropdown-item";
+        a4.className = "dropdown-item";
+        a1.href = "#";
+        a2.href = "cart.html";
+        a3.href = "#";
+        a4.href = "#";
+        a1.textContent = "THÔNG TIN CÁ NHÂN";
+        a2.innerHTML = '<i class="bi bi-cart3 me-2"></i>GIỎ HÀNG';
+        a3.textContent = "ĐƠN HÀNG";
+        a4.textContent = "ĐĂNG XUẤT";
+        a4.onclick = function () {
+          var flag = confirm("Bạn có chắc muốn đăng xuất?");
+          if (flag) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            localStorage.removeItem("hoTen");
+            localStorage.removeItem("sdt");
+            window.location.href = "home.html";
+          }
+        };
+        li1.appendChild(a1);
+        li2.appendChild(a2);
+        li3.appendChild(a3);
+        li4.appendChild(a4);
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+        ul.appendChild(li3);
+        ul.appendChild(li4);
+        li.appendChild(ul);
+        menu.appendChild(li);
+      }
+      window.onload = function () {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = document.getElementById("ht");
+        var sdt = document.getElementById("sdt");
+        if (userold && passold) {
+          taoUser();
+        }
+      };
+      // function xemTour(ten, hinh, mota, gia) {
+      //   document.getElementById("tenTour").innerText = ten;
+      //   document.getElementById("hinhTour").src = hinh;
+      //   document.getElementById("moTaTour").innerText = mota;
+      //   document.getElementById("giaTour").innerText = gia;
+
+      //   let modal = new bootstrap.Modal(document.getElementById("modalTour"));
+      //   modal.show();
+      // }
+      render();
+    </script>
+  </body>
 </html>
