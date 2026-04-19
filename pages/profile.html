@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <title>Thông tin cá nhân - Phượt Vi Vu</title>
+  
+  <style>
+    .btn-custom-outline { color: #0d6efd; border-color: #0d6efd; border-radius: 50px; padding: 6px 24px; font-weight: 500; }
+    .btn-custom-outline:hover { background-color: #0d6efd; color: white; }
+    .btn-custom-fill { background-color: #0d6efd; color: white; border-radius: 50px; padding: 6px 24px; font-weight: 500; border: none; }
+    .btn-custom-fill:hover { background-color: #0b5ed7; }
+    .nav-link { font-weight: 500; color: #495057 !important; }
+    .nav-link:hover { color: #0d6efd !important; }
+  </style>
+</head>
+
+<body class="bg-light">
+  
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="home.html">
+      <img src="../assets/images/logo.jpg" alt="Logo" width="45" height="45" class="rounded-circle">
+      <span class="fs-4 fw-bold text-primary">Phượt Vi Vu</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul id="menubar" class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item me-5"><a class="nav-link" style="font-size: 20px" href="home.html">Trang Chủ</a></li>
+            <li class="nav-item me-5"><a style="font-size: 20px" class="nav-link" href="tour.html">Tour</a></li>
+            <li class="nav-item me-5"><a style="font-size: 20px" class="nav-link" href="#">Giới Thiệu</a></li>
+            <li class="nav-item me-5"><a style="font-size: 20px" class="nav-link" href="contact.html">Liên Hệ</a></li>
+            <li class="nav-item me-5"><a style="font-size: 20px" class="nav-link" href="../pages/news.html">Tin Tức</a></li>
+
+            <li class="nav-item dropdown ms-3" id="user-item">
+                <a class="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../assets/images/avatar.jpg" id="nav-avatar" class="rounded-circle border border-2 border-primary object-fit-cover" width="38" height="38" alt="Avatar">
+                <span id="nav-username" class="ms-2 fw-bold text-dark" style="font-size: 18px;">admin</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-3">
+                <li><a class="dropdown-item py-2 fw-medium" href="profile.html">Hồ sơ cá nhân</a></li>
+                <li><a class="dropdown-item py-2 fw-medium" href="cart.html">Giỏ hàng</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="home.html" class="dropdown-item text-danger py-2 fw-bold" onclick="localStorage.removeItem('userProfile')">Đăng xuất</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item ms-3">
+                <a class="btn d-flex align-items-center gap-2 mt-1 border-0" href="search.html">
+                <i class="bi bi-search fs-5"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5 mb-5">
+  <div class="row">
+    
+    <div class="col-md-3 mb-4">
+      <div class="list-group shadow-sm">
+        <button class="list-group-item list-group-item-action active bg-primary border-primary fw-medium" id="btn-tab-profile">Thông tin cá nhân</button>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <div class="card shadow-sm border-0" id="section-profile">
+        <div class="card-body p-4 p-md-5">
+          
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="fw-bold mb-0">Hồ sơ của tôi</h4>
+            <button id="btn-edit" class="btn btn-outline-primary btn-sm px-3 rounded-pill">Chỉnh sửa</button>
+          </div>
+
+          <div class="row mb-4 align-items-center">
+            <div class="col-auto">
+              <img src="../assets/images/avatar.jpg" class="rounded-circle img-thumbnail object-fit-cover" alt="Avatar" width="70" height="70">
+            </div>
+            <div class="col">
+              <h5 class="fw-bold mb-1" id="display-header-name">Phạm Quang Trí</h5>
+              <p class="text-muted mb-0">Thành viên Phượt Vi Vu</p>
+            </div>
+          </div>
+
+          <form id="profile-form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold text-secondary">Họ và Tên</label>
+                <div id="view-name" class="form-control-plaintext fs-5">Phạm Quang Trí</div>
+                <input type="text" id="input-name" class="form-control d-none">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold text-secondary">Số điện thoại</label>
+                <div id="view-phone" class="form-control-plaintext fs-5"></div>
+                <input type="text" id="input-phone" class="form-control d-none">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold text-secondary">Email</label>
+                <div id="view-email" class="form-control-plaintext fs-5">tripham.iuh@gmail.com</div>
+                <input type="email" id="input-email" class="form-control d-none">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold text-secondary">Địa chỉ</label>
+                <div id="view-address" class="form-control-plaintext fs-5">Gò Vấp, TP.HCM</div>
+                <input type="text" id="input-address" class="form-control d-none">
+              </div>
+            </div>
+
+            <div id="action-buttons" class="mt-4 pt-3 border-top d-none">
+              <button type="button" id="btn-save" class="btn btn-primary px-4 rounded-pill me-2">Lưu thay đổi</button>
+              <button type="button" id="btn-cancel" class="btn btn-light px-4 rounded-pill">Hủy</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const $ = id => document.getElementById(id);
+  const dsTruong = ['name', 'phone', 'email', 'address'];
+  
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    
+    if (!localStorage.getItem('userProfile')) {
+      localStorage.setItem('userProfile', JSON.stringify({
+        name: "Trống",
+        phone: "Trống",
+        email: "Trống",
+        address: "Trống"
+      }));
+    }
+
+    const savedData = localStorage.getItem('userProfile');
+    if (savedData) {
+      const data = JSON.parse(savedData);
+      
+      
+      dsTruong.forEach(t => {
+        $(`view-${t}`).innerText = $(`input-${t}`).value = data[t];
+      });
+      
+      
+      $('display-header-name').innerText = data.name;
+      if ($('nav-username')) $('nav-username').innerText = data.name;
+    }
+  });
+
+  
+  const cheDoSua = (mo) => {
+    $('btn-edit').classList.toggle('d-none', mo);
+    $('action-buttons').classList.toggle('d-none', !mo);
+    
+    dsTruong.forEach(t => {
+      $(`view-${t}`).classList.toggle('d-none', mo);
+      $(`input-${t}`).classList.toggle('d-none', !mo);
+      if (!mo) $(`input-${t}`).classList.remove('is-invalid'); 
+    });
+  };
+
+  $('btn-edit').onclick = () => cheDoSua(true);
+  
+  $('btn-cancel').onclick = () => {
+    
+    dsTruong.forEach(t => $(`input-${t}`).value = $(`view-${t}`).innerText);
+    cheDoSua(false);
+  };
+
+  
+  const kiemLoi = (id, dieuKien) => {
+    const the = $(id);
+    const dung = dieuKien(the.value.trim()); 
+    the.classList.toggle('is-invalid', !dung); 
+    return dung; 
+  };
+
+  $('btn-save').onclick = () => {
+    const tenOk = kiemLoi('input-name', v => v !== "");
+    const sdtOk = kiemLoi('input-phone', v => /^[0-9]{10}$/.test(v));
+    const mailOk = kiemLoi('input-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+    const dchiOk = kiemLoi('input-address', v => v !== "");
+
+    if (tenOk && sdtOk && mailOk && dchiOk) {
+      const newData = {
+        name: $('input-name').value.trim(),
+        phone: $('input-phone').value.trim(),
+        email: $('input-email').value.trim(),
+        address: $('input-address').value.trim()
+      };
+
+      
+      dsTruong.forEach(t => $(`view-${t}`).innerText = newData[t]);
+      $('display-header-name').innerText = newData.name;
+      if ($('nav-username')) $('nav-username').innerText = newData.name; 
+      
+      
+      localStorage.setItem('userProfile', JSON.stringify(newData));
+
+      cheDoSua(false);
+      alert("Đã cập nhật thông tin thành công!");
+    }
+  };
+</script>
+</body>
+</html>
