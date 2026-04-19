@@ -859,11 +859,11 @@
         a3.className = "dropdown-item";
         a4.className = "dropdown-item";
         a1.href = "#";
-        a2.href = "#";
+        a2.href = "cart.html";
         a3.href = "#";
         a4.href = "#";
         a1.textContent = "THÔNG TIN CÁ NHÂN";
-        a2.textContent = "GIỎ HÀNG";
+        a2.innerHTML = '<i class="bi bi-cart3 me-2"></i>GIỎ HÀNG';
         a3.textContent = "ĐƠN HÀNG";
         a4.textContent = "ĐĂNG XUẤT";
         a4.onclick = function () {
@@ -887,6 +887,146 @@
         li.appendChild(ul);
         menu.appendChild(li);
       }
+       function dangKyTour() {
+        var userold = localStorage.getItem("username");
+        if (!userold) {
+            alert("Vui lòng đăng nhập trước khi đặt tour!");
+            document.getElementById("nutdn").click();
+            return;
+        }
+
+        var tenTour = document.getElementById("tenTour").innerText;
+        const KEY = "phuo_vi_vu_cart";
+        const ALL_TOURS = [
+            {
+              id: 1,
+              name: "Hạ Long 3N2Đ",
+              duration: "3 ngày 2 đêm",
+              depart: "Hà Nội",
+              price: 3990000,
+              img: "../assets/images/vinhHaLong.jpg",
+            },
+            {
+              id: 2,
+              name: "Nha Trang 4N3Đ",
+              duration: "4 ngày 3 đêm",
+              depart: "TP.HCM",
+              price: 4500000,
+              img: "../assets/images/nhaTrang.jpg",
+            },
+            {
+              id: 3,
+              name: "Đà Lạt 3N2Đ",
+              duration: "3 ngày 2 đêm",
+              depart: "TP.HCM",
+              price: 2990000,
+              img: "../assets/images/daLat.jpg",
+            },
+            {
+              id: 7,
+              name: "Phong Nha 2N1Đ",
+              duration: "2 ngày 1 đêm",
+              depart: "Hà Nội",
+              price: 29900000,
+              img: "../assets/images/dongPhongNha.jpg",
+            },
+            {
+              id: 4,
+              name: "Hạ Long 4N3Đ",
+              duration: "4 ngày 3 đêm",
+              depart: "TP.HCM",
+              price: 4636000,
+              img: "../assets/images/caMau.jpg",
+            },
+            {
+              id: 11,
+              name: "Phú Quốc 4N3Đ",
+              duration: "4 ngày 3 đêm",
+              depart: "Cần Thơ",
+              price: 4990000,
+              img: "../assets/images/phuQuoc.jpg",
+            },
+            {
+              id: 5,
+              name: "Nha Trang 3N2Đ",
+              duration: "3 ngày 2 đêm",
+              depart: "Cần Thơ",
+              price: 3650000,
+              img: "../assets/images/nhaTrang1.jpg",
+            },
+            {
+              id: 6,
+              name: "Đà Lạt 2N1Đ",
+              duration: "2 ngày 1 đêm",
+              depart: "Cần Thơ",
+              price: 2220000,
+              img: "../assets/images/daLat1.jpg",
+            },
+            {
+              id: 9,
+              name: "Vịnh Cam Ranh 4N3Đ",
+              duration: "4 ngày 3 đêm",
+              depart: "TP.Hồ Chí Minh",
+              price: 2220000,
+              img: "../assets/images/daLat1.jpg",
+            },
+            {
+              id: 10,
+              name: "Cà Mau 3N2Đ",
+              duration: "3 ngày 2 đêm",
+              depart: "Cần Thơ",
+              price: 3220000,
+              img: "../assets/images/daLat1.jpg",
+            },
+            {
+              id: 8,
+              name: "Động Phong Nha 3N2Đ",
+              duration: "3 ngày 2 đêm",
+              depart: "TP.HCM",
+              price: 3500000,
+              img: "../assets/images/dongPhongNha1.jpg",
+            },
+            {
+              id: 12,
+              name: "Phú Quốc 3N2Đ",
+              duration: "3 ngày 2 đêm",
+              depart: "Cần Thơ",
+              price: 3500000,
+              img: "../assets/images/phuQuoc.jpg",
+            },
+            {
+              id: 13,
+              name: "Cà Mau 4N3Đ",
+              duration: "2 ngày 1 đêm",
+              depart: "Cần Thơ",
+              price: 3990000,
+              img: "../assets/images/caMau2.jpg",
+            },
+            {
+              id: 14,
+              name: "Cà Mau 2N1Đ",
+              duration: "2 ngày 1 đêm",
+              depart: "Cần Thơ",
+              price: 2500000,
+              img: "../assets/images/caMau2.jpg",
+            }
+          ];
+
+        const tour = ALL_TOURS.find(t => t.name === tenTour);
+
+        let cart = [];
+        try { cart = JSON.parse(localStorage.getItem(KEY)) || []; }
+        catch { cart = []; }
+
+        if (cart.find(t => t.id === tour.id)) {
+            alert("Tour này đã có trong giỏ hàng!");
+            return;
+        }
+
+        cart.push({...tour});
+        localStorage.setItem(KEY, JSON.stringify(cart));
+        alert("Đã thêm " + tour.name + " vào giỏ hàng!");
+}
       function timKiem() {
         var dsTour = document.querySelectorAll(".tour .col-md-4");
         var key = document.getElementById("tukhoa").value.toLowerCase().trim();
@@ -933,7 +1073,7 @@
           </div>
 
           <div class="modal-footer">
-            <button class="btn btn-success">Đăng ký tour</button>
+            <button class="btn btn-success" onclick="dangKyTour()">Đăng ký tour</button>
             <button class="btn btn-secondary" data-bs-dismiss="modal">
               Đóng
             </button>
