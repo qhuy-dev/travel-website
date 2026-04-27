@@ -1,0 +1,945 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>Thông tin cá nhân - Phượt Vi Vu</title>
+    <style></style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="home.html">
+          <img
+            src="../assets/images/logo.jpg"
+            alt="Logo"
+            width="150"
+            height="120"
+            class="rounded-circle"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul id="menubar" class="navbar-nav ms-auto">
+            <li class="nav-item me-5">
+              <a class="nav-link" style="font-size: 20px" href="home.html"
+                >Trang Chủ</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="tour.html"
+                >Tour</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="about.html"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="contact.html"
+                >Liên Hệ</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a
+                style="font-size: 20px"
+                class="nav-link"
+                href="../pages/news.html"
+                >Tin Tức</a
+              >
+            </li>
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-outline-primary px-3 rounded-pill"
+                data-bs-target="#dangNhap"
+                data-bs-toggle="modal"
+                id="nutdn"
+                >Đăng nhập</a
+              >
+            </li>
+
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-primary px-3 rounded-pill"
+                data-bs-target="#dangKy"
+                data-bs-toggle="modal"
+                id="nutdk"
+                >Đăng ký</a
+              >
+            </li>
+            <li class="nav-item ms-3">
+              <a class="btn d-flex align-items-center gap-2" href="search.html">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="modal modal-lg" id="dangKy">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title h2 fw-light text-uppercase text-primary">
+              đăng ký
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <td>Họ tên:</td>
+                <td>
+                  <input
+                    onblur="check(1)"
+                    class="w-75"
+                    type="text"
+                    name=""
+                    id="hoTen"
+                  />
+                  <span class="text-danger" id="1">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Số điện thoại:</td>
+                <td>
+                  <input
+                    onblur="check(2)"
+                    class="w-75"
+                    type="tel"
+                    name=""
+                    id="sdt"
+                  />
+                  <span class="text-danger" id="2">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input
+                    onblur="check(3)"
+                    v
+                    class="w-75"
+                    type="text"
+                    name=""
+                    id="user"
+                  />
+                  <span class="text-danger" id="3">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input
+                    onblur="check(4)"
+                    class="w-75"
+                    type="password"
+                    name=""
+                    id="pass"
+                  />
+                  <span class="text-danger" id="4">*</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="dkf" onclick="check(5)">
+              Đăng kí
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              id="dongdk"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal-lg" id="dangNhap">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title h2 fw-light text-uppercase text-primary">
+              đăng nhập
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-content">
+            <table class="table">
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input class="w-75" type="text" name="" id="userdn" />
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input class="w-75" type="password" name="" id="passdn" />
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="dnf" onclick="dangNhap()">
+              Đăng nhập
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              id="dongdn"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Tài khoản của bạn-->
+    <div>
+      <h1 class="text-center text-primary mt-5">Tài khoản của bạn</h1>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2">
+          <table class="table-borderless">
+            <thead style="border-bottom: 1px solid black">
+              <td class="pb-3">
+                <img
+                  src="../assets/images/avatar.jpg"
+                  alt="Avatar"
+                  style="width: 50px"
+                  class="rounded-pill"
+                />
+              </td>
+              <td class="pb-3">
+                <h3 id="tenNguoiDung"></h3>
+              </td>
+            </thead>
+            <tbody>
+              <!--Tài khoản-->
+              <tr>
+                <td class="pt-3 text-primary" colspan="2">
+                  <i class="bi bi-person-fill fs-4 me-2"></i>
+                  <a
+                    href="profile1.html"
+                    style="text-decoration: none"
+                    class="text-uppercase fs-4"
+                    >Tài khoản</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-uppercase fs-6 pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a href="profile1.html" class="nav-link text-black"
+                        >Thông tin cá nhân</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a href="cart.html" class="nav-link text-black"
+                        >Giỏ hàng</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="#"
+                        onclick="dangXuat()"
+                        class="nav-link text-black"
+                        >Đăng xuất</a
+                      >
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <!--Trang chủ-->
+              <tr>
+                <td class="pt-3 text-primary" colspan="2">
+                  <i class="bi bi-house-fill fs-4 me-2"></i>
+                  <a
+                    href="home.html"
+                    class="text-uppercase fs-4"
+                    style="text-decoration: none"
+                    >Trang chủ</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-uppercase fs-6 pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a href="home.html#diemden" class="nav-link text-black"
+                        >Điểm đến phổ biến</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a href="home.html#tournoibat" class="nav-link text-black"
+                        >Tour nổi bật</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a href="home.html#taisao" class="nav-link text-black"
+                        >Tại sao nên đặt chỗ với Phượt Vi Vu?</a
+                      >
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <!--Tour-->
+              <tr>
+                <td class="pt-3 text-primary" colspan="2">
+                  <i class="bi bi-compass-fill fs-4 me-2"></i>
+                  <a
+                    href="tour.html"
+                    class="text-uppercase fs-4"
+                    style="text-decoration: none"
+                    >tour</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-uppercase fs-6 pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a href="home.html#danhSach" class="nav-link text-black"
+                        >Danh sách điểm đến hot</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a href="search.html" class="nav-link text-black"
+                        >Tìm kiếm tour</a
+                      >
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <!--Giới thiệu-->
+              <tr>
+                <td class="pt-3 text-primary" colspan="2">
+                  <i class="bi bi-info-circle-fill fs-4 me-2"></i>
+                  <a
+                    href="about.html"
+                    class="text-uppercase fs-4"
+                    style="text-decoration: none"
+                    >giới thiệu</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-uppercase fs-6 pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a
+                        href="about.html#phuotvivulagi"
+                        class="nav-link text-black"
+                        >Phượt Vi Vu là gì?</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a href="about.html#thanhvien" class="nav-link text-black"
+                        >Thành viên nhóm</a
+                      >
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <!--Liên hệ-->
+              <tr>
+                <td class="pt-3 text-primary" colspan="2">
+                  <i class="bi bi-telephone-fill fs-4 me-2"></i>
+                  <a
+                    href="contact.html"
+                    class="text-uppercase fs-4"
+                    style="text-decoration: none"
+                    >liên hệ</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-uppercase fs-6 pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a
+                        href="contact.html#guiyeucauLH"
+                        class="nav-link text-black"
+                        >Gửi yêu cầu liên hệ</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        href="contact.html#thongtinLH"
+                        class="nav-link text-black"
+                        >Thông tin liên hệ</a
+                      >
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <!--Tin tức-->
+              <tr>
+                <td class="pt-3 text-primary" colspan="2">
+                  <i class="bi bi-newspaper fs-4 me-2"></i>
+                  <a
+                    href="news.html"
+                    class="text-uppercase fs-4"
+                    style="text-decoration: none"
+                    >tin tức</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="text-uppercase fs-6 pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a
+                        href="news.html#tinTucDuLich"
+                        class="nav-link text-black"
+                        >tin tức du lịch</a
+                      >
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div
+          class="col ms-5 me-5 border-start border-end"
+          style="margin-top: 80px"
+        >
+          <table class="table border">
+            <thead>
+              <tr>
+                <th colspan="2" class="fs-4">Thông tin cá nhân</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Họ và tên:</td>
+                <td id="tenNguoiDung">
+                  <input
+                    style="
+                      float: left;
+                      width: 90%;
+                      background-color: white;
+                      border: 0;
+                    "
+                    type="text"
+                    name=""
+                    id="hote"
+                    disabled
+                  />
+                  <button
+                    class="btn"
+                    style="float: right"
+                    id="d1"
+                    onclick="doiThongTin(1)"
+                  >
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Email:</td>
+
+                <td>
+                  <input
+                    style="
+                      float: left;
+                      width: 90%;
+                      background-color: white;
+                      border: 0;
+                    "
+                    type="email"
+                    name=""
+                    id="em"
+                    disabled
+                  />
+                  <button
+                    class="btn"
+                    style="float: right"
+                    id="d2"
+                    onclick="doiThongTin(2)"
+                  >
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Điện thoại:</td>
+                <td>
+                  <input
+                    style="
+                      float: left;
+                      width: 90%;
+                      background-color: white;
+                      border: 0;
+                    "
+                    type="tel"
+                    name=""
+                    id="sodt"
+                    disabled
+                  />
+                  <button
+                    class="btn"
+                    style="float: right"
+                    id="d3"
+                    onclick="doiThongTin(3)"
+                  >
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>UserName:</td>
+                <td>
+                  <input
+                    style="
+                      float: left;
+                      width: 90%;
+                      background-color: white;
+                      border: 0;
+                    "
+                    type="text"
+                    name=""
+                    id="userNameInput"
+                    disabled
+                  />
+                  <button
+                    class="btn"
+                    style="float: right"
+                    id="d4"
+                    onclick="doiThongTin(4)"
+                  >
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer class="custom-footer pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h2 class="fw-bold">Phượt Vi Vu</h2>
+            <p class="italic small">
+              Hành trình nhẹ nhàng – Trải nghiệm trọn vẹn
+            </p>
+            <p class="small mb-1">
+              Giấy phép kinh doanh: 0313049973 do Sở Kế hoạch và Đầu tư TP.HCM
+              cấp.
+            </p>
+            <p class="small mb-4">
+              Giấy phép kinh doanh lữ hành: 79-1953/2024/TCDL-GP LHQT
+            </p>
+
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-telephone me-2"></i> (+84) 283 8940 390
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-envelope me-2"></i> dulich.phuotvivu@gmail.com
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-geo-alt me-2"></i> 12 Nguyễn Văn Bảo, Hạnh
+                Thông, TP. Hồ Chí Minh
+              </li>
+            </ul>
+
+            <div>
+              <a
+                href="https://www.facebook.com/sviuh"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-facebook"></i> Facebook</a
+              >
+              <a
+                href="https://www.tiktok.com/@iuh.dhcn"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-tiktok"></i> TikTok</a
+              >
+              <a
+                href="https://www.youtube.com/@iuh.dhcntphcm"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-youtube"></i> YouTube</a
+              >
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="row">
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Về chúng tôi</a></li>
+                  <li><a href="#">Hướng dẫn thanh toán</a></li>
+                  <li><a href="#">Hướng dẫn đặt tour</a></li>
+                  <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Chính sách</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Chính sách bảo mật</a></li>
+                  <li><a href="#">Điều khoản chung</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="register-box">
+              <h6 class="fw-bold mb-2">Đăng ký</h6>
+              <p class="small mb-3">
+                Nhận thông tin về các tour mới nhất và ưu đãi hấp dẫn từ chúng
+                tôi ngay hôm nay!
+              </p>
+              <form action="#" method="POST">
+                <button
+                  type="submit"
+                  class="btn btn-info text-white w-100 fw-bold shadow-sm"
+                  style="background-color: #00a8ff; border: none"
+                >
+                  <i class="bi bi-envelope"></i>
+                  <a href="#nutdk">Đăng ký ngay</a>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-12 mb-4">
+            <h6 class="fw-bold mb-3">Chứng nhận & Thanh toán</h6>
+            <p class="small mb-2">Được chứng nhận</p>
+            <img
+              src="../assets/images/logo-bo-cong-thuong-vector.png"
+              alt="Đã thông báo Bộ Công Thương"
+              width="200"
+              class="mb-3"
+            />
+
+            <p class="small mb-2">Phương thức thanh toán</p>
+            <div class="d-flex gap-2 mb-3 bg-white p-1 rounded d-inline-flex">
+              <span class="text-dark fw-bold px-1">VISA</span>
+              <span class="text-dark fw-bold px-1">MC</span>
+              <span class="text-success fw-bold px-1">VCB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row border-top border-secondary pt-3 mt-3 small">
+          <div class="col-md-6 text-center text-md-start">
+            © 2026 Phượt Vi Vu. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+            Hotline hỗ trợ 24/7: (+84) 283 8940 390
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      window.onload = function () {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = localStorage.getItem("hoTen");
+        var sdt = localStorage.getItem("sdt");
+        if (userold && passold) {
+          taoUser();
+          layThongTin();
+        }
+      };
+      function layThongTin() {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = localStorage.getItem("hoTen");
+        var sdtDaLuu = localStorage.getItem("sdt");
+        var emailDaLuu = localStorage.getItem("email") || "null";
+        document.getElementById("tenNguoiDung").textContent = ht;
+        document.getElementById("hote").value = ht;
+        document.getElementById("sodt").value = sdtDaLuu;
+        document.getElementById("userNameInput").value = userold;
+        document.getElementById("em").value = emailDaLuu;
+        // document.getElementById("sdtNguoiDung").textContent = sdt.value;
+      }
+      function doiThongTin(so) {
+        var hote = document.getElementById("hote");
+        var sodthoai = document.getElementById("sodt");
+        var userNameInput = document.getElementById("userNameInput");
+        var emailInput = document.getElementById("em");
+        var tht = /^[a-zA-Z ]+$/;
+        var tsdt = /^[0-9]{10}$/;
+        var temail =
+          /^\S+((@gmail.com)|(@yahoo.com)|(@outlook.com)|(@hotmail.com))$/;
+        var tuser = /^[\S]+$/;
+        switch (so) {
+          case 1: {
+            hote.disabled = !hote.disabled;
+            hote.focus();
+            hote.onblur = function () {
+              if (tht.test(hote.value)) {
+                localStorage.setItem("hoTen", hote.value);
+                document.getElementById("tenNguoiDung").textContent =
+                  hote.value;
+              } else {
+                alert("Họ tên chỉ được chứa chữ cái và khoảng trắng!");
+              }
+              hote.disabled = true;
+            };
+            break;
+          }
+          case 2: {
+            emailInput.disabled = !emailInput.disabled;
+            emailInput.focus();
+            emailInput.onblur = function () {
+              if (temail.test(emailInput.value)) {
+                localStorage.setItem("email", emailInput.value);
+                document.getElementById("em").value = emailInput.value;
+              } else {
+                alert(
+                  "Email không hợp lệ! Vui lòng nhập đúng định dạng email.",
+                );
+                document.getElementById("em").value = "null";
+              }
+              emailInput.disabled = true;
+            };
+            break;
+          }
+          case 3: {
+            sodthoai.disabled = !sodthoai.disabled;
+            sodthoai.focus();
+            sodthoai.onblur = function () {
+              if (tsdt.test(sodthoai.value)) {
+                localStorage.setItem("sdt", sodthoai.value);
+                document.getElementById("sodt").value = sodthoai.value;
+              } else {
+                alert(
+                  "Số điện thoại không hợp lệ! Vui lòng nhập đúng định dạng số điện thoại.",
+                );
+                document.getElementById("sodt").value =
+                  localStorage.getItem("sdt");
+              }
+              sodthoai.disabled = true;
+            };
+            break;
+          }
+          case 4: {
+            userNameInput.disabled = !userNameInput.disabled;
+            userNameInput.focus();
+            userNameInput.onblur = function () {
+              if (tuser.test(userNameInput.value)) {
+                localStorage.setItem("username", userNameInput.value);
+                document.getElementById("userNameInput").value =
+                  userNameInput.value;
+              } else {
+                alert(
+                  "Username không hợp lệ! Vui lòng nhập đúng định dạng username.",
+                );
+                document.getElementById("userNameInput").value =
+                  localStorage.getItem("username");
+              }
+              userNameInput.disabled = true;
+            };
+            break;
+          }
+        }
+      }
+      let u = document.getElementById("user");
+      let p = document.getElementById("pass");
+      let ht = document.getElementById("hoTen");
+      let sodt = document.getElementById("sdt");
+      function check(so) {
+        var hoTen = ht.value;
+        var sdt = sodt.value;
+        var user = u.value;
+        var pass = p.value;
+        var tht = /^[a-zA-Z ]+$/;
+        var tsdt = /^[0-9]{10}$/;
+        var tuser = /^[\S]+$/;
+        var tpass = /^[\S]+$/;
+        switch (so) {
+          case 1: {
+            if (tht.test(hoTen)) {
+              document.getElementById("1").textContent = "";
+            } else {
+              document.getElementById("1").textContent = "*";
+            }
+            break;
+          }
+          case 2: {
+            if (tsdt.test(sdt)) {
+              document.getElementById("2").textContent = "";
+            } else {
+              document.getElementById("2").textContent = "*";
+            }
+            break;
+          }
+          case 3: {
+            if (tuser.test(user)) {
+              document.getElementById("3").textContent = "";
+            } else {
+              document.getElementById("3").textContent = "*";
+            }
+            break;
+          }
+          case 4: {
+            if (tpass.test(pass)) {
+              document.getElementById("4").textContent = "";
+            } else {
+              document.getElementById("4").textContent = "*";
+            }
+            break;
+          }
+          case 5: {
+            if (
+              tht.test(hoTen) &&
+              tsdt.test(sdt) &&
+              tuser.test(user) &&
+              tpass.test(pass)
+            ) {
+              alert("Đăng ký thành công!");
+              localStorage.setItem("username", user);
+              localStorage.setItem("password", pass);
+              localStorage.setItem("hoTen", ht.value);
+              localStorage.setItem("sdt", sodt.value);
+              document.getElementById("dongdk").click();
+            } else {
+              alert("Vui lòng điền đúng thông tin!");
+            }
+            break;
+          }
+        }
+      }
+      function dangNhap() {
+        var userold = u.value;
+        var passold = p.value;
+        var userdn = document.getElementById("userdn").value;
+        var passdn = document.getElementById("passdn").value;
+        if (userdn === userold && passdn === passold && ht.value !== "") {
+          document.getElementById("dongdn").click();
+          taoUser();
+        } else {
+          alert("Sai thông tin đăng nhập!");
+        }
+      }
+      function taoUser() {
+        document.getElementById("nutdn").remove();
+        document.getElementById("nutdk").remove();
+        var menu = document.getElementById("menubar");
+        const li = document.createElement("li"); // tạo li gắn với menu
+        li.className = "nav-item dropdown";
+        const a = document.createElement("a");
+        a.className = "nav-link dropdown-toggle";
+        a.href = "#";
+        a.role = "button";
+        a.dataset.bsToggle = "dropdown";
+        const anh = document.createElement("img");
+        anh.src = "../assets/images/avatar.jpg";
+        anh.style = "width: 50px;";
+        anh.className = "rounded-pill";
+        a.appendChild(anh);
+        li.appendChild(a);
+        const ul = document.createElement("ul");
+        ul.className = "dropdown-menu";
+        ul.style =
+          "background: linear-gradient(24deg,rgb(137, 247, 254), rgb(33, 147, 176),rgb(137, 247, 254),rgb(33, 147, 176),rgb(137, 247, 254));color: white;";
+        const li1 = document.createElement("li");
+        const li2 = document.createElement("li");
+        const li3 = document.createElement("li");
+        const li4 = document.createElement("li");
+        const a1 = document.createElement("a");
+        const a2 = document.createElement("a");
+        const a3 = document.createElement("a");
+        const a4 = document.createElement("a");
+        a1.className = "dropdown-item";
+        a2.className = "dropdown-item";
+        a3.className = "dropdown-item";
+        a4.className = "dropdown-item";
+
+        a1.href = "profile.html";
+        a2.href = "cart.html";
+
+        a3.href = "#";
+        a4.href = "#";
+        a1.innerHTML =
+          '<i class="bi bi-person-fill me-2"></i>THÔNG TIN CÁ NHÂN';
+        a2.innerHTML = '<i class="bi bi-cart3 me-2"></i>GIỎ HÀNG';
+        a3.innerHTML = '<i class="bi bi-receipt me-2"></i>ĐƠN HÀNG';
+        a4.innerHTML = '<i class="bi bi-box-arrow-right me-2"></i>ĐĂNG XUẤT';
+        a1.style.fontWeight = "bold";
+        a2.style.fontWeight = "bold";
+        a3.style.fontWeight = "bold";
+        a4.style.fontWeight = "bold";
+        a4.style.color = "red";
+        a4.onclick = function () {
+          var flag = confirm("Bạn có chắc muốn đăng xuất?");
+          if (flag) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            localStorage.removeItem("hoTen");
+            localStorage.removeItem("sdt");
+            window.location.href = "home.html";
+          }
+        };
+        li1.appendChild(a1);
+        li2.appendChild(a2);
+        li3.appendChild(a3);
+        li4.appendChild(a4);
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+        ul.appendChild(li3);
+        ul.appendChild(li4);
+        li.appendChild(ul);
+        menu.appendChild(li);
+      }
+      function dangXuat() {
+        var flag = confirm("Bạn có chắc muốn đăng xuất?");
+        if (flag) {
+          localStorage.removeItem("username");
+          localStorage.removeItem("password");
+          localStorage.removeItem("hoTen");
+          localStorage.removeItem("sdt");
+          window.location.href = "home.html";
+        }
+      }
+    </script>
+  </body>
+</html>

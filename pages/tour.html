@@ -1,0 +1,1194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>Phượt Vi Vu</title>
+    <style>
+      .custom-footer {
+        background-color: #0c5b85;
+        color: #ffffff;
+        font-size: 0.9rem;
+      }
+
+      .custom-footer a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .custom-footer a:hover {
+        color: #f1c40f;
+      }
+
+      .nav-link:hover {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img
+            src="../assets/images/logo.jpg"
+            alt="Logo"
+            width="150"
+            height="120"
+            class="rounded-circle"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+          <ul id="menubar" class="navbar-nav ms-auto">
+            <li class="nav-item me-5">
+              <a class="nav-link" style="font-size: 20px" href="home.html"
+                >Trang Chủ</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="tour.html"
+                >Tour</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="about.html"
+                >Giới Thiệu</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a style="font-size: 20px" class="nav-link" href="contact.html"
+                >Liên Hệ</a
+              >
+            </li>
+            <li class="nav-item me-5">
+              <a
+                style="font-size: 20px"
+                class="nav-link"
+                href="../pages/news.html"
+                >Tin Tức</a
+              >
+            </li>
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-outline-primary px-3 rounded-pill"
+                data-bs-target="#dangNhap"
+                data-bs-toggle="modal"
+                id="nutdn"
+                >Đăng nhập</a
+              >
+            </li>
+
+            <li class="nav-item ms-2 mt-1">
+              <a
+                class="btn btn-primary px-3 rounded-pill"
+                data-bs-target="#dangKy"
+                data-bs-toggle="modal"
+                id="nutdk"
+                >Đăng ký</a
+              >
+            </li>
+            <li class="nav-item ms-3">
+              <a class="btn d-flex align-items-center gap-2" href="search.html">
+                <i class="bi bi-search"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="modal modal-lg" id="dangKy">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title h2 fw-light text-uppercase text-primary">
+              đăng ký
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+              <tr>
+                <td>Họ tên:</td>
+                <td>
+                  <input
+                    onblur="check(1)"
+                    class="w-75"
+                    type="text"
+                    name=""
+                    id="hoTen"
+                  />
+                  <span class="text-danger" id="1">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Số điện thoại:</td>
+                <td>
+                  <input
+                    onblur="check(2)"
+                    class="w-75"
+                    type="tel"
+                    name=""
+                    id="sdt"
+                  />
+                  <span class="text-danger" id="2">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input
+                    onblur="check(3)"
+                    v
+                    class="w-75"
+                    type="text"
+                    name=""
+                    id="user"
+                  />
+                  <span class="text-danger" id="3">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input
+                    onblur="check(4)"
+                    class="w-75"
+                    type="password"
+                    name=""
+                    id="pass"
+                  />
+                  <span class="text-danger" id="4">*</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="dkf" onclick="check(5)">
+              Đăng kí
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              id="dongdk"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal modal-lg" id="dangNhap">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p class="modal-title h2 fw-light text-uppercase text-primary">
+              đăng nhập
+            </p>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-content">
+            <table class="table">
+              <tr>
+                <td>Username:</td>
+                <td>
+                  <input class="w-75" type="text" name="" id="userdn" />
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input class="w-75" type="password" name="" id="passdn" />
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="dnf" onclick="dangNhap()">
+              Đăng nhập
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+              id="dongdn"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      id="banner"
+      class="carousel slide"
+      data-bs-ride="carousel "
+      data-bs-interval="3000"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="../assets/images/vinhHaLong.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/nhaTrang.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/dongPhongNha.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/vinhCamRanh.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+
+        <div class="carousel-item">
+          <img
+            src="../assets/images/daLat.jpg"
+            class="d-block w-100"
+            style="height: 500px; object-fit: cover"
+          />
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#banner"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#banner"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+    <div class="container mt-5 text-center">
+      <div class="row align-items-center">
+        <div class="col-md-4 mb-3">
+          <h4 class="text-primary fw-bold">10 năm</h4>
+          <p class="mb-0">Chinh phục một niềm tin</p>
+        </div>
+
+        <div class="col-md-8">
+          <div class="row">
+            <div class="col-4">
+              <i class="bi bi-cash text-success fs-3"></i>
+              <p class="small">Giá tốt</p>
+            </div>
+
+            <div class="col-4">
+              <i class="bi bi-patch-check text-danger fs-3"></i>
+              <p class="small">Chất lượng</p>
+            </div>
+
+            <div class="col-4">
+              <i class="bi bi-map text-warning fs-3"></i>
+              <p class="small">Tận tâm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5" id="danhSach">
+      <h3 class="text-center mb-4">Danh sách điểm đến hot</h3>
+      <div class="tour row">
+        <!-- Dong 1 -->
+        <div class="hl col-md-4">
+          <div class="card shadow">
+            <img src="../assets/images/vinhHaLong.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h5>Hạ Long 3N2Đ</h5>
+              <p class="text-danger fw-bold">3.990.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Hạ Long 3N2Đ',
+                    '../assets/images/vinhHaLong.jpg',
+                    'Mô tả chi tiết:\n\nHành trình di sản: Trải nghiệm nghỉ dưỡng đẳng cấp trên du thuyền 5 sao, chiêm ngưỡng toàn cảnh vẻ đẹp kỳ vỹ của vịnh di sản ngay từ ban công phòng ngủ.\n\nKhám phá kỳ quan: Tham quan những điểm đến biểu tượng như Hang Sửng Sốt, Đảo Ti Tốp và chèo Kayak giữa làn nước xanh lục bảo tại Hang Luồn.\n\nẨm thực tinh tế: Thưởng thức thực đơn buffet hải sản đa dạng và những bữa tối sang trọng giữa không gian tĩnh lặng của biển đêm.\n\nHoạt động đặc sắc: Thử thách bản thân với hoạt động câu mực đêm, lớp học làm nem truyền thống hoặc tập Tai Chi đón bình minh trên boong tàu.\n\nDịch vụ hoàn hảo: Trọn gói vé tham quan các điểm trong lịch trình, xe đưa đón đời mới cùng sự chăm sóc tận tâm suốt hành trình.',
+                    '3.990.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="nt col-md-4">
+          <div class="card shadow">
+            <img
+              src="../assets/images/nhaTrang.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Nha Trang 4N3Đ</h5>
+              <p class="text-danger fw-bold">4.500.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Nha Trang 4N3Đ',
+                    '../assets/images/nhaTrang.jpg',
+                    'Mô tả chi tiết:\n\nThiên đường biển xanh: Thả mình trong làn nước trong vắt của bãi biển Nha Trang, tận hưởng không khí trong lành và ánh nắng vàng rực rỡ.\n\nKhám phá đảo: Trải nghiệm tour 4 đảo nổi tiếng, tham gia các hoạt động lặn ngắm san hô, đi cano siêu tốc và vui chơi trên biển.\n\nGiải trí đẳng cấp: Vui chơi tại VinWonders Nha Trang với hàng trăm trò chơi hấp dẫn, công viên nước và thủy cung hiện đại.\n\nẨm thực đặc sắc: Thưởng thức các món hải sản tươi sống, nem nướng Nha Trang và đặc sản địa phương độc đáo.\n\nDịch vụ trọn gói: Khách sạn tiện nghi, xe đưa đón hiện đại và hướng dẫn viên nhiệt tình xuyên suốt hành trình.',
+                    '4.500.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dl card shadow">
+            <img
+              src="../assets/images/daLat.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Đà Lạt 3N2Đ</h5>
+              <p class="text-danger fw-bold">2.990.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Đà Lạt 3N2Đ',
+                    '../assets/images/daLat.jpg',
+                    'Mô tả chi tiết:\n\nThành phố ngàn hoa: Khám phá vẻ đẹp lãng mạn của Đà Lạt với khí hậu mát mẻ quanh năm và những vườn hoa rực rỡ sắc màu.\n\nCheck-in nổi bật: Tham quan các địa điểm nổi tiếng như Hồ Xuân Hương, Thung Lũng Tình Yêu, Đồi Chè Cầu Đất và Quảng Trường Lâm Viên.\n\nTrải nghiệm thiên nhiên: Chinh phục thác Datanla, đi cáp treo ngắm toàn cảnh thành phố từ trên cao.\n\nẨm thực hấp dẫn: Thưởng thức lẩu gà lá é, bánh tráng nướng, sữa đậu nành nóng giữa tiết trời se lạnh.\n\nNghỉ dưỡng nhẹ nhàng: Khách sạn trung tâm, không gian yên bình giúp bạn thư giãn tuyệt đối.',
+                    '2.990.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tour row mt-5">
+        <!-- Dong 2 -->
+        <div class="hl col-md-4">
+          <div class="hl card shadow">
+            <img src="../assets/images/vinhHaLong1.jpg" class="card-img-top" />
+            <div class="card-body">
+              <h5>Hạ Long 4N3Đ</h5>
+              <p class="text-danger fw-bold">4.636.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Hạ Long 4N3Đ',
+                    '../assets/images/vinhHaLong1.jpg',
+                    'Mô tả chi tiết:\n\nHành trình mở rộng: Khám phá sâu hơn vẻ đẹp kỳ quan thiên nhiên thế giới Vịnh Hạ Long trong hành trình dài ngày.\n\nDu thuyền cao cấp: Nghỉ dưỡng trên du thuyền sang trọng, tận hưởng dịch vụ chuẩn 5 sao.\n\nĐiểm đến nổi bật: Tham quan Hang Sửng Sốt, đảo Ti Tốp, chèo kayak tại Hang Luồn và tắm biển.\n\nHoạt động thú vị: Câu mực đêm, lớp học nấu ăn, tập Tai Chi buổi sáng trên boong tàu.\n\nẨm thực đỉnh cao: Buffet hải sản phong phú cùng các món ăn Á – Âu hấp dẫn.',
+                    '4.636.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="nt card shadow">
+            <img
+              src="../assets/images/nhaTrang1.png"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Nha Trang 3N2Đ</h5>
+              <p class="text-danger fw-bold">3.650.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Nha Trang 3N2Đ',
+                    '../assets/images/nhaTrang1.png',
+                    'Mô tả chi tiết:\n\nKỳ nghỉ ngắn ngày: Lý tưởng cho chuyến đi thư giãn nhanh tại thành phố biển Nha Trang.\n\nTắm biển & nghỉ dưỡng: Tận hưởng bãi biển đẹp, nước trong xanh và không khí mát lành.\n\nTrải nghiệm độc đáo: Tắm bùn khoáng thư giãn, tham quan Tháp Bà Ponagar.\n\nẨm thực phong phú: Hải sản tươi sống, bún cá, bánh căn đặc trưng miền biển.\n\nDịch vụ tiện lợi: Lịch trình nhẹ nhàng, phù hợp mọi đối tượng khách.',
+                    '3.650.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dl card shadow">
+            <img
+              src="../assets/images/daLat1.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Đà Lạt 2N1Đ</h5>
+              <p class="text-danger fw-bold">2.220.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Đà Lạt 2N1Đ',
+                    '../assets/images/daLat1.jpg',
+                    'Mô tả chi tiết:\n\nChuyến đi ngắn: Phù hợp nghỉ dưỡng cuối tuần tại Đà Lạt.\n\nCheck-in nhanh: Hồ Xuân Hương, chợ đêm Đà Lạt và các quán cafe view đẹp.\n\nKhông khí trong lành: Tận hưởng thời tiết se lạnh đặc trưng.\n\nẨm thực đường phố: Bánh tráng nướng, xiên nướng, sữa nóng.\n\nTiết kiệm chi phí: Lịch trình gọn nhẹ nhưng vẫn đầy đủ trải nghiệm.',
+                    '2.220.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tour row mt-5">
+        <!-- Dong 3 -->
+        <div class="col-md-4">
+          <div class="pn card shadow">
+            <img
+              src="../assets/images/dongPhongNha.jpg"
+              width="100%"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5>Động Phong Nha 2N1Đ</h5>
+              <p class="text-danger fw-bold">2.990.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Động Phong Nha 2N1Đ',
+                    '../assets/images/dongPhongNha.jpg',
+                    'Mô tả chi tiết:\n\nKỳ quan thiên nhiên: Khám phá hệ thống hang động kỳ vĩ thuộc di sản thế giới.\n\nDu thuyền sông Son: Ngồi thuyền ngắm cảnh thiên nhiên thơ mộng.\n\nHang động huyền bí: Chiêm ngưỡng thạch nhũ lung linh và không gian rộng lớn bên trong hang.\n\nTrải nghiệm mới lạ: Cảm giác mát lạnh và yên tĩnh tuyệt đối.\n\nHành trình đáng nhớ: Phù hợp cho người yêu thiên nhiên và khám phá.',
+                    '2.990.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="pn card shadow">
+            <img
+              src="../assets/images/dongPhongNha1.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Động Phong Nha 3N2Đ</h5>
+              <p class="text-danger fw-bold">3.500.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Động Phong Nha 3N2Đ',
+                    '../assets/images/dongPhongNha1.jpg',
+                    'Mô tả chi tiết:\n\nKhám phá di sản: Trải nghiệm hành trình 3 ngày khám phá hệ thống hang động Phong Nha – Kẻ Bàng, một trong những kỳ quan thiên nhiên thế giới.\n\nHành trình độc đáo: Du thuyền trên sông Son, tham quan Động Phong Nha, Động Thiên Đường với vẻ đẹp thạch nhũ kỳ ảo.\n\nTrải nghiệm thiên nhiên: Hòa mình vào không gian núi rừng hoang sơ, tận hưởng không khí trong lành và yên bình.\n\nHoạt động thú vị: Check-in hang động, trekking nhẹ và khám phá hệ sinh thái đa dạng.\n\nẨm thực địa phương: Thưởng thức đặc sản Quảng Bình như cháo canh, bánh bột lọc và hải sản tươi ngon.',
+                    '3.500.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="cr card shadow">
+            <img
+              src="../assets/images/vinhCamRanh.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Vịnh Cam Ranh 4N3Đ</h5>
+              <p class="text-danger fw-bold">4.990.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Vịnh Cam Ranh 4N3Đ',
+                    '../assets/images/vinhCamRanh.jpg',
+                    'Mô tả chi tiết:\n\nThiên đường nghỉ dưỡng: Một trong những vịnh biển đẹp và yên bình nhất Việt Nam.\n\nResort cao cấp: Trải nghiệm nghỉ dưỡng sang trọng với hồ bơi, spa và bãi biển riêng.\n\nBiển xanh cát trắng: Không gian lý tưởng để thư giãn và chụp ảnh sống ảo.\n\nHoạt động nhẹ nhàng: Tắm biển, chèo SUP, đi dạo ven biển.\n\nKỳ nghỉ hoàn hảo: Phù hợp cho gia đình, cặp đôi và nghỉ dưỡng cao cấp.',
+                    '4.990.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tour row mt-5">
+        <!-- Dong 4 -->
+        <div class="col-md-4">
+          <div class="cm card shadow">
+            <img
+              src="../assets/images/caMau.jpg"
+              width="100%"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5>Cà Mau 3N2Đ</h5>
+              <p class="text-danger fw-bold">3.200.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Cà Mau 3N2Đ',
+                    '../assets/images/caMau.jpg',
+                    'Mô tả chi tiết:\n\nĐất mũi thiêng liêng: Khám phá cực Nam Tổ quốc, check-in cột mốc GPS 0001 và Mũi Cà Mau.\n\nHệ sinh thái rừng ngập mặn: Trải nghiệm đi xuồng xuyên rừng đước, tìm hiểu thiên nhiên độc đáo.\n\nVăn hóa miền Tây: Giao lưu với người dân địa phương, khám phá cuộc sống sông nước.\n\nẨm thực đặc sản: Thưởng thức cua Cà Mau, lẩu mắm, cá thòi lòi nướng.\n\nHành trình ý nghĩa: Phù hợp cho người yêu thiên nhiên và khám phá.',
+                    '3.200.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="pq card shadow">
+            <img
+              src="../assets/images/phuQuoc.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Phú Quốc 4N3Đ</h5>
+              <p class="text-danger fw-bold">4.990.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Phú Quốc 4N3Đ',
+                    '../assets/images/phuQuoc.jpg',
+                    'Mô tả chi tiết:\n\nĐảo ngọc thiên đường: Tận hưởng bãi biển xanh ngọc và cát trắng mịn.\n\nTrải nghiệm nổi bật: Tham quan VinWonders, Safari, cáp treo Hòn Thơm dài nhất thế giới.\n\nLặn biển khám phá: Ngắm san hô tuyệt đẹp và tham gia các hoạt động thể thao biển.\n\nẨm thực phong phú: Hải sản tươi sống, nước mắm Phú Quốc nổi tiếng.\n\nNghỉ dưỡng cao cấp: Resort sang trọng, không gian thư giãn tuyệt đối.',
+                    '4.990.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="pq card shadow">
+            <img
+              src="../assets/images/phuQuoc.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Phú Quốc 3N2Đ</h5>
+              <p class="text-danger fw-bold">3.500.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Phú Quốc 3N2Đ',
+                    '../assets/images/phuQuoc.jpg',
+                    'Mô tả chi tiết:\n\nKỳ nghỉ ngắn tại đảo ngọc: Thư giãn với biển xanh và nắng vàng.\n\nTham quan nổi bật: Dinh Cậu, chợ đêm Phú Quốc, làng chài Hàm Ninh.\n\nTrải nghiệm biển: Tắm biển, check-in hoàng hôn cực đẹp.\n\nẨm thực đặc sắc: Hải sản tươi ngon, gỏi cá trích nổi tiếng.\n\nTiết kiệm thời gian: Phù hợp chuyến đi nhanh nhưng vẫn trọn vẹn.',
+                    '3.500.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tour row mt-5">
+        <!-- Dong 5 -->
+        <div class="col-md-4">
+          <div class="cm card shadow">
+            <img
+              src="../assets/images/caMau.jpg"
+              width="100%"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <h5>Cà Mau 4N3Đ</h5>
+              <p class="text-danger fw-bold">3.990.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Cà Mau 4N3Đ',
+                    '../assets/images/caMau.jpg',
+                    'Mô tả chi tiết:\n\nHành trình sâu hơn: Khám phá trọn vẹn vùng đất cực Nam với nhiều trải nghiệm hơn.\n\nThiên nhiên hoang sơ: Rừng ngập mặn, hệ sinh thái đa dạng.\n\nCheck-in nổi bật: Mũi Cà Mau, rừng U Minh Hạ.\n\nTrải nghiệm dân dã: Đi xuồng, bắt cá, tham quan làng quê.\n\nẨm thực miền Tây: Cua, tôm, cá đồng tươi ngon.',
+                    '3.990.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="cm card shadow">
+            <img
+              src="../assets/images/caMau1.jpg"
+              class="card-img-top"
+              style="height: 275px"
+            />
+            <div class="card-body">
+              <h5>Cà Mau 2N1Đ</h5>
+              <p class="text-danger fw-bold">2.500.000đ</p>
+              <button
+                class="btn btn-success w-100"
+                onclick="
+                  xemTour(
+                    'Cà Mau 2N1Đ',
+                    '../assets/images/caMau1.jpg',
+                    'Mô tả chi tiết:\n\nChuyến đi ngắn: Tham quan nhanh vùng đất Cà Mau.\n\nĐiểm đến chính: Mũi Cà Mau, rừng đước.\n\nTrải nghiệm nhẹ: Đi xuồng, tham quan thiên nhiên.\n\nẨm thực địa phương: Cua Cà Mau, cá nướng.\n\nPhù hợp cuối tuần: Tiết kiệm thời gian và chi phí.',
+                    '2.500.000đ',
+                  )
+                "
+              >
+                Xem chi tiết
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="custom-footer pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4">
+            <h2 class="fw-bold">Phượt Vi Vu</h2>
+            <p class="italic small">
+              Hành trình nhẹ nhàng – Trải nghiệm trọn vẹn
+            </p>
+            <p class="small mb-1">
+              Giấy phép kinh doanh: 0313049973 do Sở Kế hoạch và Đầu tư TP.HCM
+              cấp.
+            </p>
+            <p class="small mb-4">
+              Giấy phép kinh doanh lữ hành: 79-1953/2024/TCDL-GP LHQT
+            </p>
+
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-telephone me-2"></i> (+84) 283 8940 390
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-envelope me-2"></i> dulich.phuotvivu@gmail.com
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-geo-alt me-2"></i> 12 Nguyễn Văn Bảo, Hạnh
+                Thông, TP. Hồ Chí Minh
+              </li>
+            </ul>
+
+            <div>
+              <a
+                href="https://www.facebook.com/sviuh"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-facebook"></i> Facebook</a
+              >
+              <a
+                href="https://www.tiktok.com/@iuh.dhcn"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-tiktok"></i> TikTok</a
+              >
+              <a
+                href="https://www.youtube.com/@iuh.dhcntphcm"
+                target="_blank"
+                class="social-btn"
+                ><i class="bi bi-youtube"></i> YouTube</a
+              >
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="row">
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Về chúng tôi</a></li>
+                  <li><a href="#">Hướng dẫn thanh toán</a></li>
+                  <li><a href="#">Hướng dẫn đặt tour</a></li>
+                  <li><a href="#">Câu hỏi thường gặp</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <h6 class="fw-bold mb-3">Chính sách</h6>
+                <ul class="list-unstyled small lh-lg">
+                  <li><a href="#">Chính sách bảo mật</a></li>
+                  <li><a href="#">Điều khoản chung</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="register-box">
+              <h6 class="fw-bold mb-2">Đăng ký</h6>
+              <p class="small mb-3">
+                Nhận thông tin về các tour mới nhất và ưu đãi hấp dẫn từ chúng
+                tôi ngay hôm nay!
+              </p>
+              <form action="#" method="POST">
+                <button
+                  type="submit"
+                  class="btn btn-info text-white w-100 fw-bold shadow-sm"
+                  style="background-color: #00a8ff; border: none"
+                >
+                  <i class="bi bi-envelope"></i>
+                  <a href="#nutdk">Đăng ký ngay</a>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-12 mb-4">
+            <h6 class="fw-bold mb-3">Chứng nhận & Thanh toán</h6>
+            <p class="small mb-2">Được chứng nhận</p>
+            <img
+              src="../assets/images/logo-bo-cong-thuong-vector.png"
+              alt="Đã thông báo Bộ Công Thương"
+              width="200"
+              class="mb-3"
+            />
+
+            <p class="small mb-2">Phương thức thanh toán</p>
+            <div class="d-flex gap-2 mb-3 bg-white p-1 rounded d-inline-flex">
+              <span class="text-dark fw-bold px-1">VISA</span>
+              <span class="text-dark fw-bold px-1">MC</span>
+              <span class="text-success fw-bold px-1">VCB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row border-top border-secondary pt-3 mt-3 small">
+          <div class="col-md-6 text-center text-md-start">
+            © 2026 Phượt Vi Vu. All rights reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+            Hotline hỗ trợ 24/7: (+84) 283 8940 390
+          </div>
+        </div>
+      </div>
+    </footer>
+    <a href="tel:02838940390" class="floating-call-btn">
+      <i class="bi bi-telephone-fill"></i>
+    </a>
+    <script>
+      window.onload = function () {
+        var userold = localStorage.getItem("username");
+        var passold = localStorage.getItem("password");
+        var ht = document.getElementById("ht");
+        var sdt = document.getElementById("sdt");
+        if (userold && passold) {
+          taoUser();
+        }
+      };
+      let u = document.getElementById("user");
+      let p = document.getElementById("pass");
+      let ht = document.getElementById("hoTen");
+      function check(so) {
+        var hoTen = ht.value;
+        var sdt = document.getElementById("sdt").value;
+        var user = u.value;
+        var pass = p.value;
+        var tht = /^[A-Z][a-z]*(\s[A-Z][a-z]*)+$/;
+        var tsdt = /^((09)|(08)|(07)|(05)|(03))[0-9]{8}$/; // Việt Nam có 10 số và bắt đầu bằng 09, 08, 07, 05 hoặc 03
+        var tuser = /^[\S]+$/;
+        var tpass = /^[\S]+$/;
+        switch (so) {
+          case 1: {
+            if (tht.test(hoTen)) {
+              document.getElementById("1").textContent = "";
+            } else {
+              document.getElementById("1").textContent = "*";
+            }
+            break;
+          }
+          case 2: {
+            if (tsdt.test(sdt)) {
+              document.getElementById("2").textContent = "";
+            } else {
+              document.getElementById("2").textContent = "*";
+            }
+            break;
+          }
+          case 3: {
+            if (tuser.test(user)) {
+              document.getElementById("3").textContent = "";
+            } else {
+              document.getElementById("3").textContent = "*";
+            }
+            break;
+          }
+          case 4: {
+            if (tpass.test(pass)) {
+              document.getElementById("4").textContent = "";
+            } else {
+              document.getElementById("4").textContent = "*";
+            }
+            break;
+          }
+          case 5: {
+            if (
+              tht.test(hoTen) &&
+              tsdt.test(sdt) &&
+              tuser.test(user) &&
+              tpass.test(pass)
+            ) {
+              alert("Đăng ký thành công!");
+              localStorage.setItem("username", user);
+              localStorage.setItem("password", pass);
+              localStorage.setItem("hoTen", ht.value);
+              localStorage.setItem("sdt", sodt.value);
+              document.getElementById("dongdk").click();
+            } else {
+              alert("Vui lòng điền đúng thông tin!");
+            }
+            break;
+          }
+        }
+      }
+      function dangNhap() {
+        var userold = u.value;
+        var passold = p.value;
+        var userdn = document.getElementById("userdn").value;
+        var passdn = document.getElementById("passdn").value;
+        if (userdn === userold && passdn === passold && ht.value !== "") {
+          document.getElementById("dongdn").click();
+          taoUser();
+        } else {
+          alert("Sai thông tin đăng nhập!");
+        }
+      }
+      function taoUser() {
+        document.getElementById("nutdn").remove();
+        document.getElementById("nutdk").remove();
+        var menu = document.getElementById("menubar");
+        const li = document.createElement("li"); // tạo li gắn với menu
+        li.className = "nav-item dropdown";
+        const a = document.createElement("a");
+        a.className = "nav-link dropdown-toggle";
+        a.href = "#";
+        a.role = "button";
+        a.dataset.bsToggle = "dropdown";
+        const anh = document.createElement("img");
+        anh.src = "../assets/images/avatar.jpg";
+        anh.style = "width: 50px;";
+        anh.className = "rounded-pill";
+        a.appendChild(anh);
+        li.appendChild(a);
+        const ul = document.createElement("ul");
+        ul.className = "dropdown-menu";
+        ul.style =
+          "background: linear-gradient(24deg,rgb(137, 247, 254), rgb(33, 147, 176),rgb(137, 247, 254),rgb(33, 147, 176),rgb(137, 247, 254));color: white;";
+        const li1 = document.createElement("li");
+        const li2 = document.createElement("li");
+        const li3 = document.createElement("li");
+        const li4 = document.createElement("li");
+        const a1 = document.createElement("a");
+        const a2 = document.createElement("a");
+        const a3 = document.createElement("a");
+        const a4 = document.createElement("a");
+        a1.className = "dropdown-item";
+        a2.className = "dropdown-item";
+        a3.className = "dropdown-item";
+        a4.className = "dropdown-item";
+
+        a1.href = "profile.html";
+        a2.href = "cart.html";
+
+        a3.href = "#";
+        a4.href = "#";
+        a1.innerHTML =
+          '<i class="bi bi-person-fill me-2"></i>THÔNG TIN CÁ NHÂN';
+        a2.innerHTML = '<i class="bi bi-cart3 me-2"></i>GIỎ HÀNG';
+        a3.innerHTML = '<i class="bi bi-receipt me-2"></i>ĐƠN HÀNG';
+        a4.innerHTML = '<i class="bi bi-box-arrow-right me-2"></i>ĐĂNG XUẤT';
+        a1.style.fontWeight = "bold";
+        a2.style.fontWeight = "bold";
+        a3.style.fontWeight = "bold";
+        a4.style.fontWeight = "bold";
+        a4.style.color = "red";
+        a4.onclick = function () {
+          var flag = confirm("Bạn có chắc muốn đăng xuất?");
+          if (flag) {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            localStorage.removeItem("hoTen");
+            localStorage.removeItem("sdt");
+            location.reload();
+          }
+        };
+        li1.appendChild(a1);
+        li2.appendChild(a2);
+        li3.appendChild(a3);
+        li4.appendChild(a4);
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+        ul.appendChild(li3);
+        ul.appendChild(li4);
+        li.appendChild(ul);
+        menu.appendChild(li);
+      }
+      function dangKyTour() {
+        var userold = localStorage.getItem("username");
+        if (!userold) {
+          alert("Vui lòng đăng nhập trước khi đặt tour!");
+          document.getElementById("nutdn").click();
+          return;
+        }
+
+        var tenTour = document.getElementById("tenTour").innerText;
+        const KEY = "phuo_vi_vu_cart";
+        const ALL_TOURS = [
+          {
+            id: 1,
+            name: "Hạ Long 3N2Đ",
+            duration: "3 ngày 2 đêm",
+            depart: "Hà Nội",
+            price: 3990000,
+            img: "../assets/images/vinhHaLong.jpg",
+          },
+          {
+            id: 2,
+            name: "Nha Trang 4N3Đ",
+            duration: "4 ngày 3 đêm",
+            depart: "TP.HCM",
+            price: 4500000,
+            img: "../assets/images/nhaTrang.jpg",
+          },
+          {
+            id: 3,
+            name: "Đà Lạt 3N2Đ",
+            duration: "3 ngày 2 đêm",
+            depart: "TP.HCM",
+            price: 2990000,
+            img: "../assets/images/daLat.jpg",
+          },
+          {
+            id: 7,
+            name: "Phong Nha 2N1Đ",
+            duration: "2 ngày 1 đêm",
+            depart: "Hà Nội",
+            price: 29900000,
+            img: "../assets/images/dongPhongNha.jpg",
+          },
+          {
+            id: 4,
+            name: "Hạ Long 4N3Đ",
+            duration: "4 ngày 3 đêm",
+            depart: "TP.HCM",
+            price: 4636000,
+            img: "../assets/images/caMau.jpg",
+          },
+          {
+            id: 11,
+            name: "Phú Quốc 4N3Đ",
+            duration: "4 ngày 3 đêm",
+            depart: "Cần Thơ",
+            price: 4990000,
+            img: "../assets/images/phuQuoc.jpg",
+          },
+          {
+            id: 5,
+            name: "Nha Trang 3N2Đ",
+            duration: "3 ngày 2 đêm",
+            depart: "Cần Thơ",
+            price: 3650000,
+            img: "../assets/images/nhaTrang1.jpg",
+          },
+          {
+            id: 6,
+            name: "Đà Lạt 2N1Đ",
+            duration: "2 ngày 1 đêm",
+            depart: "Cần Thơ",
+            price: 2220000,
+            img: "../assets/images/daLat1.jpg",
+          },
+          {
+            id: 9,
+            name: "Vịnh Cam Ranh 4N3Đ",
+            duration: "4 ngày 3 đêm",
+            depart: "TP.Hồ Chí Minh",
+            price: 2220000,
+            img: "../assets/images/daLat1.jpg",
+          },
+          {
+            id: 10,
+            name: "Cà Mau 3N2Đ",
+            duration: "3 ngày 2 đêm",
+            depart: "Cần Thơ",
+            price: 3220000,
+            img: "../assets/images/daLat1.jpg",
+          },
+          {
+            id: 8,
+            name: "Động Phong Nha 3N2Đ",
+            duration: "3 ngày 2 đêm",
+            depart: "TP.HCM",
+            price: 3500000,
+            img: "../assets/images/dongPhongNha1.jpg",
+          },
+          {
+            id: 12,
+            name: "Phú Quốc 3N2Đ",
+            duration: "3 ngày 2 đêm",
+            depart: "Cần Thơ",
+            price: 3500000,
+            img: "../assets/images/phuQuoc.jpg",
+          },
+          {
+            id: 13,
+            name: "Cà Mau 4N3Đ",
+            duration: "2 ngày 1 đêm",
+            depart: "Cần Thơ",
+            price: 3990000,
+            img: "../assets/images/caMau2.jpg",
+          },
+          {
+            id: 14,
+            name: "Cà Mau 2N1Đ",
+            duration: "2 ngày 1 đêm",
+            depart: "Cần Thơ",
+            price: 2500000,
+            img: "../assets/images/caMau2.jpg",
+          },
+        ];
+
+        const tour = ALL_TOURS.find((t) => t.name === tenTour);
+
+        let cart = [];
+        try {
+          cart = JSON.parse(localStorage.getItem(KEY)) || [];
+        } catch {
+          cart = [];
+        }
+
+        if (cart.find((t) => t.id === tour.id)) {
+          alert("Tour này đã có trong giỏ hàng!");
+          document.querySelector("#dongmodal").click();
+          return;
+        }
+
+        cart.push({ ...tour });
+        localStorage.setItem(KEY, JSON.stringify(cart));
+        alert("Đã thêm " + tour.name + " vào giỏ hàng!");
+        document.querySelector("#dongmodal").click();
+      }
+      function xemTour(ten, hinh, mota, gia) {
+        document.getElementById("tenTour").innerText = ten;
+        document.getElementById("hinhTour").src = hinh;
+        document.getElementById("moTaTour").innerText = mota;
+        document.getElementById("giaTour").innerText = gia;
+
+        let modal = new bootstrap.Modal(document.getElementById("modalTour"));
+        modal.show();
+      }
+    </script>
+    <div class="modal fade" id="modalTour">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="tenTour" class="modal-title text-primary"></h4>
+            <button
+              id="dongmodal"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <img
+              id="hinhTour"
+              class="w-100 mb-3"
+              style="height: 300px; object-fit: cover"
+            />
+            <p id="moTaTour"></p>
+            <h5 class="text-center fw-bold">
+              <i class="bi bi-gift-fill text-warning"></i>
+              <span id="giaTour" class="text-danger mx-2"></span>
+              <i class="bi bi-gift-fill text-warning"></i>
+            </h5>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-success" onclick="dangKyTour()">
+              Đăng ký tour
+            </button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              Đóng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
