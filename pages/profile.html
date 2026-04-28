@@ -706,9 +706,9 @@
         var userNameInput = document.getElementById("userNameInput");
         var emailInput = document.getElementById("em");
         var tht = /^[a-zA-Z ]+$/;
-        var tsdt = /^[0-9]{10}$/;
+        var tsdt = /^((09)|(08)|(07)|(05)|(03))[0-9]{8}$/;
         var temail =
-          /^\S+((@gmail.com)|(@yahoo.com)|(@outlook.com)|(@hotmail.com))$/;
+          /^\S+((@gmail\.com)|(@yahoo\.com)|(@outlook\.com)|(@hotmail\.com))$/;
         var tuser = /^[\S]+$/;
         switch (so) {
           case 1: {
